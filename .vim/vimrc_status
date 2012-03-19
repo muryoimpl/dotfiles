@@ -1,0 +1,11 @@
+"ステータスライン-----------------------------------------------------
+"buftabs.vim
+"tabの情報を表示
+let g:buftabs_only_basename = 1
+let g:buftabs_active_highlight_group="Visual"
+
+set laststatus=2   "ステータスラインを常に表示する
+set statusline=%<%f\ %m%r%h%w%y%{'\ \ \/'.(&fenc!=''?&fenc:&enc).'\/'.&ff.'\/'}%=%l,%c%V%8P
+set ruler          "カーソルが何行目にあるか表示
+
+

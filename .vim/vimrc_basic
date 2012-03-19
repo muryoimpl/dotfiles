@@ -1,0 +1,63 @@
+"基本的な設定 ---------------------------------------------------------
+set scrolloff=5    "スクロール時の余白確保
+set hidden         "編集中でも他のファイルを開けるようにする
+set backspace=indent,eol,start "バックスペースで何でも消せる
+set formatoptions=lmoq           "テキスト整形オプション、マルチバイト系を追加
+set browsedir=buffer             "Explorerの初期dir
+set showcmd        "コマンド入力状況表示
+set showmode       "現在のモードを表示する
+set number         "行番号を表示
+set nobackup       "バックアップ/スワップファイルを作成しない。
+set nowritebackup  "ファイルの上書きの前にバックアップを作らない。
+set title          "タイトルを表示
+set nobomb         "BOMを入れない
+set expandtab      "tabをスペースに変換
+
+"---  検索関連  -------------------------------------------------------
+set wrapscan       "最後まで検索したら先頭へ
+set ignorecase     " 検索の時に大文字小文字を区別しない。
+"set incsearch      "インクリメンタルサーチ
+set tabstop=2      "タブの表示を2に
+set ts=2           "タブのスペースを２に
+set showmatch      "対応する括弧を表示する
+set hlsearch       "検索の強調表示
+
+"日本語入力設定らしい ------------------------------------------------
+set imsearch=0
+set iminsert=0
+set encoding=utf-8
+set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp,ucs-2,latin1
+set fileformats=unix,dos,mac
+
+"分割の設定
+set splitright
+set splitbelow
+
+"クリップボードをOSと連携
+set clipboard=unnamed
+
+" 記号文字の表示がおかしくならないように
+set ambiwidth=double
+
+"=== 補完 ===================================================
+set wildmenu                "コマンド補完を強化
+set wildchar=<tab>          "コマンド補完を開始するキー
+set wildmode=list:full      "リスト表示, 最長マッチ
+set history=1000            "コマンド・検索パターンの履歴数
+set complete+=k             "補完に辞書ファイルを追加
+
+"--------  インデント ------------------------------
+set autoindent     "インデントを現在行と同じにする
+set expandtab      "タブの代わりに空白文字を挿入
+set shiftwidth=2   "シフト移動幅は2
+set smarttab       "tabを打ち込むとshiftwidth分だけインデント
+set smartindent    "高度な自動インデント
+
+"insert抜けるとIMEオフ
+set noimdisable
+set iminsert=0 imsearch=0
+set noimcmdline
+inoremap <silent><ESC><ESC>:set iminsert=0<CR>
+
+"シンタックスハイライトが有効
+syntax enable

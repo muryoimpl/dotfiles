@@ -1,0 +1,52 @@
+snippet     describe
+abbr        describe DESC do before do end end
+    describe 'DESC' do
+        before do
+          
+        end
+    end
+
+snippet     RS::M
+abbr        RSpec::Matcher.define
+    RSpec::Matcher.define :${1:NAME} do |expected|
+      match do |actual|
+        # expected == actual
+        ${2}
+      end
+    end
+
+snippet     RS::Ml
+abbr        RSpec::Matcher.define with full options
+    RSpec::Matcher.define :${1:NAME} do |expected|
+      diffable
+
+      match do |actual|
+        # expected == actual
+        ${2}
+      end
+
+      description do
+      end
+
+      failure_message_for_should do |actual|
+      end
+
+      failure_message_for_should_not do |actual|
+      end
+
+      chain :chaining_matcher do |second|
+      end
+    end
+
+snippet   get
+abbr       sinatra's route DSL of get method
+    get '' do
+      
+    end
+
+snippet   post
+abbr       sinatra's route DSL of get method
+    post '' do
+      
+    end
+

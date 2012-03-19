@@ -1,0 +1,48 @@
+"-------------------- neocomplcache ------------------------
+"自動起動
+let g:neocomplcache_enable_at_startup=1
+"CamelCase補完実施
+let g:neocomplcache_enable_camel_case=1
+"_区切りのcaseを補完実施
+let g:neocomplcache_enable_underbar_completion=1
+"smart caseを有効化
+let g:neocomplcache_enable_smart_case_completion=1
+"キーワード補完の最小文字数
+let g:neocomplcache_min_syntax_length=3
+"マニュアル補完の最小文字数
+let g:neocomplcache_manual_completion_start_length=3
+"ユーザスニペットの保管場所
+let g:neocomplcache_snippets_dir=$HOME.'/.vim/snippets'
+
+"dictionary
+let g:neocomplcache_dictionary_filetype_lists = {
+  \ 'default'  : '', 
+  \ 'vimshell' : $HOME.'/.vimshell/vimshell_hist'
+  \}
+
+"C-k で snippet を展開する
+imap <C-k> <Plug>(neocomplcache_snippets_expand)
+smap <C-k> <Plug>(neocomplcache_snippets_expand)
+
+"C-g で前回の補完をキャンセルする
+inoremap <expr><C-g> neocomplcache#undo_completion()
+"C-l でシェルライクな補完を行う
+inoremap <expr><C-l> neocomplcache#complete_common_string()
+
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y> neocomplcache#close_popup()
+inoremap <expr><C-e> neocomplcache#cancel_popup()
+
+"superTab likeなキー
+imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
+
