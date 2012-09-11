@@ -1,0 +1,37 @@
+"------------------------------------------------------------
+"Rsenseの設定
+let g:rsenseHome = '/Users/muryoimpl/opt/rsense'
+let g:rsenseUseOmniFunc = 1
+
+"unite-rails
+nnoremap <silent> ;rm  :<C-u>Unite rails/model<CR>
+nnoremap <silent> ;rc  :<C-u>Unite rails/controller<CR>
+nnoremap <silent> ;rv  :<C-u>Unite rails/view<CR>
+nnoremap <silent> ;rml :<C-u>Unite rails/mailer<CR>
+nnoremap <silent> ;rh  :<C-u>Unite rails/helper<CR>
+nnoremap <silent> ;rl  :<C-u>Unite rails/lib<CR>
+nnoremap <silent> ;rd  :<C-u>Unite rails/db<CR>
+nnoremap <silent> ;rcf :<C-u>Unite rails/config<CR>
+nnoremap <silent> ;rdb :<C-u>Unite rails/db<CR>
+nnoremap <silent> ;rlg :<C-u>Unite rails/log<CR>
+nnoremap <silent> ;rj  :<C-u>Unite rails/javascript<CR>
+nnoremap <silent> ;rss :<C-u>Unite rails/stylesheet<CR>
+nnoremap <silent> ;rb  :<C-u>Unite rails/bundle<CR>
+nnoremap <silent> ;rr  :<C-u>Unite rails/route<CR>
+nnoremap <silent> ;rds :<C-u>Unite rails/destroy<CR>
+nnoremap <silent> ;rgm :<C-u>Unite rails/gemfile<CR>
+nnoremap <silent> ;rg  :<C-u>Unite rails/generate<CR>
+nnoremap <silent> ;rs  :<C-u>Unite rails/spec<CR>
+nnoremap <silent> ;rgt :<C-u>Unite rails/git<CR>
+
+"F2, F3でRSpecと実装コードを入れ替え
+"http://d.hatena.ne.jp/joker1007/20120517/1337260769
+nmap <F3> <Plug>(altr-foward)
+nmap <F2> <Plug>(altr-back)
+
+call altr#define('%.rb', 'spec/%_spec.rb')
+call altr#define('app/models/%.rb', 'spec/models/%_spec.rb', 'spec/factories/%s.rb')
+call altr#define('app/controllers/%.rb', 'spec/controllers/%_spec.rb')
+call altr#define('app/helpers/%.rb', 'spec/helpers/%_spec.rb' )
+
+

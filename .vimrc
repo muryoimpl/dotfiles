@@ -18,7 +18,9 @@ source ~/.vim/vimrc_status
 source ~/.vim/vimrc_utils
 "tags
 source ~/.vim/vimrc_tags
+"for ruby/rails
+source ~/.vim/vimrc_for_ruby_with_unite
 
 "カラースキーマを設定
 colorscheme Tomorrow-Night
-
+"colorscheme darkblue

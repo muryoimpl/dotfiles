@@ -25,16 +25,28 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplcache-snippets-complete'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimfiler'
+
 "https://github.com/thinca/
 NeoBundle 'thinca/vim-quickrun'
+"https://github.com/thinca/vim-unite-history
+NeoBundle 'thinca/vim-unite-history'
+NeoBundle 'thinca/vim-auto_source'
+
+"https://github.com/ujihisa/shadow.vim
+NeoBundle 'ujihisa/shadow.vim'
+NeoBundle 'ujihisa/quicklearn'
+
+"https://github.com/basyura/unite-rails
+NeoBundle 'basyura/unite-rails'
+NeoBundle 'basyura/jslint.vim'
+
+
 "https://github.com/vim-ruby/vim-ruby
 NeoBundle 'vim-ruby/vim-ruby'
 "https://github.com/chrismetcalf/
 NeoBundle 'chrismetcalf/vim-yankring'
 "https://github.com/kchmck/vim-coffee-script
 NeoBundle 'kchmck/vim-coffee-script'
-"https://github.com/ujihisa/shadow.vim
-NeoBundle 'ujihisa/shadow.vim'
 "https://github.com/othree/html5.vim
 NeoBundle 'othree/html5.vim'
 "https://github.com/hokaccha/vim-html5validator
@@ -53,20 +65,24 @@ NeoBundle 'jceb/vim-hier'
 NeoBundle 'h1mesuke/unite-outline'
 "https://github.com/tacroe/unite-mark
 NeoBundle 'tacroe/unite-mark'
-"https://github.com/thinca/vim-unite-history
-NeoBundle 'thinca/vim-unite-history'
-"https://github.com/basyura/unite-rails
-NeoBundle 'basyura/unite-rails'
 "https://github.com/tsukkee/unite-tag
 NeoBundle 'tsukkee/unite-tag'
 "https://github.com/yuki777/commentout.vim
 "NeoBundle 'yuki777/commentout.vim'
-NeoBundle 'thinca/vim-auto_source'
 NeoBundle 'vim-scripts/buftabs'
 "NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'ujihisa/quicklearn'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'mortice/taglist.vim'
-NeoBundle 'basyura/jslint.vim'
 
+"NeoBundle 'sgur/unite-qf'
+NeoBundle 'ujihisa/unite-colorscheme'
+"NeoBundle 'grep.vim'
+NeoBundle 'davidoc/taskpaper.vim'
+NeoBundle 'kana/vim-altr'
+NeoBundle 'sgur/unite-git_grep'
+
+NeoBundle 'AnsiEsc.vim'
+NeoBundle 'bbommarito/vim-slim'
+
+NeoBundle 'taq/vim-rspec'
 

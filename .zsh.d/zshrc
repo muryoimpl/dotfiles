@@ -328,6 +328,9 @@ esac
 #git 
 alias g="git"
 
+#rbenv
+alias rbv="rbenv"
+
 #ctags
 alias ctags='ctags -f .tags'
 

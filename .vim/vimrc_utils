@@ -1,7 +1,14 @@
 " :Gb <args> でGrepBuffer
-command! -nargs=1 Gb :GrepBuffer <args>
+"command! -nargs=1 Gb :GrepBuffer <args>
+
 "カーソル下の単語をGrepBuffer
-nnoremap <C-g><C-b> :<C-u>GrepBuffer<Space><C-r><C-w><Enter>
+"nnoremap <C-g><C-b> :<C-u>GrepBuffer<Space><C-r><C-w><Enter>
+
+augroup grepopen
+  autocmd!
+  autocmd QuickfixCmdPost vimgrep cw
+augroup END
+
 
 "-- 編集関連 ---------------------------------------------------------
 "行末のスペースを可視化
@@ -50,4 +57,19 @@ match ZenkakuSpace /　/
 "ページ送りのキーを変更
 noremap <Space>j <C-f>
 noremap <Space>k <C-b>
+
+"検索のハイライトを消す
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+"ファイルタイプの設定
+augroup Slim
+  autocmd!
+  autocmd BufWinEnter,BufNewFile *.slim set filetype=slim
+augroup END
+augroup Coffee
+  autocmd!
+  autocmd BufWinEnter,BufNewFile *.coffee set filetype=coffee
+augroup END
+
+
 

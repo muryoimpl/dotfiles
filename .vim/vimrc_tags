@@ -1,5 +1,6 @@
 "ctagsの設定
-set tags=./.tags;
+"set tags=./.tags;
+set tags=.tags
 "飛ぶ
 nnoremap tt  <C-]>
 "「進む」
