@@ -23,6 +23,8 @@ nnoremap <silent> ;rgm :<C-u>Unite rails/gemfile<CR>
 nnoremap <silent> ;rg  :<C-u>Unite rails/generate<CR>
 nnoremap <silent> ;rs  :<C-u>Unite rails/spec<CR>
 nnoremap <silent> ;rgt :<C-u>Unite rails/git<CR>
+nnoremap <silent> ;rf  :<C-u>Unite rails/features<CR>
+nnoremap <silent> ;rw  :<C-u>Unite rails/widgets<CR>
 
 "F2, F3でRSpecと実装コードを入れ替え
 "http://d.hatena.ne.jp/joker1007/20120517/1337260769

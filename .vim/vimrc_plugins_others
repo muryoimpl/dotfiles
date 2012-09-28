@@ -22,6 +22,8 @@ nnoremap <Space>gc :<C-u>Gcommit<Enter>
 nnoremap <Space>gC :<C-u>Git commit --amend<Enter>
 nnoremap <Space>gb :<C-u>Gblame<Enter>
 
+autocmd QuickFixCmdPost *grep* cwindow
+
 "------------------------------------------------------------
 "jslint.vim
 let $JS_CMD='node'

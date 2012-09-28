@@ -93,4 +93,4 @@ if ! type vim > /dev/null 2>&1; then
 fi
 
 # rvmの設定
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function

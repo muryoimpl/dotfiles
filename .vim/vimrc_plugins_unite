@@ -44,7 +44,7 @@ nnoremap <silent> ,uti :<C-u>Unite tag/include<CR>
 "noremap <silent> <C-]> :<C-u>Unite -no-start-insert tags:<C-r>=expand('<cword>')<CR><CR>
 autocmd BufEnter *
   \   if empty(&buftype)
-  \|      nnoremap <buffer> <C-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+  \|      nnoremap <buffer> <C-@> :<C-u>UniteWithCursorWord -immediately tag<CR>
   \|  endif
 
 "unite-git_grep
