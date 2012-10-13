@@ -30,3 +30,4 @@ fi
 
 alias gst='git status'
 alias ctg='ctags --langmap=RUBY:.rb --exclude="*.js"  --exclude=".git*" -R .'
+alias be='bundle exec'
