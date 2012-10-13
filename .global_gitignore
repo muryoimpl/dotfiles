@@ -70,3 +70,5 @@ TAGS
 !TAGS/
 tags
 !tags/
+.tag
+.tags
