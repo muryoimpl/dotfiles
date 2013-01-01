@@ -1,6 +1,10 @@
 "ctagsの設定
 "set tags=./.tags;
 set tags=.tags
+if has('path_extra')
+  set tags+=tags;
+endif
+
 "飛ぶ
 nnoremap tt  <C-]>
 "「進む」
