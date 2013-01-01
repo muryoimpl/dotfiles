@@ -24,3 +24,8 @@ source ~/.vim/vimrc_for_ruby_with_unite
 "カラースキーマを設定
 colorscheme Tomorrow-Night
 "colorscheme darkblue
+
+set cursorline
+highlight CursorLine ctermbg=darkblue guibg=darkblue
+
+
