@@ -16,7 +16,7 @@ set expandtab      "tabをスペースに変換
 "---  検索関連  -------------------------------------------------------
 set wrapscan       "最後まで検索したら先頭へ
 set ignorecase     " 検索の時に大文字小文字を区別しない。
-"set incsearch      "インクリメンタルサーチ
+set incsearch      "インクリメンタルサーチ
 set tabstop=2      "タブの表示を2に
 set ts=2           "タブのスペースを２に
 set showmatch      "対応する括弧を表示する
