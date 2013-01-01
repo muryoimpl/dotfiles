@@ -85,9 +85,7 @@ NeoBundle 'sgur/unite-git_grep'
 NeoBundle 'AnsiEsc.vim'
 NeoBundle 'bbommarito/vim-slim'
 
-" "NeoBundle 'taq/vim-rspec'
-NeoBundle "skwp/vim-rspec"
-
 NeoBundle 'tsukkee/unite-help'
 
 NeoBundle 'kmnk/vim-unite-giti'
+NeoBundle "skwp/vim-rspec"

@@ -28,7 +28,6 @@ if defined? Hirb
 end
 
 #pry-nav alias
-Pry.commands.alias_commad 'c', 'continue'
-Pry.commands.alias_commad 's', 'step'
-Pry.commands.alias_commad 'n', 'next'
-
+Pry.commands.alias_command 'c', 'continue'
+Pry.commands.alias_command 's', 'step'
+Pry.commands.alias_command 'n', 'next'
