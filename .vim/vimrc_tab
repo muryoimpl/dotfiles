@@ -3,6 +3,10 @@
 nnoremap <Space>tn :<C-u>tabnew<CR>
 nnoremap <Space>tc :<C-u>tabclose<CR>
 
+nnoremap <Tab><Tab> gt
+for i in range(1, 9)
+    execute 'nnoremap <Tab>' . i . ' ' . i . 'gt'
+endfor
 "-------- タブ表示 ---------------------------------
 " http://d.hatena.ne.jp/thinca/20111204/1322932585 から拝借
 set showtabline=2
@@ -41,7 +45,7 @@ endfunction
 
 function! MakeTabLine()
   let titles=map(range(1, tabpagenr('$')),'s:tabpage_label(v:val)')
-  let sep='| ' "タブ区切り文字
+  let sep=' †  ' "タブ区切り文字
   let tabpages=join(titles, sep).sep.'%#TabLineFill#%T'
   let info = fnamemodify(getcwd(),":~").'' "カレントdir表示
   return tabpages .'%='.info "タブを左、情報を右に
