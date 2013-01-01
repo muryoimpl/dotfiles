@@ -26,3 +26,9 @@ if defined? Hirb
 
   Hirb.enable
 end
+
+#pry-nav alias
+Pry.commands.alias_commad 'c', 'continue'
+Pry.commands.alias_commad 's', 'step'
+Pry.commands.alias_commad 'n', 'next'
+
