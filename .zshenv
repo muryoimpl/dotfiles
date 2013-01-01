@@ -1,3 +1,3 @@
 source ~/.zsh.d/zshenv
-source ~/.zprofile
 
+export DYLD_LIBRARY_PATH=/usr/local/opt/cairo/lib
