@@ -25,12 +25,13 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/junkfile.vim'
 
 "https://github.com/thinca/
 NeoBundle 'thinca/vim-quickrun'
 "https://github.com/thinca/vim-unite-history
 NeoBundle 'thinca/vim-unite-history'
-NeoBundle 'thinca/vim-auto_source'
+"NeoBundle 'thinca/vim-auto_source'
 NeoBundle 'thinca/vim-qfreplace'
 
 "https://github.com/ujihisa/shadow.vim
@@ -83,8 +84,7 @@ NeoBundle 'kana/vim-altr'
 NeoBundle 'sgur/unite-git_grep'
 
 NeoBundle 'AnsiEsc.vim'
-NeoBundle 'bbommarito/vim-slim'
-
+NeoBundle 'slim-template/vim-slim'
 NeoBundle 'tsukkee/unite-help'
 
 NeoBundle 'kmnk/vim-unite-giti'

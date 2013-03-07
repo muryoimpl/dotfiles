@@ -63,3 +63,6 @@ nnoremap <silent> g<C-h>  :<C-u>UniteWithCursorWord help<CR>
 
 "unite line
 nnoremap <silent> ,l :<C-u>Unite line<CR>
+
+" junkfile
+nnoremap <silent> ,uj :<C-u>Unite junkfile/new junkfile <CR>
