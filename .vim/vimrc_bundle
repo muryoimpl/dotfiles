@@ -1,12 +1,11 @@
+set nocompatible
+
 "neobundleの設定
 if has('vim_starting')
   set runtimepath+=~/.bundle/neobundle.vim
-  filetype off
-  call neobundle#rc(expand('~/.bundle'))
-
-  filetype plugin on
-  filetype indent on
 endif
+call neobundle#rc(expand('~/.bundle'))
+let g:neobundle#types#git#default_protocol = 'https'
 
 "https://github.com/tpope
 NeoBundle 'tpope/vim-fugitive'
@@ -92,3 +91,8 @@ NeoBundle 'tsukkee/unite-help'
 
 NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle "skwp/vim-rspec"
+
+filetype plugin on
+filetype indent on
+
+NeoBundleCheck
