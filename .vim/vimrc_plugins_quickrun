@@ -36,13 +36,18 @@ let g:quickrun_config['coffee'] = {
 "   \ }
 augroup RSpec
   autocmd!
-  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby
+  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.spec
 augroup END
 
-let g:quickrun_config['ruby'] = {
+let g:quickrun_config['ruby.spec'] = {
   \ 'type' : 'ruby',
   \ 'command' : 'rspec',
   \ 'exec' : 'bundle exec %c %o --drb --tty %s'
+  \ }
+let g:quickrun_config['ruby'] = {
+  \ 'type' : 'ruby',
+  \ 'command' : 'ruby',
+  \ 'exec' : '%c %o %s'
   \ }
 
 
