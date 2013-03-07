@@ -19,7 +19,10 @@ NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-markdown'
 
 "https://github.com/Shougo
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', { 'build' : {
+      \   'mac' : 'make -f make_mac.mak',
+      \   }, 
+      \ }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
