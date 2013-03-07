@@ -1,7 +1,7 @@
 "uniteの設定--------------------------------------------------
 
 nnoremap [unite] <Nop>
-nmap     [unite] [unite]
+nmap     ,u [unite]
 
 "バッファ一欄
 nnoremap <silent> [unite]bb :<C-u>Unite buffer<CR>
@@ -14,7 +14,7 @@ nnoremap <silent> [unite]mr :<C-u>Unite file_mru<CR>
 "全部載せ
 nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 "tab一欄
-nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
+nnoremap <silent> [unite]tb :<C-u>Unite tab<CR>
 "Window一覧
 nnoremap <silent> [unite]w :<C-u>Unite window<CR>
 "keymapping
