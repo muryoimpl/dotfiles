@@ -20,6 +20,10 @@ source ~/.vim/vimrc_utils
 source ~/.vim/vimrc_tags
 "for ruby/rails
 source ~/.vim/vimrc_for_ruby_with_unite
+"for rbenv-ctags
+source ~/.vim/vimrc_rbenv_ctags
+"for vim 3 way diff
+source ~/.vim/vimrc_3way_diff
 
 "カラースキーマを設定
 colorscheme Tomorrow-Night
