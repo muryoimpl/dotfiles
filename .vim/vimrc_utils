@@ -3,12 +3,12 @@
 
 "カーソル下の単語をGrepBuffer
 "nnoremap <C-g><C-b> :<C-u>GrepBuffer<Space><C-r><C-w><Enter>
-
+set grepprg=ag\ --nocolor
 autocmd QuickfixCmdPost grep if len(getqflist()) != 0 | copen | endif
 
 augroup grepopen
   autocmd!
-  autocmd QuickfixCmdPost vimgrep cw
+  autocmd QuickfixCmdPost grep cw
 augroup END
 
 
