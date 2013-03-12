@@ -4,7 +4,7 @@ nnoremap [unite] <Nop>
 nmap     ,u [unite]
 
 "バッファ一欄
-nnoremap <silent> [unite]bb :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 "ファイル一覧
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 "レジスタ一覧
