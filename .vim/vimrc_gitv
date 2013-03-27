@@ -1,0 +1,5 @@
+" diffを折りたたまない
+autocmd FileType git :setlocal foldlevel=99
+
+nnoremap <silent> ;gv :<C-u>Gitv<CR>
+

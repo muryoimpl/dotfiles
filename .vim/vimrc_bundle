@@ -92,6 +92,8 @@ NeoBundle 'tsukkee/unite-help'
 NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle "skwp/vim-rspec"
 
+NeoBundle 'gregsexton/gitv'
+
 filetype plugin on
 filetype indent on
 

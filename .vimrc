@@ -24,6 +24,9 @@ source ~/.vim/vimrc_for_ruby_with_unite
 source ~/.vim/vimrc_rbenv_ctags
 "for vim 3 way diff
 source ~/.vim/vimrc_3way_diff
+"for gitv
+source ~/.vim/vimrc_gitv
+
 
 "カラースキーマを設定
 colorscheme Tomorrow-Night
