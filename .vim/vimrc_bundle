@@ -24,6 +24,7 @@ NeoBundle 'Shougo/vimproc', { 'build' : {
       \ }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplcache-rsense'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimfiler'
@@ -39,6 +40,7 @@ NeoBundle 'thinca/vim-qfreplace'
 "https://github.com/ujihisa/shadow.vim
 NeoBundle 'ujihisa/shadow.vim'
 NeoBundle 'ujihisa/quicklearn'
+NeoBundle 'ujihisa/unite-rake'
 
 "https://github.com/basyura/unite-rails
 "NeoBundle 'basyura/unite-rails'
