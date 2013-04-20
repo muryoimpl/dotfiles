@@ -26,6 +26,8 @@ source ~/.vim/vimrc_rbenv_ctags
 source ~/.vim/vimrc_3way_diff
 "for gitv
 source ~/.vim/vimrc_gitv
+"for git-gutter
+source ~/.vim/vimrc_git_gutter
 
 
 "カラースキーマを設定
