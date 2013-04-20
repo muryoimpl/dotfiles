@@ -104,6 +104,7 @@ NeoBundle 'taichouchou2/alpaca_complete', {
       \}}
 
 NeoBundle 'rhysd/unite-ruby-require.vim'
+NeoBundle 'akiomik/git-gutter-vim'
 
 filetype plugin on
 filetype indent on
