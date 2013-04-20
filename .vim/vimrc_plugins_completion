@@ -9,6 +9,8 @@ let g:neocomplcache_enable_underbar_completion=1
 let g:neocomplcache_enable_smart_case_completion=1
 "キーワード補完の最小文字数
 let g:neocomplcache_min_syntax_length=3
+"syntax補完の最小文字数
+let g:neocomplcache_min_keyword_length=3
 "マニュアル補完の最小文字数
 let g:neocomplcache_manual_completion_start_length=3
 "ユーザスニペットの保管場所
