@@ -1,4 +1,5 @@
 "uniteの設定--------------------------------------------------
+call unite#custom_source('line', 'matchers', 'matcher_migemo')
 
 nnoremap [unite] <Nop>
 nmap     ,u [unite]

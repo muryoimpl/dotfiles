@@ -107,6 +107,12 @@ NeoBundle 'gregsexton/gitv'
 " NeoBundle 'akiomik/git-gutter-vim'
 NeoBundle 'airblade/vim-gitgutter'
 
+" see https://gist.github.com/h17u/5261039
+" % mkdir -p ~/.bundle/migemo/plugin
+" % cd ~/.bundle/migemo/plugin
+" % curl -L -O https://raw.github.com/koron/cmigemo/master/tools/migemo.vim
+NeoBundle 'migemo', {'type' : 'nosync', 'base' : '~/.bundle/' }
+
 filetype plugin on
 filetype indent on
 
