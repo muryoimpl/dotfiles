@@ -1,5 +1,40 @@
 " diffを折りたたまない
 autocmd FileType git :setlocal foldlevel=99
 
-nnoremap <silent> ;gv :<C-u>Gitv<CR>
+nnoremap <silent> ;gv :<C-u>Gitv<CR>  "log全体のview
+nnoremap <silent> ;gf :<C-u>Gitv!<CR> "file単位でのview
+
+" 現在行のSHA1を取得
+function! s:gitv_get_current_hash()
+  return matchstr(getline('.'), '\[\zs.\{7\}\ze\]$')
+endfunction
+
+" diffの折りたたみ切り替え
+autocmd FileType git setlocal nofoldenable foldlevel=0
+function! s:toggle_git_folding()
+  if &filetype ==# 'git'
+    setlocal foldenable!
+  endif
+endfunction
+
+
+" http://d.hatena.ne.jp/cohama/20130517/1368806202
+" gitv bufferでの設定
+autocmd FileType gitv call s:my_gitv_settings()
+function s:my_gitv_settings()
+  " branch名の取得
+  setlocal iskeyword+=/,-,.
+  " branch 上で C を押すとgit checkout "ちなみにrでブランチを移動できる
+  nnoremap <silent><buffer> C :<C-u>Git checkout <C-r><C-w><CR>
+  
+  "利用例
+  " nnoremap <buffer> <Space>rb :<C-u>Git rebase <C-r>=GitvGetCurrentHash()<CR><Space>
+  " nnoremap <buffer> <Space>R :<C-u>Git revert <C-r>=GitvGetCurrentHash()<CR><CR>
+  " nnoremap <buffer> <Space>h :<C-u>Git cherry-pick <C-r>=GitvGetCurrentHash()<CR><CR>
+  " nnoremap <buffer> <Space>rh :<C-u>Git reset --hard <C-r>=GitvGetCurrentHash()<CR>
+
+  " t で diff viewの全ファイルの折りたたみをtoggle
+  nnoremap <silent><buffer> t :<C-u>windo call <SID>toggle_git_folding()<CR>1<C-w>w
+endfunction
+
 
