@@ -37,4 +37,5 @@ colorscheme Tomorrow-Night
 set cursorline
 highlight CursorLine ctermbg=darkblue guibg=darkblue
 
-
+" font
+set guifont=Ricty:h16
