@@ -1,6 +1,6 @@
 "------------------------------------------------------------
 "Rsenseの設定
-let g:rsenseHome = '/Users/muryoimpl/opt/rsense'
+let g:rsenseHome = '/opt/rsense'
 let g:rsenseUseOmniFunc = 1
 
 "unite-rails
