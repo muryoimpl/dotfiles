@@ -23,8 +23,9 @@ NeoBundle 'Shougo/vimproc', { 'build' : {
       \   }, 
       \ }
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neocomplcache-rsense'
+"NeoBundle 'Shougo/neocomplcache'
+"NeoBundle 'Shougo/neocomplcache-rsense'
+NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimfiler'
