@@ -16,7 +16,7 @@ export RSENSE_HOME=$HOME/opt/rsense-0.3
 
 if [[ -f ~/.nodebrew/nodebrew ]]; then
   export PATH=$HOME/.nodebrew/current/bin:$PATH:
-  nodebrew use v0.10.0
+  nodebrew use v0.10.12
 fi
 
 
