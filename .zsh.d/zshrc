@@ -183,7 +183,7 @@ manydots-magic
 # 補完
 ## 初期化
 autoload -U compinit
-compinit
+compinit -u
 
 ## 補完方法毎にグループ化する。
 ### 補完方法の表示方法
