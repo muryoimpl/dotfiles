@@ -6,7 +6,7 @@ export PATH=$HOME/.rbenv/bin:$HOME/nodebrew/bin:$HOME/bin:/usr/local/share/acloc
 #rbenv setting
 eval "$(rbenv init -)"
 
-export RSENSE_HOME=$HOME/opt/rsense-0.3
+export RSENSE_HOME=/opt/rsense-0.3
 
 if [[ -f ~/.nodebrew/nodebrew ]]; then
   export PATH=$HOME/.nodebrew/current/bin:$PATH:
