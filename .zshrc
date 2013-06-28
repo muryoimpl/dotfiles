@@ -23,7 +23,7 @@ source ~/.zsh.d/zshrc
 
 # add zsh plugins to use.
 # load .zsh.d/plugins/*.zsh
-plugins=(git gem osx ruby brew bundler node npm pow rails3 rake vi-mode )
+plugins=(git git-flow git-extra gem osx ruby brew bundler node npm rails4 rails3 rake vi-mode )
 bindkey -v
 
 ### alias
