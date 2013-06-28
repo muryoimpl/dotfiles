@@ -176,9 +176,15 @@ for plugin ($plugins); do
   fi
 done
 ################################################################
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic
 
 autoload -Uz manydots-magic
 manydots-magic
+
+autoload -Uz git-escape-magic
+git-escape-magic
+
 
 # 補完
 ## 初期化
