@@ -16,7 +16,7 @@ fi
 
 ## zsh load
 source /usr/local/share/zsh/site-functions
-source /Users/muryoimpl/.rbenv/completions/rbenv.zsh
+source $HOME/.rbenv/completions/rbenv.zsh
 
 source ~/.zsh.d/zshrc
 
