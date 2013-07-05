@@ -47,6 +47,7 @@ doc/
 .AppleDouble
 .LSOverride
 Icon
+**.DS_Store
 
 # Thumbnails
 ._*
