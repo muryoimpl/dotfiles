@@ -47,11 +47,6 @@ nnoremap <silent> <S-Right>  :5wincmd ><CR>
 nnoremap <silent> <S-Up>  :5wincmd -<CR>
 nnoremap <silent> <S-Down>  :5wincmd +<CR>
 
-"カーソルをハイライト
-set cursorline
-:hi CursorLine gui=underline cterm=underline
-highlight CursorLine ctermbg=blue guibg=blue
-
 "全角スペースを白で可視化
 highlight ZenkakuSpace ctermbg=white guibg=white
 match ZenkakuSpace /　/

@@ -34,8 +34,12 @@ source ~/.vim/vimrc_git_gutter
 colorscheme Tomorrow-Night
 "colorscheme darkblue
 
+"カーソルをハイライト
+:hi Cursor ctermfg=DarkGray
+
 set cursorline
-highlight CursorLine ctermbg=darkblue guibg=darkblue
+:hi CursorLine gui=underline cterm=underline
+:hi CursorLine ctermbg=DarkBlue guibg=DarkBlue
 
 " font
 set guifont=Ricty:h16
