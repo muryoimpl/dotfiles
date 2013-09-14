@@ -26,7 +26,7 @@ function! CommentStr()
     return '//'
   elseif &ft == 'vim'
     return '"'
-  elseif &ft == 'python' || &ft == 'perl' || &ft == 'sh' || &ft == 'R' || &ft == 'ruby' || &ft == 'ruby.spec' || &ft == 'cucumber' || &ft == 'coffee'
+  elseif &ft == 'python' || &ft == 'perl' || &ft == 'sh' || &ft == 'R' || &ft == 'ruby' || &ft == 'ruby.spec' || &ft == 'cucumber' || &ft == 'coffee' || &ft == 'yaml'
     return '#'
   elseif &ft == 'lisp'
     return ';'
