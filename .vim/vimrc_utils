@@ -67,5 +67,8 @@ augroup Coffee
   autocmd!
   autocmd BufWinEnter,BufNewFile *.coffee set filetype=coffee
 augroup END
-
+augroup Rake
+  autocmd!
+  autocmd BufWinEnter,BufNewFile *.rake set filetype=ruby
+augroup END
 
