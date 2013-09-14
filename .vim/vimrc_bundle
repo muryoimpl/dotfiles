@@ -114,6 +114,10 @@ NeoBundle 'airblade/vim-gitgutter'
 " % curl -L -O https://raw.github.com/koron/cmigemo/master/tools/migemo.vim
 NeoBundle 'migemo', {'type' : 'nosync', 'base' : '~/.bundle/' }
 
+NeoBundle 'osyo-manga/unite-highlight'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'w0ng/vim-hybrid'
+
 filetype plugin on
 filetype indent on
 
