@@ -11,7 +11,7 @@ source ~/.vim/vimrc_plugins_quickrun
 "plugins
 source ~/.vim/vimrc_plugins_others
 "tab
-source ~/.vim/vimrc_tab
+"source ~/.vim/vimrc_tab
 "statusline
 source ~/.vim/vimrc_status
 "keybindの設定とか細々したやつ

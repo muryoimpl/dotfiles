@@ -63,5 +63,8 @@ inoremap <silent><ESC><ESC>:set iminsert=0<CR>
 noremap ;; :
 "noremap : ;
 
+"タブ表示を常に
+set showtabline=2
+
 "シンタックスハイライトが有効
 syntax enable
