@@ -29,10 +29,13 @@ source ~/.vim/vimrc_gitv
 "for git-gutter
 source ~/.vim/vimrc_git_gutter
 
+source ~/.vim/vimrc_lightline
 
 "カラースキーマを設定
-colorscheme Tomorrow-Night
+"colorscheme Tomorrow-Night
 "colorscheme darkblue
+colorscheme hybrid
+
 
 "カーソルをハイライト
 :hi Cursor ctermfg=DarkGray

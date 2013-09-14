@@ -115,8 +115,8 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'migemo', {'type' : 'nosync', 'base' : '~/.bundle/' }
 
 NeoBundle 'osyo-manga/unite-highlight'
-NeoBundle 'bling/vim-airline'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'itchyny/lightline.vim'
 
 filetype plugin on
 filetype indent on
