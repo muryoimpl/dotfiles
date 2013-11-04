@@ -92,7 +92,7 @@ NeoBundle 'AnsiEsc.vim'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'tsukkee/unite-help'
 
-NeoBundle 'kmnk/vim-unite-giti'
+"NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle "skwp/vim-rspec"
 
 NeoBundle 'gregsexton/gitv'
