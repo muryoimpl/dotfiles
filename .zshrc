@@ -1,7 +1,7 @@
 export CC=/usr/local/bin/gcc-4.2
 
 # add zsh packages config path.
-export PATH=$HOME/.rbenv/bin:$HOME/nodebrew/bin:$HOME/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+export PATH=$HOME/.rbenv/bin:$HOME/nodebrew/bin:/$HOME/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 
 #rbenv setting
 eval "$(rbenv init -)"
