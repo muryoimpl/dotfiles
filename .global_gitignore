@@ -40,6 +40,65 @@ tmp
 _yardoc
 doc/
 
+### Jekyll ###
+_site/
+
+### Node ###
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules
+
+### Rails ###
+*.rbc
+*.sassc
+.sass-cache
+capybara-*.html
+.rspec
+.rvmrc
+/.bundle
+/vendor/bundle
+/log/*
+/tmp/*
+/db/*.sqlite3
+/public/system/*
+/coverage/
+/spec/tmp/*
+**.orig
+rerun.txt
+pickle-email-*.html
+.project
+!.keep
+
+
+### SASS ###
+### SASS Ignores - "Sassy CSS" http://sass-lang.com/
+*.sass-cache
+
+### CMake ###
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+
+### Mercurial ###
+/.hg/*
+*/.hg/*
+.hgignore
+
+
 ##########
 #for Mac
 ##########
@@ -56,13 +115,12 @@ Icon
 .Spotlight-V100
 .Trashes
 
-##########
-#for vim
-##########
-.*.sw[a-z]
+### vim ###
+.*.s[a-w][a-z]
 *.un~
 Session.vim
 .netrwhist
+*~
 
 ##########
 #for tags
@@ -73,3 +131,47 @@ tags
 !tags/
 .tag
 .tags
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+### Linux ###
+.*
+!.gitignore
+!.git*
+*~
+
+
+### Qt ###
+# C++ objects and libs
+
+*.slo
+*.lo
+*.o
+*.a
+*.la
+*.lai
+*.so
+*.dll
+*.dylib
+
+# Qt-es
+CMakeLists.txt.user
+*.pro.user
+*.pro.user.*
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+Makefile
+*-build-*
+
+### Bower ###
+bower_components
+
+### Compass ###
+.sass-cache
+
+### SVN ###
+.svn/
+
