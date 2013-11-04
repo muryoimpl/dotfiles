@@ -47,7 +47,7 @@ let coffee_linter = '$HOME/.nodebrew/current/bin/coffeelint'
 "2タブの設定
 autocmd BufNewFile, BufReadPost *.coffee setl shiftwidth=2 expandtab
 "保存と同時にコンパイル
-autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow |redraw!
+"autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow |redraw!
 "coffee->jsの内容を確認
-nnoremap <Leader>w :CoffeeCompile watch vert<CR>
+"nnoremap <Leader>w :CoffeeCompile watch vert<CR>
 
