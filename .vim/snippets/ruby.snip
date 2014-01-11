@@ -8,7 +8,7 @@ abbr        describe DESC do before do end end
 
 snippet     RS::M
 abbr        RSpec::Matcher.define
-    RSpec::Matcher.define :${1:NAME} do |expected|
+    RSpec::Matcher.define :${1} do |expected|
       match do |actual|
         # expected == actual
         ${2}
@@ -17,7 +17,7 @@ abbr        RSpec::Matcher.define
 
 snippet     RS::Ml
 abbr        RSpec::Matcher.define with full options
-    RSpec::Matcher.define :${1:NAME} do |expected|
+    RSpec::Matcher.define :${1} do |expected|
       diffable
 
       match do |actual|
@@ -50,3 +50,111 @@ abbr       sinatra's route DSL of get method
       
     end
 
+snippet     desc
+abbr        describe '' do end
+prev_word   '^'
+    describe '${1}' do
+        ${2}
+    end
+
+snippet     cont
+abbr        context '' do end
+prev_word   '^'
+    context '${1}' do
+        ${2}
+    end
+
+snippet     bef
+abbr        before {}
+prev_word   '^'
+    before (:${1}) { ${2} }
+
+snippet     sub
+abbr        subject.method
+    subject.${1}
+
+snippet     subj
+abbr        subject {}
+prev_word   '^'
+    subject { ${1} }
+
+snippet     it
+abbr        it {}
+prev_word   '^'
+    it { ${1} }
+
+
+snippet     itl
+abbr        it { ->{} }
+prev_word   '^'
+    it { ->{ ${1} } }.should ${2}
+
+snippet     its
+abbr        its(:hoge) {}
+prev_word   '^'
+    its(:${1}) { ${2} }
+
+snippet     lett
+abbr        let(:hoge) {}
+prev_word   '^'
+    let(:${2}) { ${3} }
+
+snippet     let!
+abbr        let(:hoge) {}
+prev_word   '^'
+    let${1:!}(:${2}) { ${3} }
+
+
+snippet     cha
+abbr        change(Hoge, :fuga)
+    change(${1}, :${2})
+
+snippet     changeby
+abbr        change(Hoge, :fuga).by(1)
+    change(${1}, :${2}).by(${3})
+
+snippet     changeto
+abbr        change(Hoge, :fuga).from(old).to(new)
+    change(${1}, :${2}).from(${3}).to(${4})
+
+snippet     sho
+abbr        should
+    should be_${1:}
+
+snippet     shon
+abbr        should_not
+    should_not be_${1}
+
+snippet     fgc
+abbr        FactoryGirl.create
+  FactoryGirl.create(:${1})
+
+snippet     fgb
+abbr        FactoryGirl.create
+  FactoryGirl.build(:${1})
+
+snippet     fat
+abbr        FactoryGirl.create
+  FactoryGirl.attributes_for(:${1})
+
+snippet     exp{}
+abbr        expect{}.to
+  expoct{ ${1} }.to
+
+snippet     exp()
+abbr        expect().to
+  expoct( ${1} ).to
+
+snippet     expn{}
+abbr        expect{}.to_not
+  expoct{ ${1} }.to_not
+
+snippet     expn()
+abbr        expect().to_not
+  expoct( ${1} ).to_not
+
+snippet     def
+abbr        def end
+  def ${1}
+    ${2}
+  end
