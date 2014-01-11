@@ -13,6 +13,11 @@ if [[ -f ~/.nodebrew/nodebrew ]]; then
   nodebrew use v0.10.12
 fi
 
+# for oracle
+export ORACLE_HOME=/Users/muryoimpl/opt/oracle
+export PATH=$ORACLE_HOME/bin:$PATH
+export DYLD_LIBRARY_PATH=$ORACLE_HOME/lib
+
 
 ## zsh load
 source /usr/local/share/zsh/site-functions
