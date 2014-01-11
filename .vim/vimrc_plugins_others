@@ -6,7 +6,13 @@ nnoremap <silent> vv :<C-u>VimFiler -buffer-name=explorer -split -simple -winwid
 "------vimshell------
 "VimShellTab
 nnoremap <C-v>s :<C-u>VimShellTab<CR>
-
+"VimShellPop
+nnoremap <C-v><C-v> :<C-u>VimShellPop --toggle<CR>
+"values
+let g:vimshell_popup_height = 50
+let g:vimshell_prompt_expr = 'escape(fnamemodify(getcwd(), ":~").">", "\\[]()?! ")." "'
+let g:vimshell_prompt_pattern = '^\%(\f\|\\.\)\+> '
+let g:vimshell_right_prompt = 'fugitive#statusline()'
 "------------------------------------------------------------
 "rails-vimの設定？
 "let g:rails_level = 4
