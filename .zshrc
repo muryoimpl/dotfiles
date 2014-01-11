@@ -28,6 +28,9 @@ bindkey -v
 
 ### alias
 alias gst='git status'
+alias gdd='git diff'
+alias gda='git diff --cached'
+alias gb='git branch -a'
 alias ctg='ctags --langmap="Ruby:.rb" --exclude="*.js"  --exclude=".git*" -R .'
 alias be='bundle exec'
-
+alias bundle='nocorrect bundle'
