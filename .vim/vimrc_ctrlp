@@ -1,0 +1,20 @@
+"https://github.com/kien/ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+" Open new file in current window
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'line', 'mixed', 'change']
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
+
+
+let g:ctrlp_open_new_file = 'r'
+
+nnoremap <C-P><C-B> :<C-u>CtrlPBuffer<CR>
+
