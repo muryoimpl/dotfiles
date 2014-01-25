@@ -7,13 +7,13 @@ nmap     ,u [unite]
 "バッファ一欄
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 "ファイル一覧
-nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -no-start-insert -buffer-name=files file<CR>
 "レジスタ一覧
 nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
 "最近使用したファイル一覧
 nnoremap <silent> [unite]mr :<C-u>Unite file_mru<CR>
 "全部載せ
-nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]a :<C-u>UniteWithBufferDir -no-start-insert -buffer-name=files buffer file_mru bookmark file<CR>
 "tab一欄
 nnoremap <silent> [unite]tb :<C-u>Unite tab<CR>
 "Window一覧
@@ -23,6 +23,7 @@ nnoremap <silent> [unite]mp :<C-u>Unite mapping<CR>
 "keymapping
 nnoremap <silent> [unite]bk :<C-u>Unite bookmark<CR>
 
+let g:unite_enable_start_insert = 0
 
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
@@ -50,7 +51,7 @@ nnoremap <silent> [unite]tf :<C-u>Unite tag/file<CR>
 nnoremap <silent> [unite]ti :<C-u>Unite tag/include<CR>
 
 "http://d.hatena.ne.jp/thinca/20110202/1296575731 から拝借
-"noremap <silent> <C-]> :<C-u>Unite -no-start-insert tags:<C-r>=expand('<cword>')<CR><CR>
+noremap <silent> <C-]> :<C-u>Unite -no-start-insert tags:<C-r>=expand('<cword>')<CR><CR>
 autocmd BufEnter *
   \   if empty(&buftype)
   \|      nnoremap <buffer> <C-\> :<C-u>UniteWithCursorWord -immediately tag<CR>
@@ -76,3 +77,8 @@ nnoremap <silent> [unite]l :<C-u>Unite line<CR>
 
 " junkfile
 nnoremap <silent> [unite]j :<C-u>Unite junkfile/new junkfile <CR>
+
+" Start insert mode in unite-action buffer.
+call unite#custom#profile('action', 'context',
+\ {'start_insert' : 0})
+  
