@@ -22,7 +22,8 @@ export DYLD_LIBRARY_PATH=$ORACLE_HOME/lib
 source /usr/local/share/zsh/site-functions
 source $HOME/.rbenv/completions/rbenv.zsh
 
-source ~/.zsh.d/zshrc
+source $HOME/.zsh.d/zshrc
+source $HOME/.zsh.d/pecos
 
 # add zsh plugins to use.
 # load .zsh.d/plugins/*.zsh
