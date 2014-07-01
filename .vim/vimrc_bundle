@@ -23,8 +23,6 @@ NeoBundle 'Shougo/vimproc', { 'build' : {
       \   }, 
       \ }
 NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'Shougo/neocomplcache'
-"NeoBundle 'Shougo/neocomplcache-rsense'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimshell'
@@ -33,9 +31,7 @@ NeoBundle 'Shougo/junkfile.vim'
 
 "https://github.com/thinca/
 NeoBundle 'thinca/vim-quickrun'
-"https://github.com/thinca/vim-unite-history
 NeoBundle 'thinca/vim-unite-history'
-"NeoBundle 'thinca/vim-auto_source'
 NeoBundle 'thinca/vim-qfreplace'
 
 "https://github.com/ujihisa/shadow.vim
@@ -104,8 +100,6 @@ NeoBundle 'gregsexton/gitv'
 "       \     'unix' : 'gem install alpaca_complete',
 "       \}}
 
-" NeoBundle 'rhysd/unite-ruby-require.vim'
-" NeoBundle 'akiomik/git-gutter-vim'
 NeoBundle 'airblade/vim-gitgutter'
 
 " see https://gist.github.com/h17u/5261039
