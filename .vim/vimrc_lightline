@@ -6,8 +6,8 @@ let g:gitgutter_sign_removed = '-'
 let g:lightline = {
       \ 'colorscheme': 'powerline',
       \ 'active': {
-      \   'left':  [ [ 'mode', 'paste' ],[ 'fugitive', 'gitgutter', 'pwd', 'filename' ] ], 
-      \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \   'left':  [ [ 'mode', 'paste' ],[ 'fugitive', 'gitgutter', 'pwd', 'filename' ], [ 'syntastic', 'lineinfo' ] ],
+      \   'right': [ ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'component_function': {
       \   'modified': 'MyModified',

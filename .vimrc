@@ -33,6 +33,8 @@ source ~/.vim/vimrc_lightline
 
 source ~/.vim/vimrc_ctrlp
 
+source ~/.vim/vimrc_syntastic
+
 "カラースキーマを設定
 "colorscheme Tomorrow-Night
 "colorscheme darkblue
