@@ -3,5 +3,3 @@ let g:gitgutter_escape_grep = 0
 let g:gitgutter_sign_column_always = 1
 
 nnoremap <Space>gt :<C-u>GitGutterToggle<Enter>
-
-
