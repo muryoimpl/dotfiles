@@ -1,10 +1,9 @@
 export CC=/usr/local/bin/gcc-4.2
 
 # add zsh packages config path.
-export PATH=$HOME/.rbenv/bin:$HOME/nodebrew/bin:/$HOME/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 export PGDATA=/usr/local/var/postgres
 #rbenv setting
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
 export RSENSE_HOME=/opt/rsense-0.3
 
@@ -24,7 +23,6 @@ source /usr/local/share/zsh/site-functions
 source $HOME/.rbenv/completions/rbenv.zsh
 
 source ~/.zsh.d/zshrc
-
 
 # add zsh plugins to use.
 # load .zsh.d/plugins/*.zsh
