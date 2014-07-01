@@ -31,9 +31,13 @@ bindkey -v
 
 ### alias
 alias gst='git status'
+alias gco='git checkout'
 alias gdd='git diff'
 alias gdc='git diff --cached'
-alias gb='git branch -a'
+alias gba='git branch -a'
+alias gcm='git commit'
+alias gad='git add'
 alias ctg='ctags --langmap="Ruby:.rb" --exclude="*.js"  --exclude=".git*" -R .'
 alias be='bundle exec'
 alias bundle='nocorrect bundle'
+alias ghql='cd $(ghq list -p | peco)'
