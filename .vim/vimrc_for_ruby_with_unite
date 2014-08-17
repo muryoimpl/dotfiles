@@ -1,7 +1,7 @@
 "------------------------------------------------------------
 "Rsenseの設定
-let g:rsenseHome = '/opt/rsense'
-let g:rsenseUseOmniFunc = 1
+" let g:rsenseHome = '/opt/rsense'
+" let g:rsenseUseOmniFunc = 1
 
 "unite-rails
 nnoremap <silent> ;rm  :<C-u>Unite rails/model<CR>
