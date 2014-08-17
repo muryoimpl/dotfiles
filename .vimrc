@@ -29,7 +29,7 @@ source ~/.vim/vimrc_gitv
 "for git-gutter
 source ~/.vim/vimrc_git_gutter
 
-source ~/.vim/vimrc_lightline
+"source ~/.vim/vimrc_lightline
 
 source ~/.vim/vimrc_ctrlp
 
