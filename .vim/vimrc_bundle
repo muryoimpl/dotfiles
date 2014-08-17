@@ -27,7 +27,6 @@ NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/junkfile.vim'
 
 "https://github.com/thinca/
 NeoBundle 'thinca/vim-quickrun'
@@ -64,8 +63,8 @@ NeoBundle 'Sixeight/unite-grep'
 NeoBundle 'dannyob/quickfixstatus'
 "https://github.com/jceb/vim-hier
 NeoBundle 'jceb/vim-hier'
-"https://github.com/h1mesuke/unite-outline
-NeoBundle 'h1mesuke/unite-outline'
+"https://github.com/Shougo/unite-outline
+NeoBundle 'Shougo/unite-outline'
 "https://github.com/tacroe/unite-mark
 NeoBundle 'tacroe/unite-mark'
 "https://github.com/tsukkee/unite-tag
@@ -110,7 +109,7 @@ NeoBundle 'migemo', {'type' : 'nosync', 'base' : '~/.bundle/' }
 
 NeoBundle 'osyo-manga/unite-highlight'
 NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'itchyny/lightline.vim'
+"NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'heartsentwined/vim-ember-script'
 NeoBundle 'kchmck/vim-coffee-script'
