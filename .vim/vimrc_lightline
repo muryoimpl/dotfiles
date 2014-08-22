@@ -1,5 +1,9 @@
 set laststatus=2
 
+if !has('gui_running')
+  set t_Co=256
+endif
+
 " vim-gitgutter
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
