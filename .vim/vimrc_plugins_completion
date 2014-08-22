@@ -12,7 +12,7 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ 'ruby' : $HOME.'/.ruby_completions'
         \ }
 
 " Define keyword.
@@ -21,11 +21,9 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-let g:neocomplete#force_overwrite_completefunc = 1
-
 " Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
+inoremap <expr><C-g>  neocomplete#undo_completion()
+inoremap <expr><C-l>  neocomplete#complete_common_string()
 
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
@@ -48,9 +46,9 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType ruby.rspec setlocal omnifunc=rubycomplete#Complete
 
+" for IME problem
+let g:neocomplete#enable_prefetch = 1
 
 " NEOSNIPPET
 " Plugin key-mappings.
@@ -66,58 +64,11 @@ endif
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/snippets'
 
-" "-------------------- neocomplcache ------------------------
-" "自動起動
-" let g:neocomplcache_enable_at_startup=1
-" "CamelCase補完実施
-" let g:neocomplcache_enable_camel_case=1
-" "_区切りのcaseを補完実施
-" let g:neocomplcache_enable_underbar_completion=1
-" "smart caseを有効化
-" let g:neocomplcache_enable_smart_case_completion=1
-" "キーワード補完の最小文字数
-" let g:neocomplcache_min_syntax_length=3
-" "syntax補完の最小文字数
-" let g:neocomplcache_min_keyword_length=3
-" "マニュアル補完の最小文字数
-" let g:neocomplcache_manual_completion_start_length=3
-" "ユーザスニペットの保管場所
-" let g:neosnippet#snippets_directory=$HOME.'/.vim/snippets'
-" 
-" "dictionary
-" let g:neocomplcache_dictionary_filetype_lists = {
-"   \ 'default'  : '', 
-"   \ 'vimshell' : $HOME.'/.vimshell/vimshell_hist'
-"   \}
-" 
-" "C-k で snippet を展開する
-" imap <C-k> <Plug>(neosnippet_expand_or_jump)
-" smap <C-k> <Plug>(neosnippet_expand_or_jump)
-" 
-" "C-g で前回の補完をキャンセルする
-" inoremap <expr><C-g> neocomplcache#undo_completion()
-" "C-l でシェルライクな補完を行う
-" inoremap <expr><C-l> neocomplcache#complete_common_string()
-" 
-" " <C-h>, <BS>: close popup and delete backword char.
-" inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-" inoremap <expr><C-y> neocomplcache#close_popup()
-" inoremap <expr><C-e> neocomplcache#cancel_popup()
-" 
-" "superTab likeなキー
-" "imap <expr><TAB> neocomplcache#sources#snippets_complete#expandable() ? "\<Plug>(neocomplcache_snippets_expand)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-" imap <expr><TAB> neosnippet#expandable() ?
-"  \ "\<Plug>(neosnippet_expand_or_jump)"
-"  \: pumvisible() ? "\<C-n>" : "\<TAB>"
-" smap <expr><TAB> neosnippet#expandable() ?
-"  \ "\<Plug>(neosnippet_expand_or_jump)"
-"  \: "\<TAB>"
-" 
-" " For snippet_complete marker.
-" if has('conceal')
-"   set conceallevel=2 concealcursor=i
-" endif
+"C-k で snippet を展開する
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
 
-
-
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
