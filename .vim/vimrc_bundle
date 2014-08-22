@@ -34,9 +34,9 @@ NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'thinca/vim-qfreplace'
 
 "https://github.com/ujihisa/shadow.vim
-NeoBundle 'ujihisa/shadow.vim'
-NeoBundle 'ujihisa/quicklearn'
-NeoBundle 'ujihisa/unite-rake'
+" NeoBundle 'ujihisa/shadow.vim'
+" NeoBundle 'ujihisa/quicklearn'
+" NeoBundle 'ujihisa/unite-rake'
 
 "https://github.com/basyura/unite-rails
 "NeoBundle 'basyura/unite-rails'
@@ -110,7 +110,7 @@ NeoBundle 'migemo', {'type' : 'nosync', 'base' : '~/.bundle/' }
 NeoBundle 'osyo-manga/unite-highlight'
 NeoBundle 'w0ng/vim-hybrid'
 "NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'kien/ctrlp.vim'
+"NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'heartsentwined/vim-ember-script'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nono/vim-handlebars'
