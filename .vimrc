@@ -13,7 +13,7 @@ source ~/.vim/vimrc_plugins_others
 "tab
 "source ~/.vim/vimrc_tab
 "statusline
-source ~/.vim/vimrc_status
+"source ~/.vim/vimrc_status
 "keybindの設定とか細々したやつ
 source ~/.vim/vimrc_utils
 "tags
@@ -29,7 +29,7 @@ source ~/.vim/vimrc_gitv
 "for git-gutter
 source ~/.vim/vimrc_git_gutter
 
-"source ~/.vim/vimrc_lightline
+source ~/.vim/vimrc_lightline
 
 "source ~/.vim/vimrc_ctrlp
 
