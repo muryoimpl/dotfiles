@@ -109,7 +109,7 @@ NeoBundle 'migemo', {'type' : 'nosync', 'base' : '~/.bundle/' }
 
 NeoBundle 'osyo-manga/unite-highlight'
 NeoBundle 'w0ng/vim-hybrid'
-"NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'itchyny/lightline.vim'
 "NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'heartsentwined/vim-ember-script'
 NeoBundle 'kchmck/vim-coffee-script'
