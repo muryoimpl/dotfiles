@@ -72,3 +72,6 @@ augroup Rake
   autocmd BufWinEnter,BufNewFile *.rake set filetype=ruby
 augroup END
 
+" 保存のtypo防止
+"http://qiita.com/joker1007/items/b878ef310170d3181b06
+command! -nargs=0 -bang Wq wq<bang>
