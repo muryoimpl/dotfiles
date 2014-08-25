@@ -35,6 +35,8 @@ source ~/.vim/vimrc_lightline
 
 source ~/.vim/vimrc_syntastic
 
+source ~/.vim/vimrc_auto_ctags
+
 "カラースキーマを設定
 "colorscheme Tomorrow-Night
 "colorscheme darkblue
