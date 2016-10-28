@@ -1,3 +1,6 @@
+let g:Gitv_OpenHorizontal = 1
+let g:Gitv_WrapLines = 1
+let g:Gitv_OpenPreviewOnLaunch = 1
 " diffを折りたたまない
 autocmd FileType git :setlocal foldlevel=99
 
@@ -26,7 +29,7 @@ function s:my_gitv_settings()
   setlocal iskeyword+=/,-,.
   " branch 上で C を押すとgit checkout "ちなみにrでブランチを移動できる
   nnoremap <silent><buffer> C :<C-u>Git checkout <C-r><C-w><CR>
-  
+
   "利用例
   " nnoremap <buffer> <Space>rb :<C-u>Git rebase <C-r>=GitvGetCurrentHash()<CR><Space>
   " nnoremap <buffer> <Space>R :<C-u>Git revert <C-r>=GitvGetCurrentHash()<CR><CR>
@@ -36,5 +39,3 @@ function s:my_gitv_settings()
   " t で diff viewの全ファイルの折りたたみをtoggle
   nnoremap <silent><buffer> t :<C-u>windo call <SID>toggle_git_folding()<CR>1<C-w>w
 endfunction
-
-

@@ -66,5 +66,8 @@ noremap ;; :
 "タブ表示を常に
 set showtabline=2
 
+" swapの作成場所
+set directory=~/.vim/tmp
+
 "シンタックスハイライトが有効
 syntax enable

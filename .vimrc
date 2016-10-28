@@ -35,7 +35,10 @@ source ~/.vim/vimrc_lightline
 
 source ~/.vim/vimrc_syntastic
 
-source ~/.vim/vimrc_auto_ctags
+"source ~/.vim/vimrc_auto_ctags
+source ~/.vim/vimrc_trailing-whitespace
+
+source ~/.vim/vimrc_simplenote
 
 "カラースキーマを設定
 "colorscheme Tomorrow-Night

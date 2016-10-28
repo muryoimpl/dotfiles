@@ -4,7 +4,7 @@ set nocompatible
 if has('vim_starting')
   set runtimepath+=~/.bundle/neobundle.vim
 endif
-call neobundle#rc(expand('~/.bundle'))
+call neobundle#begin(expand('~/.bundle'))
 let g:neobundle#types#git#default_protocol = 'https'
 
 "https://github.com/tpope
@@ -39,9 +39,9 @@ NeoBundle 'thinca/vim-qfreplace'
 " NeoBundle 'ujihisa/unite-rake'
 
 "https://github.com/basyura/unite-rails
-"NeoBundle 'basyura/unite-rails'
+NeoBundle 'basyura/unite-rails'
 NeoBundle 'basyura/jslint.vim'
-NeoBundle 'muryoimpl/unite-rails'
+"NeoBundle 'muryoimpl/unite-rails'
 
 "https://github.com/vim-ruby/vim-ruby
 NeoBundle 'vim-ruby/vim-ruby'
@@ -117,6 +117,12 @@ NeoBundle 'nono/vim-handlebars'
 NeoBundle 'scrooloose/syntastic'
 
 NeoBundle 'soramugi/auto-ctags.vim'
+
+NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'mrtazz/simplenote.vim'
+NeoBundle 'elixir-lang/vim-elixir'
+
+call neobundle#end()
 
 filetype plugin on
 filetype indent on

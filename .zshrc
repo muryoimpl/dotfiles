@@ -1,22 +1,18 @@
-export CC=/usr/local/bin/gcc-4.2
+# export CC=/usr/local/bin/gcc-4.2
 
 # add zsh packages config path.
 export PGDATA=/usr/local/var/postgres
-#rbenv setting
-# eval "$(rbenv init -)"
 
-export RSENSE_HOME=/opt/rsense-0.3
+export GOPATH=$HOME/gocode
+
+export PATH=$HOME/.exenv/bin:$HOME/.rbenv/bin:$HOME/.nodebrew/bin:$GOPATH/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+eval "$(exenv init -)"
+eval "$(rbenv init -)"
 
 if [[ -f ~/.nodebrew/nodebrew ]]; then
   export PATH=$HOME/.nodebrew/current/bin:$PATH:
-  nodebrew use v0.10.28
+  nodebrew use v4.2.4
 fi
-
-# for oracle
-export ORACLE_HOME=/Users/muryoimpl/opt/oracle
-export PATH=$ORACLE_HOME/bin:$PATH
-export DYLD_LIBRARY_PATH=$ORACLE_HOME/lib
-
 
 ## zsh load
 source /usr/local/share/zsh/site-functions
@@ -25,9 +21,6 @@ source $HOME/.rbenv/completions/rbenv.zsh
 source $HOME/.zsh.d/zshrc
 source $HOME/.zsh.d/pecos
 
-# add zsh plugins to use.
-# load .zsh.d/plugins/*.zsh
-plugins=(git git-flow git-extra gem osx ruby brew bundler node npm rails4 rails3 rake vi-mode )
 bindkey -v
 
 ### alias
@@ -44,3 +37,7 @@ alias ctg='ctags --langmap="Ruby:.rb" --exclude="*.js"  --exclude=".git*" -R .'
 alias be='bundle exec'
 alias bundle='nocorrect bundle'
 alias ghql='cd $(ghq list -p | peco)'
+alias gb='git branch'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
