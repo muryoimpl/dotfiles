@@ -128,7 +128,7 @@ update_prompt()
     #       「...」を太字で緑背景の白文字にする。
     #   %~: カレントディレクトリのフルパス（可能なら「~」で省略する）
     RPROMPT="%{%B%F{white}"
-    
+
     # バージョン管理システムの情報を取得する。
     LANG=C vcs_info >&/dev/null
     # バージョン管理システムの情報があったら右プロンプトに表示する。
@@ -149,42 +149,7 @@ ZSH=$HOME/.zsh.d
 
 # add a function path
 fpath=($ZSH/functions $ZSH/completions $fpath)
-
-# Load all of the config files in ~/oh-my-zsh that end in .zsh
-# TIP: Add files you don't want in git to .gitignore
-for config_file ($ZSH/lib/*.zsh) source $config_file
-
-is_plugin() {
-  local base_dir=$1
-  local name=$2
-  test -f $ZSH/plugins/$name/$name.plugin.zsh \
-    || test -f $ZSH/plugins/$name/_$name
-}
-
-# Add all defined plugins to fpath. This must be done
-# before running compinit.
-for plugin ($plugins); do
-  if is_plugin $ZSH $plugin; then
-    fpath=($ZSH/plugins/$plugin $fpath)
-  fi
-done
-
-# Load all of the plugins that were defined in ~/.zshrc
-for plugin ($plugins); do
-  if [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
-    source $ZSH/plugins/$plugin/$plugin.plugin.zsh
-  fi
-done
 ################################################################
-autoload -Uz url-quote-magic
-zle -N self-insert url-quote-magic
-
-autoload -Uz manydots-magic
-manydots-magic
-
-autoload -Uz git-escape-magic
-git-escape-magic
-
 
 # 補完
 ## 初期化
@@ -333,9 +298,6 @@ esac
 
 #git 
 alias g="git"
-
-#rbenv
-alias rbv="rbenv"
 
 #ctags
 alias ctags='ctags -f .tags'

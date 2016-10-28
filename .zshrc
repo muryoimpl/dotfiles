@@ -7,7 +7,6 @@ export GOPATH=$HOME/gocode
 
 export PATH=$HOME/.exenv/bin:$HOME/.rbenv/bin:$HOME/.nodebrew/bin:$GOPATH/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 eval "$(exenv init -)"
-eval "$(rbenv init -)"
 
 if [[ -f ~/.nodebrew/nodebrew ]]; then
   export PATH=$HOME/.nodebrew/current/bin:$PATH:
@@ -16,7 +15,6 @@ fi
 
 ## zsh load
 source /usr/local/share/zsh/site-functions
-source $HOME/.rbenv/completions/rbenv.zsh
 
 source $HOME/.zsh.d/zshrc
 source $HOME/.zsh.d/pecos
@@ -42,4 +40,5 @@ alias gb='git branch'
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-source $(brew --prefix)/share/antigen/antigen.zsh
+source ~/local/lib/antigen/antigen.zsh
+antigen bundle sorin-ionescu/prezto
