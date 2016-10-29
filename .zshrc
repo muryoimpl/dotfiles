@@ -5,12 +5,14 @@ export PGDATA=/usr/local/var/postgres
 
 export GOPATH=$HOME/gocode
 
-export PATH=$HOME/.exenv/bin:$HOME/.rbenv/bin:$HOME/.nodebrew/bin:$GOPATH/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+export PATH=$HOME/.nodenv/bin:$HOME/.exenv/bin:$HOME/.rbenv/bin:$GOPATH/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 eval "$(exenv init -)"
+eval "$(nodenv init -)"
 
-if [[ -f ~/.nodebrew/nodebrew ]]; then
-  export PATH=$HOME/.nodebrew/current/bin:$PATH:
-  nodebrew use v4.2.4
+if [[ -f ~/.nodenv/bin/nodenv ]]; then
+  node_version=6.9.1
+  export NODENV_VERSION=${node_version}
+  echo "node version: $node_version"
 fi
 
 ## zsh load
