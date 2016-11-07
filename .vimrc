@@ -43,6 +43,7 @@ source ~/.vim/vimrc_simplenote
 "カラースキーマを設定
 "colorscheme Tomorrow-Night
 "colorscheme darkblue
+set background=dark
 colorscheme hybrid
 
 
