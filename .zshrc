@@ -1,9 +1,9 @@
 # export CC=/usr/local/bin/gcc-4.2
 
 # add zsh packages config path.
-export PGDATA=/usr/local/var/postgres
+# export PGDATA=/usr/local/var/postgres
 
-export GOPATH=$HOME/gocode
+export GOPATH=$HOME/go
 
 export PATH=$HOME/.nodenv/bin:$HOME/.exenv/bin:$HOME/.rbenv/bin:$GOPATH/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 eval "$(exenv init -)"
@@ -16,7 +16,7 @@ if [[ -f ~/.nodenv/bin/nodenv ]]; then
 fi
 
 ## zsh load
-source /usr/local/share/zsh/site-functions
+source /usr/share/zsh/site-functions
 
 source $HOME/.zsh.d/zshrc
 source $HOME/.zsh.d/pecos
@@ -38,9 +38,10 @@ alias be='bundle exec'
 alias bundle='nocorrect bundle'
 alias ghql='cd $(ghq list -p | peco)'
 alias gb='git branch'
+alias tmux='TERM=xterm-256color tmux'
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+# export PATH="/usr/local/heroku/bin:$PATH"
 
-source ~/local/lib/antigen/antigen.zsh
+source ~/.ghq/github.com/zsh-users/antigen/antigen.zsh
 antigen bundle sorin-ionescu/prezto
