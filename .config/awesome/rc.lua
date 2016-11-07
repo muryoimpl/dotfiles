@@ -289,7 +289,7 @@ vicious.register(batwidget0, vicious.widgets.bat,
     local status = args[1]
     local status_str = ''
 
-    if status == "+" then
+    if status == "⌁" then
       status_str = "<span weight='bold' color='#00CC00'>充</span>"
     end
 
@@ -316,24 +316,27 @@ vicious.register(batwidget1, vicious.widgets.bat,
   end,
   10, "BAT1")
 
--- wifiwidget = wibox.widget.textbox()
--- wifitooltip = awful.tooltip({})
--- wifitooltip:add_to_object(wifiwidget)
--- vicious.register(wifiwidget, vicious.widgets.wifi,
---   function(widget, args)
---     local ssid    = args["{ssid}"]
---     local label   = '未接続'
---     local color   = '#CC0000'
+--wifiwidget = wibox.widget.textbox()
+--wifitooltip = awful.tooltip({})
+--wifitooltip:add_to_object(wifiwidget)
+--vicious.register(wifiwidget, vicious.widgets.wifi,
+--  function(widget, args)
+--    local ssid    = args["{ssid}"]
+--    local label   = '未接続'
+--    local color   = '#CC0000'
 --
---     if ssid ~= 'N/A' then
+--    if ssid ~= 'N/A' then
 --      label = '接続'
 --      color = "#009FE5"
 --      wifitooltip:set_text('SSID: '..ssid)
 --    end
+--
+--   return ("Wifi:<span color='%s'>%s</span>|"):format(color, label)
+-- end,
+-- 3, "wlp4s0")
+--
 
---    return ("Wifi:<span color='%s'>%s</span>|"):format(color, label)
---  end,
---  1, "wlp3s0")
+
 
 lanwidget = wibox.widget.textbox()
 lantooltip = awful.tooltip({})
@@ -357,7 +360,7 @@ vicious.register(lanwidget, vicious.widgets.net,
   1, "ens9")
 
 datewidget = wibox.widget.textbox()
-vicious.register(datewidget, vicious.widgets.date, "%Y-%m-%d(%a) %R", 60)
+vicious.register(datewidget, vicious.widgets.date, "|".."%Y-%m-%d(%a) %R", 60)
 -- }}}
 --
 for s = 1, screen.count() do
@@ -398,6 +401,12 @@ for s = 1, screen.count() do
     --}}
     -- right_layout:add(mytextclock)
     -- {{
+    local net_widgets = require("net_widgets")
+    net_wireless = net_widgets.wireless({
+      interface = "wlp4s0",
+      timeout = 5,
+    })
+    right_layout:add(net_wireless)
     -- right_layout:add(wifiwidget)
     right_layout:add(lanwidget)
     right_layout:add(datewidget)
