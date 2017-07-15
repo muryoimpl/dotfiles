@@ -42,7 +42,7 @@ end
 -- {{{ synclient
 
 function run_once(prg)
-  awful.util.spawn_with_shell("pgrep -u $USER -x" ..prg.. "||("..prg..")")
+  awful.util.spawn_with_shell("pgrep -u $USER -x " .. prg .. " || (" .. prg .. ")")
 end
 
 do
@@ -52,9 +52,10 @@ do
     -- "synclient RBCornerButton=1",
     -- "synclient TapButton2=3",
     -- "gnome-keyring-daemon --start",
-    "dropbox",
+    "dropbox-cli start",
     "xscreensaver -nosplash",
-    "albert"
+    -- "albert",
+    "parcellite"
     -- "slack",
     -- "gnome-do",
     -- "conky -d"
@@ -62,6 +63,7 @@ do
   }
 
   for _,i in pairs(cmds) do
+    -- awful.util.spawn(i)
     run_once(i)
   end
 end
@@ -87,11 +89,12 @@ editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod4"
 
 awful.layout.layouts = {
-    awful.layout.suit.floating,
+    awful.layout.suit.fair,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
+    -- awful.layout.suit.floating,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
@@ -347,10 +350,10 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
+            batwidget0,
             cpuwidget,
             memwidget,
             wifiwidget,
-            batwidget0,
             datewidget,
             s.mylayoutbox,
         },
@@ -464,7 +467,10 @@ globalkeys = awful.util.table.join(
               {description = "lua execute prompt", group = "awesome"}),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+              {description = "show the menubar", group = "launcher"}),
+
+    -- screenshots
+    awful.key( { }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'") end)
 )
 
 clientkeys = awful.util.table.join(
@@ -496,7 +502,13 @@ clientkeys = awful.util.table.join(
             c.maximized = not c.maximized
             c:raise()
         end ,
-        {description = "maximize", group = "client"})
+        {description = "maximize", group = "client"}),
+
+    -- add
+    awful.key({ modkey, "Shift"   }, "h",      function (c) c.maximized_horizontal = false end,
+              {description = "de-miximize horizontal", group = "client"}),
+    awful.key({ modkey, "Shift"   }, "v",      function (c) c.maximized_vertical = false end,
+              {description = "de-maximize vertical", group = "client"})
 )
 
 -- Bind all key numbers to tags.
@@ -577,32 +589,35 @@ awful.rules.rules = {
     -- Floating clients.
     { rule_any = {
         instance = {
-          "DTA",  -- Firefox addon DownThemAll.
-          "copyq",  -- Includes session name in class.
+          -- "DTA",  -- Firefox addon DownThemAll.
+          -- "copyq",  -- Includes session name in class.
         },
         class = {
           "Arandr",
-          "Gpick",
-          "Kruler",
-          "MessageWin",  -- kalarm.
-          "Sxiv",
-          "Wpa_gui",
-          "pinentry",
-          "veromix",
-          "xtightvncviewer"},
+          -- "Gpick",
+          -- "Kruler",
+          -- "MessageWin",  -- kalarm.
+          -- "Sxiv",
+          -- "Wpa_gui",
+          -- "pinentry",
+          -- "veromix",
+          -- "xtightvncviewer"
+        },
 
         name = {
-          "Event Tester",  -- xev.
+          -- "Event Tester",  -- xev.
         },
         role = {
-          "AlarmWindow",  -- Thunderbird's calendar.
-          "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
+          -- "AlarmWindow",  -- Thunderbird's calendar.
+          -- "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
-      }, properties = { floating = true }},
+      -- }, properties = { floating = true }},
+      }, properties = { floating = false }},
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      -- }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -642,30 +657,30 @@ client.connect_signal("request::titlebars", function(c)
         end)
     )
 
-    -- awful.titlebar(c) : setup {
-        -- { -- Left
-        --     awful.titlebar.widget.iconwidget(c),
-        --     buttons = buttons,
-        --     layout  = wibox.layout.fixed.horizontal
-        -- },
-        -- { -- Middle
-        --     { -- Title
-        --         align  = "center",
-        --         widget = awful.titlebar.widget.titlewidget(c)
-        --     },
-        --     buttons = buttons,
-        --     layout  = wibox.layout.flex.horizontal
-        -- },
-        -- { -- Right
-        --     awful.titlebar.widget.floatingbutton (c),
-        --     awful.titlebar.widget.maximizedbutton(c),
-        --     awful.titlebar.widget.stickybutton   (c),
-        --     awful.titlebar.widget.ontopbutton    (c),
-        --     awful.titlebar.widget.closebutton    (c),
-        --     layout = wibox.layout.fixed.horizontal()
-        -- },
-        -- layout = wibox.layout.align.horizontal
-    -- }
+    awful.titlebar(c) : setup {
+        { -- Left
+            awful.titlebar.widget.iconwidget(c),
+            buttons = buttons,
+            layout  = wibox.layout.fixed.horizontal
+        },
+        { -- Middle
+            { -- Title
+                align  = "center",
+                widget = awful.titlebar.widget.titlewidget(c)
+            },
+            buttons = buttons,
+            layout  = wibox.layout.flex.horizontal
+        },
+        { -- Right
+            awful.titlebar.widget.floatingbutton (c),
+            awful.titlebar.widget.maximizedbutton(c),
+            awful.titlebar.widget.stickybutton   (c),
+            awful.titlebar.widget.ontopbutton    (c),
+            awful.titlebar.widget.closebutton    (c),
+            layout = wibox.layout.fixed.horizontal()
+        },
+        layout = wibox.layout.align.horizontal
+    }
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
