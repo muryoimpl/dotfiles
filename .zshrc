@@ -41,6 +41,8 @@ alias bundle='nocorrect bundle'
 alias ghql='cd $(ghq list -p | peco)'
 alias gb='git branch'
 alias tmux='TERM=xterm-256color tmux'
+alias gsed='sed'
+alias syua='yaourt -Syua'
 
 ### Added by the Heroku Toolbelt
 # export PATH="/usr/local/heroku/bin:$PATH"
