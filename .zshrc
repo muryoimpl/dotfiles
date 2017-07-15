@@ -4,10 +4,12 @@
 # export PGDATA=/usr/local/var/postgres
 
 export GOPATH=$HOME/go
+export GOENV_ROOT="$HOME/.goenv"
 
-export PATH=$HOME/.nodenv/bin:$HOME/.exenv/bin:$HOME/.rbenv/bin:$GOPATH/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+export PATH=$GOENV_ROOT/shims:$GOENV_ROOT/bin:$HOME/.nodenv/bin:$HOME/.exenv/bin:$HOME/.rbenv/bin:$GOPATH/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 eval "$(exenv init -)"
 eval "$(nodenv init -)"
+eval "$(goenv init -)"
 
 if [[ -f ~/.nodenv/bin/nodenv ]]; then
   node_version=6.9.1
@@ -42,6 +44,8 @@ alias tmux='TERM=xterm-256color tmux'
 
 ### Added by the Heroku Toolbelt
 # export PATH="/usr/local/heroku/bin:$PATH"
+
+source ~/.goenv/completions/goenv.zsh
 
 source ~/.ghq/github.com/zsh-users/antigen/antigen.zsh
 antigen bundle sorin-ionescu/prezto
