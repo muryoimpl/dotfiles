@@ -34,9 +34,12 @@ set splitright
 set splitbelow
 
 "クリップボードをOSと連携
-"set clipboard+=unnamed
+set clipboard&
+set clipboard^=unnamedplus
 "set clipboard+=autoselect
-set clipboard+=unnamedplus
+"set clipboard+=unnamedplus
+"set clipboard=unnamedplus
+set guioptions=aA
 
 " 記号文字の表示がおかしくならないように
 set ambiwidth=double
