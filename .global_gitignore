@@ -156,3 +156,5 @@ bower_components
 ### SVN ###
 .svn/
 
+
+.git/**/*
