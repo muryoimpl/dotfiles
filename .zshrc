@@ -11,11 +11,11 @@ eval "$(exenv init -)"
 eval "$(nodenv init -)"
 eval "$(goenv init -)"
 
-if [[ -f ~/.nodenv/bin/nodenv ]]; then
-  node_version=6.9.1
-  export NODENV_VERSION=${node_version}
-  echo "node version: $node_version"
-fi
+# if [[ -f ~/.nodenv/bin/nodenv ]]; then
+#   node_version=6.9.1
+#   export NODENV_VERSION=${node_version}
+#   echo "node version: $node_version"
+# fi
 
 ## zsh load
 source /usr/share/zsh/site-functions
