@@ -43,6 +43,7 @@ alias gb='git branch'
 alias tmux='TERM=xterm-256color tmux'
 alias gsed='sed'
 alias syua='yaourt -Syua'
+alias history-all='history -E 1'
 
 ### Added by the Heroku Toolbelt
 # export PATH="/usr/local/heroku/bin:$PATH"
