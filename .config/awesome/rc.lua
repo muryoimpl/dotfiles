@@ -276,7 +276,7 @@ vicious.register(memwidget, vicious.widgets.mem,
 wifiwidget = wibox.widget.textbox()
 wifitooltip = awful.tooltip({})
 wifitooltip:add_to_object(wifiwidget)
-vicious.register(wifiwidget, vicious.widgets.wifi,
+vicious.register(wifiwidget, vicious.widgets.wifiiw,
   function(widget, args)
     local ssid    = args["{ssid}"]
     local label   = '未接続'
