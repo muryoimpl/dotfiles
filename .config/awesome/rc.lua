@@ -53,7 +53,7 @@ do
     -- "synclient TapButton2=3",
     -- "gnome-keyring-daemon --start",
     "dropbox-cli start",
-    "xscreensaver -nosplash",
+    "xscreensaver -no-splash",
     -- "albert",
     "parcellite"
     -- "slack",
