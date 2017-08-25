@@ -471,6 +471,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
 
+    -- lock screen
+    awful.key({ modkey, "Control" }, "Delete", function() awful.util.spawn_with_shell("xscreensaver-command -activate") end),
+
     -- screenshots
     awful.key( { }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'") end)
 )
