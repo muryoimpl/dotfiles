@@ -1,0 +1,28 @@
+[push]
+  simple
+[user]
+  name = muryoimpl
+  email = muryoimpl@gmail.com
+[core]
+  excludesfile = /home/muryoimpl/.global_gitignore
+  pager = less
+  # pager = lv -c
+  editor = vim
+  precomposeunicode = true
+  quotepath = false
+[pull]
+  rebase = true
+[alias]
+  l  = log
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  amn = commit --amend --no-edit
+  b = branch
+
+[color "diff"]
+  meta = cyan
+
+#[pager]
+#  log  = diff-highlight | lv
+#  show = diff-highlight | lv
+#  diff = diff-highlight | lv
