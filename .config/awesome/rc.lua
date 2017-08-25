@@ -143,7 +143,9 @@ menu_items = freedesktop.menu.new()
 table.insert(menu_items, { "awesome", myawesomemenu, beautiful.awesome_icon })
 table.insert(menu_items, { "open terminal", terminal, freedesktop.utils.lookup_icon({icon = 'terminal'}) })
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+mymainmenu = awful.menu({ items = {
+                                    { "lock", "xscreensaver-command -activate" },
+                                    { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     { "Applications",  menu_items },
                                     { "Nautilus", 'nautilus' },
                                     { "open terminal", terminal }
