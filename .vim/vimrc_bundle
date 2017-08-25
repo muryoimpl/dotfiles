@@ -19,19 +19,19 @@ NeoBundle 'tpope/vim-markdown'
 
 "https://github.com/Shougo
 NeoBundle 'Shougo/vimproc', { 'build' : {
-      \   'mac' : 'make -f make_mac.mak',
+      \   'mac' : 'make -f make_unix.mak',
       \   }, 
       \ }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplete'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimfiler'
+"NeoBundle 'Shougo/neosnippet'
+"NeoBundle 'Shougo/vimshell'
+"NeoBundle 'Shougo/vimfiler'
 
 "https://github.com/thinca/
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-unite-history'
-NeoBundle 'thinca/vim-qfreplace'
+"NeoBundle 'thinca/vim-quickrun'
+"NeoBundle 'thinca/vim-unite-history'
+"NeoBundle 'thinca/vim-qfreplace'
 
 "https://github.com/ujihisa/shadow.vim
 " NeoBundle 'ujihisa/shadow.vim'
@@ -40,7 +40,7 @@ NeoBundle 'thinca/vim-qfreplace'
 
 "https://github.com/basyura/unite-rails
 NeoBundle 'basyura/unite-rails'
-NeoBundle 'basyura/jslint.vim'
+"NeoBundle 'basyura/jslint.vim'
 "NeoBundle 'muryoimpl/unite-rails'
 
 "https://github.com/vim-ruby/vim-ruby
@@ -48,7 +48,7 @@ NeoBundle 'vim-ruby/vim-ruby'
 "https://github.com/chrismetcalf/
 NeoBundle 'chrismetcalf/vim-yankring'
 "https://github.com/kchmck/vim-coffee-script
-NeoBundle 'kchmck/vim-coffee-script'
+"NeoBundle 'kchmck/vim-coffee-script'
 "https://github.com/othree/html5.vim
 NeoBundle 'othree/html5.vim'
 "https://github.com/hokaccha/vim-html5validator
@@ -120,7 +120,7 @@ NeoBundle 'soramugi/auto-ctags.vim'
 
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'mrtazz/simplenote.vim'
-NeoBundle 'elixir-lang/vim-elixir'
+"NeoBundle 'elixir-lang/vim-elixir'
 
 call neobundle#end()
 
