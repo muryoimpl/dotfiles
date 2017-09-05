@@ -51,5 +51,7 @@ alias hist='$(history -n 1 | peco)'
 
 source ~/.goenv/completions/goenv.zsh
 
-source ~/.ghq/github.com/zsh-users/antigen/antigen.zsh
-antigen bundle sorin-ionescu/prezto
+# source ~/.ghq/github.com/zsh-users/antigen/antigen.zsh
+source ~/.zplug/init.zsh
+zplug "sorin-ionescu/prezto"
+zplug load --verbose
