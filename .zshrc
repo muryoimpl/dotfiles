@@ -3,6 +3,10 @@
 # add zsh packages config path.
 # export PGDATA=/usr/local/var/postgres
 
+### Added by the Heroku Toolbelt
+# export PATH="/usr/local/heroku/bin:$PATH"
+
+# for golang
 export GOPATH=$HOME/go
 export GOENV_ROOT="$HOME/.goenv"
 
@@ -19,9 +23,15 @@ eval "$(goenv init -)"
 
 ## zsh load
 source /usr/share/zsh/site-functions
+source ~/.goenv/completions/goenv.zsh
 
 source $HOME/.zsh.d/zshrc
 source $HOME/.zsh.d/pecos
+
+# for zplug
+source ~/.zplug/init.zsh
+zplug "sorin-ionescu/prezto"
+zplug load --verbose
 
 bindkey -v
 
@@ -45,13 +55,3 @@ alias gsed='sed'
 alias syua='yaourt -Syua'
 alias history-all='history -E 1'
 alias hist='$(history -n 1 | peco)'
-
-### Added by the Heroku Toolbelt
-# export PATH="/usr/local/heroku/bin:$PATH"
-
-source ~/.goenv/completions/goenv.zsh
-
-# source ~/.ghq/github.com/zsh-users/antigen/antigen.zsh
-source ~/.zplug/init.zsh
-zplug "sorin-ionescu/prezto"
-zplug load --verbose
