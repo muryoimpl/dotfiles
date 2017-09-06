@@ -1,0 +1,15 @@
+"/usr/bin/xbacklight -dec 5"
+    m:0x4 + c:71
+    Control + XF86MonBrightnessDown
+
+"/usr/bin/xbacklight -inc 5"
+    m:0x4 + c:72
+    Control + XF86MonBrightnessUp
+
+"/usr/bin/amixer sset Master 5%-"
+    m:0x4 + c:122
+    Control + XF86AudioLowerVolume
+
+"/usr/bin/amixer sset Master 5%+"
+    m:0x4 + c:123
+    Control + XF86AudioRaiseVolume
