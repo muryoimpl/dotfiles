@@ -1,0 +1,11 @@
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+fcitx &
+
+xbindkeys -f ~/.xbindkeys
+
+xbacklight -set 30
+
+~/.screenlayout/just_fit.sh
