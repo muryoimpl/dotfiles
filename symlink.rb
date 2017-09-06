@@ -1,6 +1,6 @@
 require 'fileutils'
 
-IGNORE_FILES = %w(. .. .DS_Store .git)
+IGNORE_FILES = %w(. .. .DS_Store .git .config)
 
 current_dir = Dir.pwd
 
