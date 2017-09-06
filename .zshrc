@@ -11,6 +11,7 @@ export GOPATH=$HOME/go
 export GOENV_ROOT="$HOME/.goenv"
 
 export PATH=$GOENV_ROOT/shims:$GOENV_ROOT/bin:$HOME/.nodenv/bin:$HOME/.exenv/bin:$HOME/.rbenv/bin:$GOPATH/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+eval "$(rbenv init -)"
 eval "$(exenv init -)"
 eval "$(nodenv init -)"
 eval "$(goenv init -)"
@@ -29,7 +30,7 @@ source $HOME/.zsh.d/zshrc
 source $HOME/.zsh.d/pecos
 
 # for zplug
-source ~/.zplug/init.zsh
+source ~/.ghq/github.com/zplug/zplug/init.zsh
 zplug "sorin-ionescu/prezto"
 zplug load --verbose
 
