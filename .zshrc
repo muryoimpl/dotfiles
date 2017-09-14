@@ -35,6 +35,7 @@ zplug "sorin-ionescu/prezto"
 zplug load --verbose
 
 bindkey -v
+stty stop undef
 
 ### alias
 alias gst='git status'
