@@ -15,7 +15,7 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-git'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-markdown'
+"NeoBundle 'tpope/vim-markdown'
 
 "https://github.com/Shougo
 NeoBundle 'Shougo/vimproc', { 'build' : {
