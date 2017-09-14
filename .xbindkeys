@@ -13,3 +13,11 @@
 "/usr/bin/amixer sset Master 5%+"
     m:0x4 + c:123
     Control + XF86AudioRaiseVolume
+
+"/usr/bin/amixer sset Master off
+    m:0x4 + c:67
+    Control + F1
+
+"/usr/bin/amixer sset Master on
+    m:0x4 + c:9
+    Control + Escape
