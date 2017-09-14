@@ -54,9 +54,11 @@ do
     -- "gnome-keyring-daemon --start",
     "dropbox-cli start",
     "xscreensaver -no-splash",
-    -- "albert",
-    "parcellite"
-    -- "slack",
+    "atom",
+    "parcellite",
+    "franz-bin",
+    "terminator",
+    "google-chrome-stable",
     -- "gnome-do",
     -- "conky -d"
     --"clipit"
@@ -628,6 +630,15 @@ awful.rules.rules = {
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
+    { rule = { class = "Terminator" },
+      properties = { screen = 1, tag = "1" } },
+    { rule = { class = "Google-chrome" },
+      properties = { screen = 1, tag = "2" } },
+    { rule = { class = "Atom" },
+      properties = { screen = 1, tag = "3" } },
+    { rule = { class = "Franz" },
+      properties = { screen = 1, tag = "4" } },
+
 }
 -- }}}
 
