@@ -14,10 +14,10 @@
     m:0x4 + c:123
     Control + XF86AudioRaiseVolume
 
-"/usr/bin/amixer sset Master off
+"~/local/bin/mute.sh"
     m:0x4 + c:67
     Control + F1
 
-"/usr/bin/amixer sset Master on
+"~/local/bin/unmute.sh"
     m:0x4 + c:9
     Control + Escape

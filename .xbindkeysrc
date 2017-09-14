@@ -66,6 +66,14 @@
   m:0x4 + c:69
   Control + XF86AudioRaiseVolume
 
+"/usr/bin/amixer sset Master off; /usr/bin/amixer sset Speaker off"
+    m:0x4 + c:67
+    Control + F1
+
+"/usr/bin/amixer sset Master on; /usr/bin/amixer sset Speaker on"
+    m:0x4 + c:9
+    Control + Escape
+
 #"xterm -geom 50x20+20+20"
 #   Shift+Mod2+alt + s
 #
