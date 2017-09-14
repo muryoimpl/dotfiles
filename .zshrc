@@ -16,6 +16,7 @@ eval "$(exenv init -)"
 eval "$(nodenv init -)"
 eval "$(goenv init -)"
 
+eval "$(direnv hook zsh)"
 # if [[ -f ~/.nodenv/bin/nodenv ]]; then
 #   node_version=6.9.1
 #   export NODENV_VERSION=${node_version}
