@@ -307,7 +307,7 @@ vicious.register(batwidget0, vicious.widgets.bat,
       status_str = "<span weight='bold' color='#00CC00'>充</span>"
     end
 
-    return status_str .. "BAT:" .. decorate_percent_str(args[2] + 0)
+    return status_str .. "🦇:" .. decorate_percent_str(args[2] + 0)
   end,
   10, "BAT0")
 
