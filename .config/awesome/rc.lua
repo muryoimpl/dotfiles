@@ -478,7 +478,7 @@ globalkeys = awful.util.table.join(
 
     -- screenshots
     awful.key( { }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'") end),
-    awful.key( { modkey }, "Print", function () awful.util.spawn_with_shell("sleep 0.5 && scrot -s") end)
+    awful.key( { modkey }, "Print", function () awful.util.spawn_with_shell("sleep 0.5 && scrot -s '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/screenshots/ 2>/dev/null'") end)
 )
 
 clientkeys = awful.util.table.join(
