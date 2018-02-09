@@ -23,6 +23,13 @@ eval "$(direnv hook zsh)"
 #   echo "node version: $node_version"
 # fi
 
+export GOROOT=''
+
+# for Android
+# export JAVA_HOME=/usr/lib/jvm/default
+# export ANDROID_HOME=$HOME/Android/Sdk
+# export PATH=$ANDROID_HOME/build-tools:$ANDROID_HOME/platforms:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$PATH
+
 ## zsh load
 source /usr/share/zsh/site-functions
 source ~/.goenv/completions/goenv.zsh
