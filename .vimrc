@@ -55,4 +55,4 @@ set cursorline
 :hi CursorLine ctermbg=DarkBlue guibg=DarkBlue
 
 " font
-set guifont=Ricty:h16
+set guifont=Noto\ Mono\ Regular:h16
