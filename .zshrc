@@ -65,3 +65,10 @@ alias gsed='sed'
 alias syua='yaourt -Syua'
 alias history-all='history -E 1'
 alias hist='$(history -n 1 | peco)'
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/muryoimpl/work/esm/MCDP_related/stacc-updater/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/muryoimpl/work/esm/MCDP_related/stacc-updater/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/muryoimpl/work/esm/MCDP_related/stacc-updater/node_modules/tabtab/.completions/sls.zsh ]] && . /home/muryoimpl/work/esm/MCDP_related/stacc-updater/node_modules/tabtab/.completions/sls.zsh
