@@ -18,6 +18,8 @@
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   amn = commit --amend --no-edit
   b = branch
+  co = checkout
+  cm = commit --verbose
 
 [color "diff"]
   meta = cyan
