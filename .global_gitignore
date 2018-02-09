@@ -13,7 +13,8 @@ rdoc
 spec/reports
 test/tmp
 test/version_tmp
-tmp
+tmp/**/*.*
+!.rubocop.yml
 
 # YARD artifacts
 .yardoc
@@ -51,7 +52,7 @@ capybara-*.html
 /vendor/bundle
 /vendor/*
 /log/*
-/tmp/*
+tmp/**/*.*
 /db/*.sqlite3
 /public/system/*
 /coverage/
@@ -62,6 +63,7 @@ pickle-email-*.html
 .project
 !.keep
 /config/database.*
+!.rubocop.yml
 
 
 ### SASS ###
