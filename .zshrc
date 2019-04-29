@@ -61,9 +61,6 @@ alias hist='$(history -n 1 | peco)'
 alias peco='TERM=xterm peco'
 alias gbc='git checkout $(git branch | peco)'
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/muryoimpl/work/esm/MCDP_related/stacc-updater/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/muryoimpl/work/esm/MCDP_related/stacc-updater/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/muryoimpl/work/esm/MCDP_related/stacc-updater/node_modules/tabtab/.completions/sls.zsh ]] && . /home/muryoimpl/work/esm/MCDP_related/stacc-updater/node_modules/tabtab/.completions/sls.zsh
+ if [[ -f ~/local/work.zsh ]]; then
+   source ~/local/work.zsh
+ fi
