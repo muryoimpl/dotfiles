@@ -10,9 +10,7 @@
 export GOPATH=$HOME/go
 export GOENV_ROOT="$HOME/.goenv"
 
-export PATH=/opt/google-cloud-sdk/bin:$GOENV_ROOT/shims:$GOENV_ROOT/bin:$HOME/.nodenv/bin:$HOME/.rbenv/bin:$GOPATH/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 eval "$(rbenv init -)"
-# eval "$(exenv init -)"
 eval "$(nodenv init -)"
 eval "$(goenv init -)"
 
@@ -24,11 +22,6 @@ eval "$(direnv hook zsh)"
 # fi
 
 export GOROOT=''
-
-# for Android
-# export JAVA_HOME=/usr/lib/jvm/default
-# export ANDROID_HOME=$HOME/Android/Sdk
-# export PATH=$ANDROID_HOME/build-tools:$ANDROID_HOME/platforms:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$PATH
 
 ## zsh load
 source /usr/share/zsh/site-functions
