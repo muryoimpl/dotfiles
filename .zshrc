@@ -55,9 +55,11 @@ alias ghql='cd $(ghq list -p | peco)'
 alias gb='git branch'
 alias tmux='TERM=xterm-256color tmux'
 alias gsed='sed'
-alias syua='yaourt -Syua'
+alias syua='yay -Syu'
 alias history-all='history -E 1'
 alias hist='$(history -n 1 | peco)'
+alias peco='TERM=xterm peco'
+alias gbc='git checkout $(git branch | peco)'
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
