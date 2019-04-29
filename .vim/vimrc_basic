@@ -34,7 +34,7 @@ set splitright
 set splitbelow
 
 "クリップボードをOSと連携
-" set clipboard&
+set clipboard&
 set clipboard^=unnamedplus
 "set clipboard+=autoselect
 "set clipboard+=unnamedplus
