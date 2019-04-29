@@ -52,7 +52,7 @@ colorscheme hybrid
 
 set cursorline
 :hi CursorLine gui=underline cterm=underline
-:hi CursorLine ctermbg=DarkBlue guibg=DarkBlue
-
+" :hi CursorLine ctermbg=DarkBlue guibg=DarkBlue
+" :hi CursorLine ctermbg=60 guibg=#5F5F87
 " font
 set guifont=Noto\ Mono\ Regular:h16
