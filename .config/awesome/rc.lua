@@ -483,6 +483,9 @@ globalkeys = awful.util.table.join(
     -- lock screen
     awful.key({ modkey, "Control" }, "Delete", function() awful.util.spawn_with_shell("xscreensaver-command -activate") end),
 
+    -- launch rofi
+    awful.key( { modkey }, 'o', function() awful.util.spawn_with_shell("rofi_cmd.sh") end),
+
     -- screenshots
     awful.key( { }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'") end),
     awful.key( { modkey }, "Print", function () awful.util.spawn_with_shell("sleep 0.5 && scrot -s '%Y-%m-%d_$wx$h_scrot.png' -e 'mv $f ~/screenshots/ 2>/dev/null'") end)
