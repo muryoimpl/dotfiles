@@ -59,13 +59,13 @@ do
     "xscreensaver -no-splash",
     "code",
     "parcellite",
-    "franz",
+    -- "franz",
     "terminator",
     "google-chrome-stable",
     "redshift-gtk",
-    "pavucontrol",
+    -- "pavucontrol",
     "nm-applet",
-    "albert",
+    -- "albert",
     -- "gnome-do",
     -- "conky -d"
     --"clipit"
