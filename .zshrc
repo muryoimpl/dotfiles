@@ -5,7 +5,7 @@
 
 ### Added by the Heroku Toolbelt
 # export PATH="/usr/local/heroku/bin:$PATH"
-export TERMINAL=terminator
+export TERMINAL=tilix
 
 # for golang
 export GOPATH=$HOME/go
@@ -14,18 +14,13 @@ export GOENV_ROOT="$HOME/.goenv"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
-export PATH=/opt/google-cloud-sdk/bin:$GOENV_ROOT/shims:$GOENV_ROOT/bin:$HOME/.nodenv/bin:$HOME/.exenv/bin:$HOME/.rbenv/bin:$GOPATH/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+export PATH=$GOENV_ROOT/shims:$GOENV_ROOT/bin:$HOME/.nodenv/bin:$HOME/.rbenv/bin:$GOPATH/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 eval "$(goenv init -)"
 eval "$(pyenv init -)"
 eval "$(direnv hook zsh)"
-# if [[ -f ~/.nodenv/bin/nodenv ]]; then
-#   node_version=6.9.1
-#   export NODENV_VERSION=${node_version}
-#   echo "node version: $node_version"
-# fi
 
 export GOROOT=''
 
