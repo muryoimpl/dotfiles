@@ -51,24 +51,16 @@ end
 do
   local cmds =
   {
-    -- "synclient VertScrollDelta=-111",
-    -- "synclient RBCornerButton=1",
-    -- "synclient TapButton2=3",
-    -- "gnome-keyring-daemon --start",
     "dropbox-cli start",
     "xscreensaver -no-splash",
     "code",
     "parcellite",
     -- "franz",
-    "terminator",
+    "tilix",
     "google-chrome-stable",
     "redshift-gtk",
     -- "pavucontrol",
     "nm-applet",
-    -- "albert",
-    -- "gnome-do",
-    -- "conky -d"
-    --"clipit"
   }
 
   for _,i in pairs(cmds) do
@@ -85,8 +77,7 @@ beautiful.init("~/.config/awesome/themes/default/theme.lua")
 -- beautiful.init(awful.util.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
---terminal = "gnome-terminal"
-terminal = "terminator"
+terminal = "tilix"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -484,7 +475,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "Delete", function() awful.util.spawn_with_shell("xscreensaver-command -activate") end),
 
     -- launch rofi
-    awful.key( { modkey }, 'o', function() awful.util.spawn_with_shell("rofi_cmd.sh") end),
+    awful.key( { modkey }, '[', function() awful.util.spawn_with_shell("rofi_cmd.sh") end),
 
     -- screenshots
     awful.key( { }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/screenshots/ 2>/dev/null'") end),
