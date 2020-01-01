@@ -27,19 +27,19 @@ inoremap , ,<Space>
 "inoremap ' ''<LEFT>
 
 "閉じカッコを自動挿入
-inoremap ( ()<ESC>i
-inoremap <expr> ) ClosePairs(')')
-inoremap { {}<ESC>i
-inoremap <expr> } ClosePairs('}')
-inoremap [ []<ESC>i
-inoremap <expr> ] ClosePairs(']')
-function! ClosePairs(char)
-  if getline('.')[col('.') - 1] == a:char
-    return "\<Right>"
-  else
-    return a:char
-  endif
-endfunction!
+" inoremap ( ()<ESC>i
+" inoremap <expr> ) ClosePairs(')')
+" inoremap { {}<ESC>i
+" inoremap <expr> } ClosePairs('}')
+" inoremap [ []<ESC>i
+" inoremap <expr> ] ClosePairs(']')
+" function! ClosePairs(char)
+"   if getline('.')[col('.') - 1] == a:char
+"     return "\<Right>"
+"   else
+"     return a:char
+"   endif
+" endfunction!
 
 " Window分割のリサイズ
 nnoremap <silent> <S-Left>  :5wincmd <<CR>
