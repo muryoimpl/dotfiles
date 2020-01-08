@@ -32,7 +32,7 @@ source $HOME/.zsh.d/zshrc
 source $HOME/.zsh.d/pecos
 
 # for zplug
-source ~/.ghq/github.com/zplug/zplug/init.zsh
+source ~/ghq/github.com/zplug/zplug/init.zsh
 zplug "sorin-ionescu/prezto"
 zplug load --verbose
 
