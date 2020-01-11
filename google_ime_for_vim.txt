@@ -1,6 +1,0 @@
-DirectInput  Escape  CancelAndIMEOff
-Precomposition  Escape  CancelAndIMEOff
-Composition  Escape  CancelAndIMEOff
-Conversion  Escape  CancelAndIMEOff
-Suggestions  Escape  CancelAndIMEOff
-Prediction  Escape  CancelAndIMEOff
