@@ -31,11 +31,6 @@ source ~/.goenv/completions/goenv.zsh
 source $HOME/.zsh.d/zshrc
 source $HOME/.zsh.d/pecos
 
-# for zplug
-source ~/ghq/github.com/zplug/zplug/init.zsh
-zplug "sorin-ionescu/prezto"
-zplug load --verbose
-
 bindkey -v
 stty stop undef
 
