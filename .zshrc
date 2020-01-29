@@ -65,3 +65,5 @@ alias gbc='git checkout $(git branch | peco)'
  if [[ -f ~/local/work.zsh ]]; then
    source ~/local/work.zsh
  fi
+
+ neofetch
