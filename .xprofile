@@ -7,5 +7,3 @@ fcitx &
 xbindkeys -f ~/.xbindkeys
 
 xbacklight -set 30
-
-~/.screenlayout/just_fit.sh
