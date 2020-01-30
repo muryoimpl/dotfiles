@@ -56,9 +56,21 @@ alias history-all='history -E 1'
 alias hist='$(history -n 1 | peco)'
 alias peco='TERM=xterm peco'
 alias gbc='git checkout $(git branch | peco)'
+alias dc='docker-compose'
 
  if [[ -f ~/local/work.zsh ]]; then
    source ~/local/work.zsh
  fi
 
  neofetch
+# mkdir -p ~/local/lib/completion
+# curl -o ~/local/lib/completion/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+# curl -o ~/local/lib/completion/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+# echo "# Load completion files from the ~/.zsh directory." >> ~/.zshrc
+# echo "zstyle ':completion:*:*:git:*' script ~/local/lib/completion/git-completion.bash" >> ~/.zshrc
+# echo 'fpath=(~/.zsh $fpath)' >> ~/.zshrc
+# echo "autoload -Uz compinit && compinit" >> ~/.zshrc
+# Load completion files from the ~/.zsh directory.
+zstyle ':completion:*:*:git:*' script ~/local/lib/completion/git-completion.bash
+fpath=(~/local/lib/completion $fpath)
+autoload -Uz compinit && compinit
