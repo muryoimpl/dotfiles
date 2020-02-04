@@ -58,6 +58,7 @@ alias peco='TERM=xterm peco'
 alias gbc='git checkout $(git branch | peco)'
 alias dc='docker-compose'
 alias pgb='git switch $(git branch | peco)'
+alias fclist='fc-list : family style'
 
 if [[ -f ~/local/work.zsh ]]; then
   source ~/local/work.zsh
