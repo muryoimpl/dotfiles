@@ -59,11 +59,11 @@ alias gbc='git checkout $(git branch | peco)'
 alias dc='docker-compose'
 alias pgb='git switch $(git branch | peco)'
 
- if [[ -f ~/local/work.zsh ]]; then
-   source ~/local/work.zsh
- fi
+if [[ -f ~/local/work.zsh ]]; then
+  source ~/local/work.zsh
+fi
 
- neofetch
+neofetch
 # mkdir -p ~/local/lib/completion
 # curl -o ~/local/lib/completion/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 # curl -o ~/local/lib/completion/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
