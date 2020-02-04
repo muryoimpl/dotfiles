@@ -1,3 +1,17 @@
+####################################
+# for Ryzen
+####################################
+"/usr/bin/brightnessctl set 5-"
+    m:0x4 + c:232
+    Control + XF86MonBrightnessDown
+
+"/usr/bin/brightnessctl set 5+"
+    m:0x4 + c:233
+    Control + XF86MonBrightnessUp
+
+####################################
+# for Intel
+####################################
 "/usr/bin/xbacklight -dec 5"
     m:0x4 + c:71
     Control + XF86MonBrightnessDown
