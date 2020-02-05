@@ -5,7 +5,7 @@
 
 ### Added by the Heroku Toolbelt
 # export PATH="/usr/local/heroku/bin:$PATH"
-export TERMINAL=terminator
+export TERMINAL=alacritty
 
 # for golang
 export GOPATH=$HOME/go
