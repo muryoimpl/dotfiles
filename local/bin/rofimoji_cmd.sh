@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rofimoji --emoji-files all --insert-with-clipboard --skin-tone ask
+rofimoji --emoji-file all --use-clipboard --skin-tone ask
