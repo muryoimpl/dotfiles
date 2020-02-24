@@ -46,6 +46,27 @@ zstyle ':completion:*:*:git:*' script ~/local/lib/completion/git-completion.bash
 fpath=(~/local/lib/completion $fpath)
 autoload -Uz compinit && compinit
 
+# setup zplugin.zsh
+source ~/.zplugin/bin/zplugin.zsh
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+
+############################################
+# zsh plugins
+############################################
+zplugin light zsh-users/zsh-autosuggestions
+zplugin light zdharma/fast-syntax-highlighting
+zplugin load zsh-users/zsh-completions
+
+export FZF_DEFAULT_OPTS='--no-height --no-reverse'
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+zplugin ice from"gh-r" as"program"
+zplugin load junegunn/fzf-bin
+
+export FZF_TMUX=1
+zplugin ice as:command pick"bin/fzf-tmux" multisrc"shell/key-bindings.zsh shell/completion.zsh"
+zplugin light "junegunn/fzf"
+
 ### alias
 alias gst='git status'
 alias gco='git checkout'
