@@ -47,25 +47,25 @@ fpath=(~/local/lib/completion $fpath)
 autoload -Uz compinit && compinit
 
 # setup zplugin.zsh
-source ~/.zplugin/bin/zplugin.zsh
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+source ~/.zinit/bin/zinit.zsh
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
 ############################################
 # zsh plugins
 ############################################
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zdharma/fast-syntax-highlighting
-zplugin load zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma/fast-syntax-highlighting
+zinit load zsh-users/zsh-completions
 
 export FZF_DEFAULT_OPTS='--no-height --no-reverse'
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-zplugin ice from"gh-r" as"program"
-zplugin load junegunn/fzf-bin
+zinit ice from"gh-r" as"program"
+zinit load junegunn/fzf-bin
 
 export FZF_TMUX=1
-zplugin ice as:command pick"bin/fzf-tmux" multisrc"shell/key-bindings.zsh shell/completion.zsh"
-zplugin light "junegunn/fzf"
+zinit ice as:command pick"bin/fzf-tmux" multisrc"shell/key-bindings.zsh shell/completion.zsh"
+zinit light "junegunn/fzf"
 
 ### alias
 alias gst='git status'
