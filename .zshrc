@@ -67,6 +67,9 @@ export FZF_TMUX=1
 zinit ice as:command pick"bin/fzf-tmux" multisrc"shell/key-bindings.zsh shell/completion.zsh"
 zinit light "junegunn/fzf"
 
+zinit ice as"completion"
+zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
+
 ### alias
 alias gst='git status'
 alias gco='git checkout'
