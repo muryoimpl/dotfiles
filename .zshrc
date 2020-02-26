@@ -6,6 +6,8 @@
 ### Added by the Heroku Toolbelt
 # export PATH="/usr/local/heroku/bin:$PATH"
 export TERMINAL=alacritty
+export PAGER='less'
+export EDITOR='vim'
 
 # for golang
 export GOPATH=$HOME/go
@@ -70,7 +72,18 @@ zinit light "junegunn/fzf"
 zinit ice as"completion"
 zinit snippet https://github.com/docker/cli/blob/master/contrib/completion/zsh/_docker
 
+zinit light "chrissicool/zsh-256color"
+
+zinit ice as:command src"manydots-magic"
+zinit light "knu/zsh-manydots-magic"
+
 ### alias
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+alias la='ls -lhAF --color=auto'
+alias g='git'
+alias ctags='ctags -f .tags'
 alias gst='git status'
 alias gco='git checkout'
 alias gdd='git diff'
@@ -84,7 +97,6 @@ alias be='bundle exec'
 alias bundle='nocorrect bundle'
 alias ghql='cd $(ghq list -p | peco)'
 alias gb='git branch'
-alias tmux='TERM=xterm-256color tmux'
 alias gsed='sed'
 alias syua='yay -Syu'
 alias history-all='history -E 1'
