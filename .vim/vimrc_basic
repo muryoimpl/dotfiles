@@ -17,8 +17,6 @@ set expandtab      "tabをスペースに変換
 set wrapscan       "最後まで検索したら先頭へ
 set ignorecase     " 検索の時に大文字小文字を区別しない。
 set incsearch      "インクリメンタルサーチ
-set tabstop=2      "タブの表示を2に
-set ts=2           "タブのスペースを２に
 set showmatch      "対応する括弧を表示する
 set hlsearch       "検索の強調表示
 
@@ -52,11 +50,14 @@ set history=1000            "コマンド・検索パターンの履歴数
 set complete+=k             "補完に辞書ファイルを追加
 
 "--------  インデント ------------------------------
+filetype plugin indent on "ファイルタイプに基づいたインデントを有効化
 set autoindent     "インデントを現在行と同じにする
 set expandtab      "タブの代わりに空白文字を挿入
 set shiftwidth=2   "シフト移動幅は2
 set smarttab       "tabを打ち込むとshiftwidth分だけインデント
 set smartindent    "高度な自動インデント
+set tabstop=2      "タブの表示を2に
+set ts=2           "タブのスペースを２に
 
 "insert抜けるとIMEオフ
 set noimdisable
@@ -64,15 +65,18 @@ set iminsert=0 imsearch=0
 set noimcmdline
 inoremap <silent><ESC><ESC>:set iminsert=0<CR>
 
-"セミコロンとコロンを入れ替え
-noremap ;; :
-"noremap : ;
-
 "タブ表示を常に
 set showtabline=2
 
 " swapの作成場所
 set directory=~/.vim/tmp
+
+" undodir の設定
+set undofile
+if !isdirectory(expand("$HOME/.vim/undodir"))
+  call mkdir(expand("$HOME/.vim/undodir"), "p")
+endif
+set undodir=$HOME/.vim/undodir
 
 "シンタックスハイライトが有効
 syntax enable

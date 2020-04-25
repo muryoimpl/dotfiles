@@ -1,1 +1,1 @@
-let g:extra_whitespace_ignored_filetypes = ['unite', 'mkd']
+let g:extra_whitespace_ignored_filetypes = ['mkd']

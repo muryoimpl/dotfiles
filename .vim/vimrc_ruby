@@ -1,0 +1,2 @@
+" Gemfile の filetype を ruby に
+au BufNewFile,BufRead Gemfile setl filetype=ruby

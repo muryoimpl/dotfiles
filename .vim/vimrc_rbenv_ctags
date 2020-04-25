@@ -1,3 +1,0 @@
-"http://qiita.com/items/4398a19c05ad4861af85
-au BufNewFile,BufRead Gemfile setl filetype=Gemfile
-au BufWritePost Gemfile call vimproc#system('rbenv ctags')

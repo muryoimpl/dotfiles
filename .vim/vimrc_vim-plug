@@ -1,0 +1,37 @@
+" specify a directory for plugins
+call plug#begin('~/.vim/plugged')
+
+" extend vim
+Plug 'tpope/vim-endwise'
+Plug 'scrooloose/syntastic'
+Plug 'soramugi/auto-ctags.vim'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'ctrlpvim/ctrlp.vim'
+
+" theme
+Plug 'w0ng/vim-hybrid'
+
+" status line
+Plug 'itchyny/lightline.vim'
+
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'gregsexton/gitv'
+Plug 'airblade/vim-gitgutter'
+
+" html, css
+Plug 'othree/html5.vim'
+Plug 'hokaccha/vim-html5validator'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'tyru/open-browser.vim'
+
+" ruby
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-haml'
+
+Plug 'mrtazz/simplenote.vim'
+
+call plug#end()
