@@ -18,6 +18,7 @@ source ~/.vim/vimrc_trailing-whitespace
 source ~/.vim/vimrc_simplenote
 source ~/.vim/vimrc_ruby
 source ~/.vim/vimrc_fugitive
+source ~/.vim/vimrc_ack
 
 "カラースキーマを設定
 set background=dark

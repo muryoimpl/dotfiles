@@ -8,6 +8,7 @@ Plug 'soramugi/auto-ctags.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'soramugi/auto-ctags.vim'
+Plug 'mileszs/ack.vim'
 
 " theme
 Plug 'w0ng/vim-hybrid'
