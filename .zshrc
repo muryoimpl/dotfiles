@@ -109,10 +109,10 @@ alias fclist='fc-list : family style'
 
 if [[ -f ~/local/work.zsh ]]; then
   source ~/local/work.zsh
+else
+  # for rootless docker
+  export PATH=/home/muryoimpl/bin:$PATH
+  export DOCKER_HOST=unix:///run/user/1000/docker.sock
 fi
 
 neofetch
-
-# for rootless docker
-export PATH=/home/muryoimpl/bin:$PATH
-export DOCKER_HOST=unix:///run/user/1000/docker.sock
