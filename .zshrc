@@ -116,4 +116,6 @@ else
   export DOCKER_HOST=unix:///run/user/1000/docker.sock
 fi
 
+set bell-style none
+
 neofetch
