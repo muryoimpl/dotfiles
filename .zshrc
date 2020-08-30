@@ -30,7 +30,8 @@ export GOROOT=''
 source /usr/share/zsh/site-functions
 source ~/.goenv/completions/goenv.zsh
 
-source $HOME/.zsh.d/zshrc
+# source $HOME/.zsh.d/zshrc
+eval "$(starship init zsh)"
 source $HOME/.zsh.d/pecos
 
 bindkey -v
