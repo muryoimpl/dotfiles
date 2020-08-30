@@ -107,6 +107,7 @@ alias gbc='git checkout $(git branch | peco)'
 alias dc='docker-compose'
 alias gsw='git switch $(git branch | peco)'
 alias fclist='fc-list : family style'
+alias fd='fd --hidden --ignore-case'
 
 if [[ -f ~/local/work.zsh ]]; then
   source ~/local/work.zsh
