@@ -4,7 +4,6 @@
   name = muryoimpl
   email = muryoimpl@gmail.com
 [core]
-  excludesfile = /home/muryoimpl/.global_gitignore
   pager = less
   # pager = lv -c
   editor = vim
