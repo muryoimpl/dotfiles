@@ -5,10 +5,4 @@ export DefaultIMModule=fcitx
 
 fcitx &
 
-xbindkeys -f ~/.xbindkeys
-
-xbacklight -set 30
-
-brightnessctl set 40
-
 ~/.screenlayout/default.sh
