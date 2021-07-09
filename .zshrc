@@ -54,7 +54,6 @@ source ~/.goenv/completions/goenv.zsh
 
 # source $HOME/.zsh.d/zshrc
 eval "$(starship init zsh)"
-source $HOME/.zsh.d/pecos
 
 bindkey -v
 stty stop undef
