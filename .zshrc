@@ -1,10 +1,4 @@
-# export CC=/usr/local/bin/gcc-4.2
-
-# add zsh packages config path.
-# export PGDATA=/usr/local/var/postgres
-
 ### Added by the Heroku Toolbelt
-# export PATH="/usr/local/heroku/bin:$PATH"
 export TERMINAL=alacritty
 # export PAGER='less'
 export PAGER="nvim -c 'set ft=man' -"
@@ -12,7 +6,6 @@ export EDITOR='vim'
 export LANG='ja_JP.UTF-8'
 export HISTFILE=$HOME/.zsh_history
 
-HISTFILE=~/.zsh_history
 ## メモリ上のヒストリ数。
 ## 大きな数を指定してすべてのヒストリを保存するようにしている。
 HISTSIZE=10000000
@@ -52,20 +45,11 @@ export GOROOT=''
 source /usr/share/zsh/site-functions
 source ~/.goenv/completions/goenv.zsh
 
-# source $HOME/.zsh.d/zshrc
 eval "$(starship init zsh)"
 
 bindkey -v
 stty stop undef
 
-# mkdir -p ~/local/lib/completion
-# curl -o ~/local/lib/completion/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-# curl -o ~/local/lib/completion/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
-# echo "# Load completion files from the ~/.zsh directory." >> ~/.zshrc
-# echo "zstyle ':completion:*:*:git:*' script ~/local/lib/completion/git-completion.bash" >> ~/.zshrc
-# echo 'fpath=(~/.zsh $fpath)' >> ~/.zshrc
-# echo "autoload -Uz compinit && compinit" >> ~/.zshrc
-# Load completion files from the ~/.zsh directory.
 zstyle ':completion:*:*:git:*' script ~/local/lib/completion/git-completion.bash
 fpath=(~/local/lib/completion $fpath)
 autoload -Uz compinit && compinit
