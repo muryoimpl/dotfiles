@@ -21,7 +21,7 @@ set listchars=tab:>-,eol:\ ,trail:-
 autocmd BufWritePre * :%s/\t/  /ge
 
 "カンマの後に空白を入れる
-inoremap , ,<Space>
+"inoremap , ,<Space>
 "ダブルクォート、シングルクォート補完
 "inoremap " ""<LEFT>
 "inoremap ' ''<LEFT>

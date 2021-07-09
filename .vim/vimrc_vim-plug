@@ -36,4 +36,6 @@ Plug 'tpope/vim-haml'
 
 Plug 'mrtazz/simplenote.vim'
 
+Plug 'ntpeters/vim-better-whitespace'
+
 call plug#end()
