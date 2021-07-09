@@ -6,8 +6,30 @@
 ### Added by the Heroku Toolbelt
 # export PATH="/usr/local/heroku/bin:$PATH"
 export TERMINAL=alacritty
-export PAGER='less'
+# export PAGER='less'
+export PAGER="nvim -c 'set ft=man' -"
 export EDITOR='vim'
+export LANG='ja_JP.UTF-8'
+export HISTFILE=$HOME/.zsh_history
+
+HISTFILE=~/.zsh_history
+## メモリ上のヒストリ数。
+## 大きな数を指定してすべてのヒストリを保存するようにしている。
+HISTSIZE=10000000
+## 保存するヒストリ数
+SAVEHIST=$HISTSIZE
+## ヒストリファイルにコマンドラインだけではなく実行時刻と実行時間も保存する。
+setopt extended_history
+## 同じコマンドラインを連続で実行した場合はヒストリに登録しない。
+setopt hist_ignore_dups
+## スペースで始まるコマンドラインはヒストリに追加しない。
+setopt hist_ignore_space
+## すぐにヒストリファイルに追記する。
+setopt inc_append_history
+## zshプロセス間でヒストリを共有する。
+setopt share_history
+## C-sでのヒストリ検索が潰されてしまうため、出力停止・開始用にC-s/C-qを使わない。
+setopt no_flow_control
 
 # for golang
 export GOPATH=$HOME/go
@@ -82,7 +104,7 @@ zinit light "knu/zsh-manydots-magic"
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias la='ls -lhAF --color=auto'
+alias la='exa -alhF'
 alias g='git'
 alias ctags='ctags -f .tags'
 alias gst='git status'
@@ -99,7 +121,7 @@ alias bundle='nocorrect bundle'
 alias ghql='cd $(ghq list -p | peco)'
 alias gb='git branch'
 alias gsed='sed'
-alias syua='yay -Syu'
+alias syua='paru --skipreview -Syu'
 alias history-all='history -E 1'
 alias hist='$(history -n 1 | peco)'
 alias peco='TERM=xterm peco'
@@ -108,13 +130,16 @@ alias dc='docker-compose'
 alias gsw='git switch $(git branch | peco)'
 alias fclist='fc-list : family style'
 alias fd='fd --hidden --ignore-case'
+alias rg='rg --hidden --no-ignore'
+alias less='less -R'
+alias cdmega='cd ~/local/MEGASync'
 
 if [[ -f ~/local/work.zsh ]]; then
   source ~/local/work.zsh
 else
   # for rootless docker
-  export PATH=/home/muryoimpl/bin:$PATH
-  export DOCKER_HOST=unix:///run/user/1000/docker.sock
+  # export PATH=/home/muryoimpl/bin:$PATH
+  # export DOCKER_HOST=unix:///run/user/1000/docker.sock
 fi
 
 set bell-style none
