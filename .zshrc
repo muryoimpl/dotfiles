@@ -6,26 +6,14 @@ export EDITOR='vim'
 export LANG='ja_JP.UTF-8'
 export HISTFILE=$HOME/.zsh_history
 
-# for golang
-export GOPATH=$HOME/go
-export GOENV_ROOT="$HOME/.goenv"
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-export PATH=$GOENV_ROOT/shims:$GOENV_ROOT/bin:$HOME/.nodenv/bin:$HOME/.rbenv/bin:$GOPATH/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+export PATH=/opt/homebrew/bin:$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
-eval "$(goenv init -)"
-eval "$(pyenv init -)"
 eval "$(direnv hook zsh)"
-
-export GOROOT=''
 
 ## zsh load
 source /usr/share/zsh/site-functions
-source ~/.goenv/completions/goenv.zsh
 
 eval "$(starship init zsh)"
 
