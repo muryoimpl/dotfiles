@@ -6,21 +6,39 @@ export EDITOR='vim'
 export LANG='ja_JP.UTF-8'
 export HISTFILE=$HOME/.zsh_history
 
-export PATH=/opt/homebrew/bin:$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+OS_NAME="$(uname)"
+
+if [[ $OS_NAME == 'Darwin' ]]; then
+  echo 'Darwin'
+  export PATH=/opt/homebrew/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+elif [[ $OS_NAME == 'Linux' ]]; then
+  echo 'Linux'
+  export PATH=$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+fi
 
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
 eval "$(direnv hook zsh)"
 
-## zsh load
-source /usr/share/zsh/site-functions
-
 eval "$(starship init zsh)"
+
+## zsh load
+if [[ $OS_NAME == 'Darwin' ]]; then
+  source /opt/homebrew/share/zsh/site-functions
+elif [[ $OS_NAME == 'Linux' ]]; then
+  source /usr/share/zsh/site-functions
+fi
 
 bindkey -v
 stty stop undef
 
-zstyle ':completion:*:*:git:*' script ~/local/lib/completion/git-completion.bash
+if [[ $OS_NAME == 'Darwin' ]]; then
+  zstyle ':completion:*:*:git:*' script /opt/homebrew/share/zsh/site-functions/git-completion.bash
+  zstyle ':completion:*:*:tig:*' script /opt/homebrew/share/zsh/site-functions/tig-completion.bash
+elif [[ $OS_NAME == 'Linux' ]]; then
+  zstyle ':completion:*:*:git:*' script ~/local/lib/completion/git-completion.bash
+fi
+
 fpath=(~/local/lib/completion $fpath)
 autoload -Uz compinit && compinit
 
@@ -106,6 +124,17 @@ alias fd='fd --hidden --ignore-case'
 alias rg='rg --hidden --no-ignore'
 alias less='less -R'
 alias cdmega='cd ~/local/MEGASync'
+
+
+if [[ $OS_NAME == 'Darwin' ]]; then
+  alias abrew='arch -arm64 brew'
+  alias xbrew='arch -x86_64 brew'
+  alias fos='foreman start'
+
+  export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+  export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
+  export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
+fi
 
 if [[ -f ~/local/work.zsh ]]; then
   source ~/local/work.zsh
