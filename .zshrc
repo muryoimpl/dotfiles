@@ -8,10 +8,18 @@ export HISTFILE=$HOME/.zsh_history
 
 OS_NAME="$(uname)"
 
-if [[ $OS_NAME == 'Darwin' ]]; then
+function is_linux() {
+  [[ $OS_NAME == 'Linux' ]]
+}
+
+function is_macos() {
+  [[ $OS_NAME == 'Darwin' ]]
+}
+
+if is_macos; then
   echo 'Darwin'
   export PATH=/opt/homebrew/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
-elif [[ $OS_NAME == 'Linux' ]]; then
+elif is_linux; then
   echo 'Linux'
   export PATH=$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 fi
@@ -23,19 +31,19 @@ eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
 
 ## zsh load
-if [[ $OS_NAME == 'Darwin' ]]; then
+if is_macos; then
   source /opt/homebrew/share/zsh/site-functions
-elif [[ $OS_NAME == 'Linux' ]]; then
+elif is_linux; then
   source /usr/share/zsh/site-functions
 fi
 
 bindkey -v
 stty stop undef
 
-if [[ $OS_NAME == 'Darwin' ]]; then
+if is_macos; then
   zstyle ':completion:*:*:git:*' script /opt/homebrew/share/zsh/site-functions/git-completion.bash
   zstyle ':completion:*:*:tig:*' script /opt/homebrew/share/zsh/site-functions/tig-completion.bash
-elif [[ $OS_NAME == 'Linux' ]]; then
+elif is_linux; then
   zstyle ':completion:*:*:git:*' script ~/local/lib/completion/git-completion.bash
 fi
 
@@ -95,7 +103,6 @@ setopt no_flow_control
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
-alias la='exa -alhF'
 alias g='git'
 alias ctags='ctags -f .tags'
 alias gst='git status'
@@ -119,14 +126,10 @@ alias peco='TERM=xterm peco'
 alias gbc='git checkout $(git branch | peco)'
 alias dc='docker-compose'
 alias gsw='git switch $(git branch | peco)'
-alias fclist='fc-list : family style'
-alias fd='fd --hidden --ignore-case'
-alias rg='rg --hidden --no-ignore'
 alias less='less -R'
-alias cdmega='cd ~/local/MEGASync'
 
 
-if [[ $OS_NAME == 'Darwin' ]]; then
+if is_macos; then
   alias abrew='arch -arm64 brew'
   alias xbrew='arch -x86_64 brew'
   alias fos='foreman start'
@@ -134,14 +137,12 @@ if [[ $OS_NAME == 'Darwin' ]]; then
   export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
   export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
   export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
-fi
-
-if [[ -f ~/local/work.zsh ]]; then
-  source ~/local/work.zsh
-else
-  # for rootless docker
-  # export PATH=/home/muryoimpl/bin:$PATH
-  # export DOCKER_HOST=unix:///run/user/1000/docker.sock
+elif is_linux; then
+  alias fclist='fc-list : family style'
+  alias la='exa -alhF'
+  alias fd='fd --hidden --ignore-case'
+  alias rg='rg --hidden --no-ignore'
+  alias cdmega='cd ~/local/MEGASync'
 fi
 
 set bell-style none
