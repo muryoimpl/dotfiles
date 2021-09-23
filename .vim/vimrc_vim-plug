@@ -37,4 +37,11 @@ Plug 'mrtazz/simplenote.vim'
 
 Plug 'ntpeters/vim-better-whitespace'
 
+Plug 'Shougo/ddc.vim'
+Plug 'vim-denops/denops.vim'
+
+Plug 'Shougo/ddc-around'
+Plug 'Shougo/ddc-matcher_head'
+Plug 'Shougo/ddc-sorter_rank'
+
 call plug#end()
