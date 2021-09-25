@@ -37,11 +37,10 @@ Plug 'mrtazz/simplenote.vim'
 
 Plug 'ntpeters/vim-better-whitespace'
 
-Plug 'Shougo/ddc.vim'
-Plug 'vim-denops/denops.vim'
-
-Plug 'Shougo/ddc-around'
-Plug 'Shougo/ddc-matcher_head'
-Plug 'Shougo/ddc-sorter_rank'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'mattn/vim-lsp-icons'
 
 call plug#end()

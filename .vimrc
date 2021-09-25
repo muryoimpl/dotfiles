@@ -19,7 +19,7 @@ source ~/.vim/vimrc_simplenote
 source ~/.vim/vimrc_ruby
 source ~/.vim/vimrc_fugitive
 source ~/.vim/vimrc_ack
-source ~/.vim/vimrc_ddc
+source ~/.vim/vimrc_lsp
 
 "カラースキーマを設定
 set background=dark
