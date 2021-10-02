@@ -12,6 +12,7 @@ Plug 'mileszs/ack.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 't9md/vim-quickhl'
 Plug 'Yggdroot/indentLine'
+Plug 'ntpeters/vim-better-whitespace'
 
 " theme
 Plug 'w0ng/vim-hybrid'
@@ -37,8 +38,7 @@ Plug 'tpope/vim-haml'
 
 Plug 'mrtazz/simplenote.vim'
 
-Plug 'ntpeters/vim-better-whitespace'
-
+" LSP & 補完:w
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/vim-lsp'
