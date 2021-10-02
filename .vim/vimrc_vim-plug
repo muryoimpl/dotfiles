@@ -20,7 +20,6 @@ Plug 'itchyny/lightline.vim'
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
-Plug 'gregsexton/gitv'
 Plug 'airblade/vim-gitgutter'
 
 " html, css
