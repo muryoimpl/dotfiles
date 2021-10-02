@@ -7,6 +7,7 @@ Plug 'scrooloose/syntastic'
 Plug 'soramugi/auto-ctags.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mattn/ctrlp-matchfuzzy'
 Plug 'mileszs/ack.vim'
 Plug 'justinmk/vim-dirvish'
 
