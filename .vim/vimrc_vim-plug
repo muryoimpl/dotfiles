@@ -37,6 +37,9 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-haml'
 Plug 'vim-test/vim-test'
 
+" Go
+Plug 'mattn/vim-goimports'
+
 Plug 'mrtazz/simplenote.vim'
 
 " LSP & 補完:w
