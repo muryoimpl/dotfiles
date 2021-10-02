@@ -35,6 +35,7 @@ Plug 'tyru/open-browser.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-haml'
+Plug 'vim-test/vim-test'
 
 Plug 'mrtazz/simplenote.vim'
 
