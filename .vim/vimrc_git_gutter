@@ -1,7 +1,11 @@
 let g:gitgutter_signs = 1
 let g:gitgutter_escape_grep = 0
-"let g:gitgutter_sign_column_always = 1
+let g:gitgutter_highlight_linenrs = 1
 set signcolumn=yes
 let g:gitgutter_realtime = 0
+let g:gitgutter_max_signs = -1
 
 nnoremap <Space>gt :<C-u>GitGutterToggle<Enter>
+
+nmap <Space>h <Plug>(GitGutterNextHunk)
+nmap <Space>H <Plug>(GitGutterPrevHunk)
