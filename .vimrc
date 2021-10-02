@@ -20,6 +20,7 @@ source ~/.vim/vimrc_fugitive
 source ~/.vim/vimrc_ack
 source ~/.vim/vimrc_lsp
 source ~/.vim/vimrc_quickhl
+source ~/.vim/vimrc_indentline
 
 "カラースキーマを設定
 set background=dark
