@@ -49,4 +49,6 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'mattn/vim-lsp-icons'
 
+Plug 'mechatroner/rainbow_csv'
+
 call plug#end()
