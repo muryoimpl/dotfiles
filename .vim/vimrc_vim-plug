@@ -51,4 +51,6 @@ Plug 'mattn/vim-lsp-icons'
 
 Plug 'mechatroner/rainbow_csv'
 
+Plug 'preservim/tagbar'
+
 call plug#end()
