@@ -1,5 +1,5 @@
 "ctagsの設定
-set tags=./.tags;
+set tags=.tags;$HOME
 "set tags=.tags
 if has('path_extra')
   set tags+=tags;

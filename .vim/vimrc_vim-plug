@@ -5,6 +5,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-endwise'
 Plug 'scrooloose/syntastic'
 Plug 'soramugi/auto-ctags.vim'
+Plug 'webastien/vim-ctags'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mattn/ctrlp-matchfuzzy'
