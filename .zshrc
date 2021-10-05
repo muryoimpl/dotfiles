@@ -133,6 +133,7 @@ if is_macos; then
   alias abrew='arch -arm64 brew'
   alias xbrew='arch -x86_64 brew'
   alias fos='foreman start'
+  alias la='ls -alF'
 
   export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
   export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
