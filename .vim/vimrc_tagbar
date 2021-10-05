@@ -1,0 +1,2 @@
+" https://github.com/preservim/tagbar
+nmap <F8> :TagbarToggle<CR>
