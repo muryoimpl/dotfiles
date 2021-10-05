@@ -5,9 +5,7 @@
   email = muryoimpl@gmail.com
   signingkey = F7FA1D4BD2AFF4D6
 [core]
-  excludesfile = /home/muryoimpl/.config/git/ignore
   pager = less
-  # pager = lv -c
   editor = vim
   precomposeunicode = true
   quotepath = false
