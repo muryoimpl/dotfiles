@@ -23,6 +23,7 @@ source ~/.vim/vimrc_quickhl
 source ~/.vim/vimrc_indentline
 source ~/.vim/vimrc_vim-test
 source ~/.vim/vimrc_tagbar
+source ~/.vim/vimrc_auto-ctags
 
 "カラースキーマを設定
 set background=dark
