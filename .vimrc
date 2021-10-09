@@ -12,7 +12,6 @@ source ~/.vim/vimrc_3way_diff
 source ~/.vim/vimrc_git_gutter
 source ~/.vim/vimrc_lightline
 source ~/.vim/vimrc_ctrlp
-source ~/.vim/vimrc_syntastic
 source ~/.vim/vimrc_trailing-whitespace
 source ~/.vim/vimrc_simplenote
 source ~/.vim/vimrc_ruby
@@ -24,6 +23,7 @@ source ~/.vim/vimrc_indentline
 source ~/.vim/vimrc_vim-test
 source ~/.vim/vimrc_tagbar
 source ~/.vim/vimrc_auto-ctags
+source ~/.vim/vimrc_ale
 
 "カラースキーマを設定
 set background=dark

@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 
 " extend vim
 Plug 'tpope/vim-endwise'
-Plug 'scrooloose/syntastic'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mattn/ctrlp-matchfuzzy'
@@ -15,9 +14,6 @@ Plug 'ntpeters/vim-better-whitespace'
 
 " theme
 Plug 'w0ng/vim-hybrid'
-
-" status line
-Plug 'itchyny/lightline.vim'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -55,5 +51,11 @@ Plug 'mattn/vim-lsp-icons'
 
 Plug 'mechatroner/rainbow_csv', { 'for': 'csv' }
 
+" syntax check
+" Plug 'scrooloose/syntastic'
+Plug 'dense-analysis/ale'
+
+" status line
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
