@@ -12,7 +12,10 @@ let g:gitgutter_sign_removed = '-'
 let g:lightline = {
       \ 'colorscheme': 'powerline',
       \ 'active': {
-      \   'left':  [ [ 'mode', 'paste' ],[ 'fugitive', 'gitgutter', 'pwd', 'filename' ], [ 'syntastic', 'lineinfo' ] ],
+      \   'left':  [
+      \              [ 'mode', 'paste' ],
+      \              [ 'fugitive', 'gitgutter', 'pwd', 'filename' ],
+      \            ],
       \   'right': [ ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \ 'component_function': {
@@ -33,25 +36,21 @@ let g:lightline = {
       \ }
 
 function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  return &ft =~ 'help\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 
 function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '[R]' : ''
+  return &ft !~? 'help\|gundo' && &ro ? '[R]' : ''
 endfunction
 
 function! MyFilename()
   return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
-        \ '' != expand('%:f') ? expand('%:f') : '[No Name]') .
         \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 
 function! MyFugitive()
   try
-    if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+    if &ft !~? 'gundo' && exists('*fugitive#head')
       let _ = fugitive#head()
       return strlen(_) ? ''._ : ''
     endif
@@ -132,7 +131,3 @@ function! MyCharCode()
 
   return "'". char ."' ". nr
 endfunction
-
-let g:unite_force_overwrite_statusline = 0
-let g:vimfiler_force_overwrite_statusline = 0
-let g:vimshell_force_overwrite_statusline = 0
