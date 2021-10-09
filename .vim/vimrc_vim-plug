@@ -54,6 +54,7 @@ Plug 'mechatroner/rainbow_csv', { 'for': 'csv' }
 " syntax check
 " Plug 'scrooloose/syntastic'
 Plug 'dense-analysis/ale'
+Plug 'rhysd/vim-lsp-ale'
 
 " status line
 Plug 'itchyny/lightline.vim'
