@@ -24,6 +24,7 @@ source ~/.vim/vimrc_vim-test
 source ~/.vim/vimrc_tagbar
 source ~/.vim/vimrc_auto-ctags
 source ~/.vim/vimrc_ale
+source ~/.vim/vimrc_undotree
 
 "カラースキーマを設定
 set background=dark

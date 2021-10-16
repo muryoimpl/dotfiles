@@ -11,6 +11,7 @@ Plug 'justinmk/vim-dirvish'
 Plug 't9md/vim-quickhl'
 Plug 'Yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'mbbill/undotree'
 
 " theme
 Plug 'w0ng/vim-hybrid'
