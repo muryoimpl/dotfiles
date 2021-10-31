@@ -1,7 +1,7 @@
 ### Added by the Heroku Toolbelt
 export TERMINAL=alacritty
-# export PAGER='less'
-export PAGER="nvim -c 'set ft=man' -"
+export PAGER='less'
+# export PAGER="nvim -c 'set ft=man' -"
 export EDITOR='vim'
 export LANG='ja_JP.UTF-8'
 export HISTFILE=$HOME/.zsh_history
