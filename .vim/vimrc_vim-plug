@@ -39,6 +39,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'tpope/vim-haml', { 'for': 'haml' }
 Plug 'vim-test/vim-test'
+Plug 'noprompt/vim-yardoc', { 'for': 'ruby' }
 
 " Go
 Plug 'mattn/vim-goimports', { 'for': 'go' }
