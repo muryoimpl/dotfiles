@@ -1,5 +1,5 @@
 "ctagsの設定
-set tags=.tags;$HOME
+set tags=.tags;,.tags;$HOME
 "set tags=.tags
 if has('path_extra')
   set tags+=tags;
@@ -8,9 +8,8 @@ endif
 "飛ぶ
 nnoremap tt  <C-]>
 "「進む」
-nnoremap tj  ;<C-u>tag<CR>
+nnoremap tj  :tag<Return>
 "「戻る」
-nnoremap tk  ;<C-u>pop<CR>
+nnoremap tk  :pop<Return>
 "履歴一覧
-nnoremap tl  ;<C-u>tags<CR>
-
+nnoremap tl  :tags<Return>
