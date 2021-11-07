@@ -20,6 +20,10 @@ cmd + ctrl - o : yabai -m space --balance
 # make floating window fill screen
 cmd + alt - up : yabai -m window --grid 1:1:0:0:1:1
 
+# focus next/prev window
+cmd + ctrl - j : yabai -m window --focus prev
+cmd + ctrl - k : yabai -m window --focus next
+
 # open alactitty
 cmd + shift - return : alacritty --working-directory $HOME
 
