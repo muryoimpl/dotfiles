@@ -11,6 +11,17 @@ cmd + shift - 1 : yabai -m window --display 1; yabai -m display --focus 1
 cmd + shift - 2 : yabai -m window --display 2; yabai -m display --focus 2
 cmd + shift - 3 : yabai -m window --display 3; yabai -m display --focus 3
 
+# for Virtual Desktop
+## move Desktop
+cmd + ctrl - 1 : yabai -m query --spaces --space 1 | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
+cmd + ctrl - 2 : yabai -m query --spaces --space 2 | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
+cmd + ctrl - 3 : yabai -m query --spaces --space 3 | jq -r '.windows[0] // empty' | xargs yabai -m window --focus
+
+## move window to Desktop
+cmd + alt - 1 : yabai -m window --space 1; yabai -m space --display 1
+cmd + alt - 2 : yabai -m window --space 2; yabai -m space --display 2
+cmd + alt - 3 : yabai -m window --space 3; yabai -m space --display 3
+
 # toggle window zoom
 cmd + ctrl - f : yabai -m window --toggle zoom-fullscreen
 
