@@ -35,3 +35,6 @@ cmd + shift - e : [ "$(yabai -m query --spaces --space | jq -r '.type')" = bsp ]
 
 # toggle window split type
 cmd + ctrl - e : yabai -m window --toggle split
+
+# restart
+ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
