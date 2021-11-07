@@ -24,8 +24,9 @@ cmd + alt - up : yabai -m window --grid 1:1:0:0:1:1
 cmd + ctrl - j : yabai -m window --focus prev
 cmd + ctrl - k : yabai -m window --focus next
 
-# open alactitty
-cmd + shift - return : alacritty --working-directory $HOME
+# open terminal
+# cmd + shift - return : alacritty --working-directory $HOME
+# cmd + shift - return : kitty
 
 # layout
 # Toggle between bsp and stack
