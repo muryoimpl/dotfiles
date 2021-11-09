@@ -14,9 +14,12 @@ let g:lightline = {
       \ 'active': {
       \   'left':  [
       \              [ 'mode', 'paste' ],
-      \              [ 'fugitive', 'gitgutter', 'pwd', 'filename' ],
+      \              [ 'gitgutter', 'fugitive', 'filename', 'readonly' ],
       \            ],
-      \   'right': [ ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \   'right': [
+      \              ['percent'],
+      \              [ 'fileformat', 'fileencoding', 'filetype' ],
+      \            ],
       \ },
       \ 'component_function': {
       \   'modified': 'MyModified',
@@ -27,7 +30,6 @@ let g:lightline = {
       \   'filetype': 'MyFiletype',
       \   'fileencoding': 'MyFileencoding',
       \   'mode': 'MyMode',
-      \   'syntastic': 'SyntasticStatuslineFlag',
       \   'charcode': 'MyCharCode',
       \   'gitgutter': 'MyGitGutter',
       \ },
@@ -36,22 +38,23 @@ let g:lightline = {
       \ }
 
 function! MyModified()
-  return &ft =~ 'help\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  return &modified ? ' +' : ''
 endfunction
 
 function! MyReadonly()
-  return &ft !~? 'help\|gundo' && &ro ? '[R]' : ''
+  return &readonly && &filetype !=# 'help' ? '[R]' : ''
 endfunction
 
 function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ ('' != MyModified() ? ' ' . MyModified() : '')
+  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  let modified = MyModified()
+  return filename . modified
 endfunction
 
 function! MyFugitive()
   try
-    if &ft !~? 'gundo' && exists('*fugitive#head')
-      let _ = fugitive#head()
+    if &ft !~? 'gundo' && exists('*FugitiveHead')
+      let _ = FugitiveHead()
       return strlen(_) ? ''._ : ''
     endif
   catch
@@ -60,11 +63,11 @@ function! MyFugitive()
 endfunction
 
 function! MyFileformat()
-  return winwidth('.') > 70 ? &fileformat : ''
+  return winwidth(0) > 70 ? &fileformat : ''
 endfunction
 
 function! MyFiletype()
-  return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
 endfunction
 
 function! MyFileencoding()
@@ -72,7 +75,9 @@ function! MyFileencoding()
 endfunction
 
 function! MyMode()
-  return winwidth('.') > 60 ? lightline#mode() : ''
+  return expand('%:t') =~# '^__Tagbar__' ? 'Tagbar':
+        \ expand('%:t') ==# 'ControlP' ? 'CtrlP' :
+        \ lightline#mode()
 endfunction
 
 function! MyGitGutter()
