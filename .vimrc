@@ -21,8 +21,6 @@ source ~/.vim/vimrc_lsp
 source ~/.vim/vimrc_quickhl
 source ~/.vim/vimrc_indentline
 source ~/.vim/vimrc_vim-test
-source ~/.vim/vimrc_tagbar
-source ~/.vim/vimrc_auto-ctags
 source ~/.vim/vimrc_ale
 source ~/.vim/vimrc_undotree
 
