@@ -57,6 +57,7 @@ Plug 'prabirshrestha/asyncomplete-buffer.vim'
 " snippet
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'rafamadriz/friendly-snippets'
 
 Plug 'mechatroner/rainbow_csv', { 'for': 'csv' }
 

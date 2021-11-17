@@ -36,6 +36,7 @@ call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options
 
 " for vsnip
 let g:vsnip_snippet_dir = expand('~/.vim/snip')
+let g:vsnip_filetypes.rails = ['ruby']
 " Expand
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
