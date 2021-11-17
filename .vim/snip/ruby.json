@@ -1,0 +1,32 @@
+ {
+   "Class": {
+     "prefix": "class",
+     "body": [
+       "class $0",
+       "end"
+     ]
+   },
+   "Module": {
+     "prefix": "module",
+     "body": [
+       "module $0",
+       "end"
+     ]
+   },
+   "Method": {
+     "prefix": "def",
+     "body": [
+       "def $0()",
+       "end"
+     ]
+   },
+   "RSpec": {
+     "prefix": "RSpec",
+     "body": [
+       "RSpec.describe $0, type: $1",
+       "  describe \"\"",
+       "  end",
+       "end"
+     ]
+   }
+ }
