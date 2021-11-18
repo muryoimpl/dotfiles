@@ -23,8 +23,8 @@
    "RSpec": {
      "prefix": "RSpec",
      "body": [
-       "RSpec.describe $0, type: $1",
-       "  describe \"\"",
+       "RSpec.describe $0, type: $1 do",
+       "  describe \"\" do",
        "  end",
        "end"
      ]
