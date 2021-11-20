@@ -28,5 +28,17 @@
        "  end",
        "end"
      ]
+   },
+   "binding.irb": {
+     "prefix": "irb",
+     "body": [
+       "binding.irb"
+     ]
+   },
+   "require debug": {
+     "prefix": "debug",
+     "body": [
+       "require 'debug'; debugger"
+     ]
    }
  }

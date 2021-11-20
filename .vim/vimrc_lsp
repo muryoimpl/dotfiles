@@ -35,8 +35,6 @@ call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options
 
 
 " for vsnip
-let g:vsnip_snippet_dir = expand('~/.vim/snip')
-" let g:vsnip_filetypes.rails = ['ruby']
 " Expand
 imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
@@ -50,3 +48,10 @@ imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab
 smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
 imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+let g:vsnip_filetypes = {}
+let g:vsnip_filetypes.javascriptreact = ['javascript']
+let g:vsnip_filetypes.typescriptreact = ['typescript']
+let g:vsnip_filetypes.vimspec = ['vim']
+let g:vsnip_filetypes.rails = ['ruby']
+let g:vsnip_snippet_dir = expand('~/.vim/snip')
