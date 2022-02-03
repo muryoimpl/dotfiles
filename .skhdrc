@@ -26,6 +26,12 @@ cmd + alt - 3 : yabai -m window --space 3; yabai -m space --display 3
 cmd + alt - 4 : yabai -m window --space 4; yabai -m space --display 4
 cmd + alt - 5 : yabai -m window --space 5; yabai -m space --display 5
 
+## move window
+cmd + shift - h : yabai -m window --warp west
+cmd + shift - j : yabai -m window --warp south
+cmd + shift - k : yabai -m window --warp north
+cmd + shift - l : yabai -m window --warp east
+
 # toggle window zoom
 cmd + ctrl - f : yabai -m window --toggle zoom-fullscreen
 
@@ -41,7 +47,7 @@ cmd + ctrl - k : yabai -m window --focus next
 
 # open terminal
 # cmd + shift - return : alacritty --working-directory $HOME
-# cmd + shift - return : kitty
+cmd + shift - return : kitty
 
 # layout
 # Toggle between bsp and stack
@@ -51,6 +57,10 @@ cmd + shift - e : [ "$(yabai -m query --spaces --space | jq -r '.type')" = bsp ]
 
 # toggle window split type
 cmd + ctrl - e : yabai -m window --toggle split
+
+
+# 中央に寄せる
+cmd - t : yabai -m window --toggle float && yabai -m window --grid 4:4:1:1:2:2
 
 # restart
 ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
