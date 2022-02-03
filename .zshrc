@@ -1,5 +1,4 @@
 ### Added by the Heroku Toolbelt
-export TERMINAL=alacritty
 export PAGER='less'
 # export PAGER="nvim -c 'set ft=man' -"
 export EDITOR='vim'
@@ -17,9 +16,13 @@ function is_macos() {
 }
 
 if is_macos; then
+  export TERMINAL=kitty
+
   echo 'Darwin'
-  export PATH=/opt/homebrew/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+  export PATH=/opt/homebrew/bin:$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 elif is_linux; then
+  export TERMINAL=alacritty
+
   echo 'Linux'
   export PATH=$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 fi
@@ -51,7 +54,11 @@ fpath=(~/local/lib/completion $fpath)
 autoload -Uz compinit && compinit
 
 # setup zplugin.zsh
-source ~/.zinit/bin/zinit.zsh
+if [ -e ~/.zinit/bin/zinit.zsh ]; then
+  source ~/.zinit/bin/zinit.zsh
+else
+  source ~/.local/share/zinit/zinit.git/zinit.zsh
+fi
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
@@ -59,7 +66,7 @@ autoload -Uz _zinit
 # zsh plugins
 ############################################
 zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma/fast-syntax-highlighting
+zinit light zdharma-continuum/fast-syntax-highlighting
 zinit load zsh-users/zsh-completions
 
 export FZF_DEFAULT_OPTS='--no-height --no-reverse'
@@ -133,7 +140,8 @@ if is_macos; then
   alias abrew='arch -arm64 brew'
   alias xbrew='arch -x86_64 brew'
   alias fos='foreman start'
-  alias la='ls -alF'
+  alias fclist='fc-list : family style'
+  alias la='exa -alhF'
 
   export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
   export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
@@ -149,3 +157,13 @@ fi
 set bell-style none
 
 neofetch
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
