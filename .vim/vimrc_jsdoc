@@ -1,0 +1,2 @@
+" https://github.com/heavenshell/vim-jsdoc
+nmap <silent> <C-l> <Plug>(jsdoc)

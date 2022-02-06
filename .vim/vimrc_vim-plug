@@ -41,6 +41,12 @@ Plug 'tpope/vim-haml', { 'for': 'haml' }
 Plug 'vim-test/vim-test'
 Plug 'noprompt/vim-yardoc', { 'for': 'ruby' }
 
+" JavaScript
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+\}
+
 " Go
 Plug 'mattn/vim-goimports', { 'for': 'go' }
 

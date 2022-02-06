@@ -23,6 +23,7 @@ source ~/.vim/vimrc_indentline
 source ~/.vim/vimrc_vim-test
 source ~/.vim/vimrc_ale
 source ~/.vim/vimrc_undotree
+source ~/.vim/vimrc_jsdoc
 
 "カラースキーマを設定
 set background=dark
