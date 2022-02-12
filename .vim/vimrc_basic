@@ -36,10 +36,10 @@ set clipboard&
 let OSTYPE = system('uname')
 if OSTYPE == "Darwin\n"
   set clipboard=unnamed
-elseif OSTYPE == "Linux\n"
+else
   set clipboard^=unnamedplus
 end
-"set clipboard+=autoselect
+set clipboard+=autoselect
 "set clipboard+=unnamedplus
 "set clipboard=unnamedplus
 set guioptions=aA
