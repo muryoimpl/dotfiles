@@ -1,5 +1,5 @@
 "ctagsの設定
-set tags=.tags;,.tags;$HOME
+set tags=./.tags,.tags;$HOME
 "set tags=.tags
 if has('path_extra')
   set tags+=tags;
@@ -27,7 +27,7 @@ let g:auto_ctags_warn_once = 1
 " ==================================
 " https://github.com/preservim/tagbar
 nmap <F8> :TagbarToggle<CR>
-
+let g:tagbar_sort = 0
 let g:tagbar_type_ruby = {
     \ 'kinds' : [
         \ 'm:modules',
