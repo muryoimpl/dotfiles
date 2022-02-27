@@ -11,6 +11,7 @@ set nobackup       "バックアップ/スワップファイルを作成しな�
 set nowritebackup  "ファイルの上書きの前にバックアップを作らない。
 set title          "タイトルを表示
 set nobomb         "BOMを入れない
+set noerrorbells   "エラーベル無効
 
 "---  検索関連  -------------------------------------------------------
 set wrapscan       "最後まで検索したら先頭へ
