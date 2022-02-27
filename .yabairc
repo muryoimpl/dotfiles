@@ -20,7 +20,7 @@ yabai -m config split_ratio 0.50
 
 # mouse support
 yabai -m config mouse_follows_focus on
-yabai -m config focus_follows_mouse on
+yabai -m config focus_follows_mouse autofocus
 yabai -m config mouse_modifier option
 yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize

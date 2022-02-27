@@ -45,6 +45,9 @@ cmd + alt - up : yabai -m window --grid 1:1:0:0:1:1
 cmd + ctrl - j : yabai -m window --focus prev
 cmd + ctrl - k : yabai -m window --focus next
 
+# swap window
+cmd + ctrl - s : yabai -m window --swap recent
+
 # open terminal
 # cmd + shift - return : alacritty --working-directory $HOME
 cmd + shift - return : kitty
