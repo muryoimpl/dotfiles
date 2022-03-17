@@ -20,6 +20,8 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " vim-lsp-ale
 let g:ale_linters = {
     \   'ruby': ['rubocop'],
+    \   'javascript': ['prettier', 'eslint'],
+    \   'javascriptreact': ['prettier', 'eslint'],
     \ }
 
 function! s:set_ale_ruby_rubocop_executable()
