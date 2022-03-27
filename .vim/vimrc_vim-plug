@@ -14,6 +14,8 @@ Plug 't9md/vim-quickhl'
 Plug 'Yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mbbill/undotree'
+Plug 'lambdalisue/fern.vim'
+Plug 'yuki-yano/fern-preview.vim'
 
 " theme
 Plug 'w0ng/vim-hybrid'
