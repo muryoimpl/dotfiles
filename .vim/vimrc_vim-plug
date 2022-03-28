@@ -46,9 +46,12 @@ Plug 'noprompt/vim-yardoc', { 'for': 'ruby' }
 
 " JavaScript
 Plug 'heavenshell/vim-jsdoc', {
-  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'for': ['javascript', 'javascript.jsx','typescript', 'javascriptreact'],
   \ 'do': 'make install'
 \}
+Plug 'neoclide/vim-jsx-improve'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 " Go
 Plug 'mattn/vim-goimports', { 'for': 'go' }

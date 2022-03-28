@@ -25,6 +25,7 @@ source ~/.vim/vimrc_ale
 source ~/.vim/vimrc_undotree
 source ~/.vim/vimrc_jsdoc
 source ~/.vim/vimrc_fern
+source ~/.vim/vimrc_js
 
 "カラースキーマを設定
 set background=dark

@@ -22,6 +22,11 @@ let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_auto_completeopt = 1
 let g:asyncomplete_popup_delay = 200
 
+let g:lsp_settings_filetype_javascript = ["eslint-language-server"]
+let g:lsp_settings_filetype_javascriptreact = ["eslint-language-server"]
+let g:lsp_settings_filetype_typescript = ["typescript-language-server", "eslint-language-server"]
+let g:lsp_settings_filetype_typescriptreact = ["typescript-language-server", "eslint-language-server"]
+
 " config for asyncomplete-buffer.vim
 call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
     \ 'name': 'buffer',
