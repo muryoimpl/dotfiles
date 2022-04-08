@@ -26,8 +26,8 @@ yabai -m config mouse_action1 move
 yabai -m config mouse_action2 resize
 
 # window modifications
-yabai -m config window_topmost on
-yabai -m config window_opacity on
+yabai -m config window_topmost off
+yabai -m config window_opacity off
 yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 0.8
 yabai -m config window_opacity_duration 0.1
@@ -41,6 +41,7 @@ yabai -m rule --add app="^Calendar$"           manage=off
 yabai -m rule --add app="^Dictionary$"         manage=off
 yabai -m rule --add app="^Disk Utility$"       manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add title="^$" manage=off
 
 # general space settings
 echo "yabai configuration loaded.."
