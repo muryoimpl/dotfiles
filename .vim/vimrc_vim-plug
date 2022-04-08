@@ -55,6 +55,7 @@ Plug 'peitalin/vim-jsx-typescript'
 
 " Go
 Plug 'mattn/vim-goimports', { 'for': 'go' }
+Plug 'sebdah/vim-delve', { 'for': 'go' }
 
 Plug 'mrtazz/simplenote.vim'
 
