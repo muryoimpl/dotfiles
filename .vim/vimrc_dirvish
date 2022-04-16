@@ -1,0 +1,2 @@
+" show all files
+let g:dirvish_mode = ':sort ,^\v(.*[\/])|\ze,'
