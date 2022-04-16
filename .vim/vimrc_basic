@@ -19,6 +19,7 @@ set ignorecase     " 検索の時に大文字小文字を区別しない。
 set incsearch      "インクリメンタルサーチ
 set showmatch      "対応する括弧を表示する
 set hlsearch       "検索の強調表示
+set shortmess-=S   "検索にヒットした件数がわかる
 
 "日本語入力設定らしい ------------------------------------------------
 set imsearch=0
