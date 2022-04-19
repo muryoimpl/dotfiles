@@ -26,8 +26,8 @@ Plug 'tpope/vim-git'
 Plug 'airblade/vim-gitgutter'
 
 " ctags
-" Plug 'soramugi/auto-ctags.vim'
-Plug 'webastien/vim-ctags'
+Plug 'soramugi/auto-ctags.vim'
+" Plug 'webastien/vim-ctags'
 Plug 'preservim/tagbar'
 
 " html, css
