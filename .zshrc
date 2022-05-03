@@ -111,7 +111,8 @@ alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 alias g='git'
-alias ctags='ctags -f .tags --exclude="@${HOME}/.ctagsignore" --exclude="@.ctagsignore"'
+alias ctags='ctags --exclude="@${HOME}/.ctagsignore"'
+alias ctagse='ctags --exclude="@${HOME}/.ctagsignore" --exclude="@.ctagsignore"'
 alias gst='git status'
 alias gco='git checkout'
 alias gdd='git diff'
