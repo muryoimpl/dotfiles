@@ -87,3 +87,9 @@ set undodir=$HOME/.vim/undodir
 
 "シンタックスハイライトが有効
 syntax enable
+
+" Makefile は tab を tab として入力する
+let _filename = expand('%:r')
+if _filename == 'Makefile'
+  set noexpandtab
+endif
