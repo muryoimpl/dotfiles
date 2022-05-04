@@ -23,12 +23,14 @@ let g:ale_linters = {
     \   'ruby': ['rubocop'],
     \   'javascript': ['prettier'],
     \   'javascriptreact': ['prettier'],
+    \   'go': ['gofmt', 'goimports'],
     \ }
 
 let g:ale_fixers = {
     \   'ruby': ['rubocop'],
     \   'javascript': ['prettier', 'eslint'],
     \   'javascriptreact': ['prettier', 'eslint'],
+    \   'go': ['gofmt', 'goimports'],
     \ }
 
 function! s:set_ale_ruby_rubocop_executable()

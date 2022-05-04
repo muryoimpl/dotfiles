@@ -4,6 +4,8 @@ export PAGER='less'
 export EDITOR='vim'
 export LANG='ja_JP.UTF-8'
 export HISTFILE=$HOME/.zsh_history
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 
 OS_NAME="$(uname)"
 
