@@ -50,4 +50,3 @@
 --exclude=postcss.config.js
 --exclude=yarn.lock
 --exclude=config.js
---exclude=@.ctagsignore
