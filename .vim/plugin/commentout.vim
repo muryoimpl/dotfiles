@@ -22,7 +22,7 @@ endfunction
 
 " Return string used to comment line for current filetype.
 function! CommentStr()
-  if &ft == 'cpp' || &ft == 'java' || &ft == 'javascript' || &ft == 'scss' || &ft == 'css'
+  if &ft == 'cpp' || &ft == 'java' || &ft == 'javascript' || &ft == 'scss' || &ft == 'css' || &ft == 'go'
     return '//'
   elseif &ft == 'vim'
     return '"'
