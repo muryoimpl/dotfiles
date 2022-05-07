@@ -2,6 +2,7 @@ typeset -U path
 path=(
       /bin(N-/)
       $HOME/local/bin(N-/)
+      $HOME/go/bin(N-/)
       /opt/local/bin(N-/)
       /usr/local/bin(N-/)
       /usr/bin(N-/))
