@@ -1,0 +1,22 @@
+#!/bin/zsh
+
+emojis=$(curl -sSL 'https://git.io/JXXO7')
+os_name="$(uname)"
+
+function is_linux() {
+  [[ $os_name == 'Linux' ]]
+}
+
+function is_macos() {
+  [[ $os_name == 'Darwin' ]]
+}
+
+selected_emoji=$(echo $emojis | fzf)
+
+if is_macos; then
+  echo $selected_emoji
+  echo $selected_emoji | pbcopy
+else
+  echo $selected_emoji
+  echo $selected_emoji | xsel -bi
+fi
