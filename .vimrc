@@ -28,6 +28,7 @@ source ~/.vim/vimrc_fern
 source ~/.vim/vimrc_js
 source ~/.vim/vimrc_dirvish
 source ~/.vim/vimrc_go
+source ~/.vim/vimrc_fzf
 
 "カラースキーマを設定
 set background=dark

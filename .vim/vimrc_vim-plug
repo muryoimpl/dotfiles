@@ -81,4 +81,8 @@ Plug 'rhysd/vim-lsp-ale'
 " status line
 Plug 'itchyny/lightline.vim'
 
+"fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()
