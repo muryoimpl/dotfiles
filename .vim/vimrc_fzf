@@ -8,7 +8,7 @@ let g:fzf_action = {
 let g:fzf_layout = { 'down': '~50%' }
 
 let $FZF_DEFAULT_OPTS="--layout=reverse"
-let $FZF_DEFAULT_COMMAND="ag -l --hidden --skip-vcs-ignores "
+let $FZF_DEFAULT_COMMAND="ag -l --hidden --skip-vcs-ignores --ignore-dir=.git"
 
 " shortcut
 nnoremap <silent> <space>f :Files<CR>
