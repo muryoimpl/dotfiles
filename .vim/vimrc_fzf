@@ -5,10 +5,10 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 " - down / up / left / right
-" let g:fzf_layout = { 'down': '~50%' }
+let g:fzf_layout = { 'down': '~50%' }
 
 let $FZF_DEFAULT_OPTS="--layout=reverse"
-let $FZF_DEFAULT_COMMAND="ag -l --hidden --skip-vcs-ignores -g''"
+let $FZF_DEFAULT_COMMAND="ag -l --hidden --skip-vcs-ignores "
 
 " shortcut
 nnoremap <silent> <space>f :Files<CR>
@@ -16,4 +16,4 @@ nnoremap <silent> <space>g :GFiles<CR>
 nnoremap <silent> <space>G :GFiles?<CR>
 nnoremap <silent> <space>b :Buffers<CR>
 nnoremap <silent> <space>h :History<CR>
-nnoremap <silent> <space>a :Ag<CR>
+nnoremap <silent> <space>l :Lines<CR>
