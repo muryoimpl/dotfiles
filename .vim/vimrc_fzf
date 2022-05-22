@@ -10,6 +10,12 @@ let g:fzf_layout = { 'down': '~50%' }
 let $FZF_DEFAULT_OPTS="--layout=reverse"
 let $FZF_DEFAULT_COMMAND="ag -l --hidden --skip-vcs-ignores --ignore-dir=.git"
 
+" Ag <PATTERN> コマンドの対象に隠しファイルを含める
+command! -bang -nargs=* Ag
+  \ call fzf#vim#grep(
+  \   'ag --column --color --hidden --ignore-dir=.git --skip-vcs-ignores '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
 " shortcut
 nnoremap <silent> <space>f :Files<CR>
 nnoremap <silent> <space>g :GFiles<CR>
