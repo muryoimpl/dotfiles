@@ -8,7 +8,6 @@ source ~/.vim/vimrc_vim-plug
 source ~/.vim/vimrc_basic
 source ~/.vim/vimrc_utils
 source ~/.vim/vimrc_tags
-source ~/.vim/vimrc_3way_diff
 source ~/.vim/vimrc_git_gutter
 source ~/.vim/vimrc_lightline
 source ~/.vim/vimrc_trailing-whitespace
