@@ -11,7 +11,6 @@ source ~/.vim/vimrc_tags
 source ~/.vim/vimrc_3way_diff
 source ~/.vim/vimrc_git_gutter
 source ~/.vim/vimrc_lightline
-source ~/.vim/vimrc_ctrlp
 source ~/.vim/vimrc_trailing-whitespace
 source ~/.vim/vimrc_simplenote
 source ~/.vim/vimrc_ruby
