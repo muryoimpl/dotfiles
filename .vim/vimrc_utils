@@ -1,24 +1,7 @@
-" :Gb <args> でGrepBuffer
-"command! -nargs=1 Gb :GrepBuffer <args>
-
-"カーソル下の単語をGrepBuffer
-"nnoremap <C-g><C-b> :<C-u>GrepBuffer<Space><C-r><C-w><Enter>
-set grepprg=ag\ --nocolor
-autocmd QuickfixCmdPost grep if len(getqflist()) != 0 | copen | endif
-
-augroup grepopen
-  autocmd!
-  autocmd QuickfixCmdPost grep cw
-augroup END
-
-
 "-- 編集関連 ---------------------------------------------------------
 "行末のスペースを可視化
 set list
 set listchars=tab:>-,eol:\ ,trail:-
-
-"保存時にtabをスペースに変換
-" autocmd BufWritePre * :%s/\t/  /ge
 
 "カンマの後に空白を入れる
 "inoremap , ,<Space>
@@ -51,23 +34,11 @@ nnoremap <silent> <S-Down>  :5wincmd +<CR>
 highlight ZenkakuSpace ctermbg=white guibg=white
 match ZenkakuSpace /　/
 
-"ページ送りのキーを変更
-noremap <Space>j <C-f>
-noremap <Space>k <C-b>
-
 "検索のハイライトを消す
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 ":ファイルタイプの設定
-augroup Slim
-  autocmd!
-  autocmd BufWinEnter,BufNewFile *.slim set filetype=slim
-augroup END
 augroup Rake
   autocmd!
   autocmd BufWinEnter,BufNewFile *.rake set filetype=ruby
 augroup END
-
-" 保存のtypo防止
-"http://qiita.com/joker1007/items/b878ef310170d3181b06
-command! -nargs=0 -bang Wq wq<bang>

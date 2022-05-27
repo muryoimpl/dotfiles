@@ -12,8 +12,6 @@ Plug 't9md/vim-quickhl'
 Plug 'Yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'mbbill/undotree'
-Plug 'lambdalisue/fern.vim'
-Plug 'yuki-yano/fern-preview.vim'
 
 " theme
 Plug 'w0ng/vim-hybrid'
@@ -54,8 +52,6 @@ Plug 'peitalin/vim-jsx-typescript'
 " Go
 Plug 'mattn/vim-goimports', { 'for': 'go' }
 
-Plug 'mrtazz/simplenote.vim'
-
 " LSP & 補完:w
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
@@ -72,7 +68,6 @@ Plug 'rafamadriz/friendly-snippets'
 Plug 'mechatroner/rainbow_csv', { 'for': 'csv' }
 
 " syntax check
-" Plug 'scrooloose/syntastic'
 Plug 'dense-analysis/ale'
 Plug 'rhysd/vim-lsp-ale'
 

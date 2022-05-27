@@ -23,7 +23,6 @@ let files = [
 \  "vimrc_ale",
 \  "vimrc_undotree",
 \  "vimrc_jsdoc",
-\  "vimrc_fern",
 \  "vimrc_js",
 \  "vimrc_dirvish",
 \  "vimrc_go",
