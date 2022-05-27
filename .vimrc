@@ -4,29 +4,35 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-source ~/.vim/vimrc_vim-plug
-source ~/.vim/vimrc_basic
-source ~/.vim/vimrc_utils
-source ~/.vim/vimrc_tags
-source ~/.vim/vimrc_git_gutter
-source ~/.vim/vimrc_lightline
-source ~/.vim/vimrc_trailing-whitespace
-source ~/.vim/vimrc_simplenote
-source ~/.vim/vimrc_ruby
-source ~/.vim/vimrc_fugitive
-source ~/.vim/vimrc_ack
-source ~/.vim/vimrc_lsp
-source ~/.vim/vimrc_quickhl
-source ~/.vim/vimrc_indentline
-source ~/.vim/vimrc_vim-test
-source ~/.vim/vimrc_ale
-source ~/.vim/vimrc_undotree
-source ~/.vim/vimrc_jsdoc
-source ~/.vim/vimrc_fern
-source ~/.vim/vimrc_js
-source ~/.vim/vimrc_dirvish
-source ~/.vim/vimrc_go
-source ~/.vim/vimrc_fzf
+let files = [
+\  "vimrc_vim-plug",
+\  "vimrc_basic",
+\  "vimrc_utils",
+\  "vimrc_tags",
+\  "vimrc_git_gutter",
+\  "vimrc_lightline",
+\  "vimrc_trailing-whitespace",
+\  "vimrc_simplenote",
+\  "vimrc_ruby",
+\  "vimrc_fugitive",
+\  "vimrc_ack",
+\  "vimrc_lsp",
+\  "vimrc_quickhl",
+\  "vimrc_indentline",
+\  "vimrc_vim-test",
+\  "vimrc_ale",
+\  "vimrc_undotree",
+\  "vimrc_jsdoc",
+\  "vimrc_fern",
+\  "vimrc_js",
+\  "vimrc_dirvish",
+\  "vimrc_go",
+\  "vimrc_fzf",
+\]
+
+for f in files
+  exe "source" "~/.vim/".f
+endfor
 
 "カラースキーマを設定
 set background=dark
