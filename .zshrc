@@ -51,6 +51,7 @@ if is_macos; then
   zstyle ':completion:*:*:tig:*' script /opt/homebrew/share/zsh/site-functions/tig-completion.bash
 elif is_linux; then
   zstyle ':completion:*:*:git:*' script ~/local/lib/completion/git-completion.bash
+  zstyle ':completion:*:*:tig:*' script /usr/share/bash-completion/completions/tig
 fi
 
 fpath=(~/local/lib/completion $fpath)
