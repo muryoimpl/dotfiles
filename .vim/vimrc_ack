@@ -1,4 +1,4 @@
 " grep を ag に
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep -u'
+  let g:ackprg = 'ag --vimgrep -u --hidden'
 endif
