@@ -10,11 +10,17 @@ let g:fzf_layout = { 'down': '~50%' }
 let $FZF_DEFAULT_OPTS="--layout=reverse"
 let $FZF_DEFAULT_COMMAND="ag -l --hidden --skip-vcs-ignores --ignore-dir=.git"
 
-" Ag <PATTERN> コマンドの対象に隠しファイルを含める
+" Agf <PATTERN> キー入力はファイル名をフィルタする
+command! -bang -nargs=* Agf
+  \ call fzf#vim#grep(
+  \   'ag --column --color --hidden --ignore-dir=.git --skip-vcs-ignores '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+" Ag <PATTERN> キー入力は内容をフィルタする
 command! -bang -nargs=* Ag
   \ call fzf#vim#grep(
   \   'ag --column --color --hidden --ignore-dir=.git --skip-vcs-ignores '.shellescape(<q-args>), 1,
-  \   {'options': '--delimiter : --nth 4..'}, <bang>0)
+  \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
 " shortcut
 nnoremap <silent> <space>f :Files<CR>
