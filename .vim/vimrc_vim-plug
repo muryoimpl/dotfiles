@@ -67,6 +67,8 @@ Plug 'rafamadriz/friendly-snippets'
 
 Plug 'mechatroner/rainbow_csv', { 'for': 'csv' }
 
+Plug 'preservim/vim-markdown', { 'for': 'markdown' }
+
 " syntax check
 Plug 'dense-analysis/ale'
 Plug 'rhysd/vim-lsp-ale'

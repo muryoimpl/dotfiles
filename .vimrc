@@ -27,6 +27,7 @@ let files = [
 \  "vimrc_dirvish",
 \  "vimrc_go",
 \  "vimrc_fzf",
+\  "vimrc_markdown",
 \]
 
 for f in files
