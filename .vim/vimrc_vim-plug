@@ -51,6 +51,7 @@ Plug 'peitalin/vim-jsx-typescript'
 
 " Go
 Plug 'mattn/vim-goimports', { 'for': 'go' }
+Plug 'mattn/vim-goaddtags', { 'for': 'go' }
 
 " LSP & 補完:w
 Plug 'prabirshrestha/vim-lsp'
