@@ -70,6 +70,7 @@ setopt share_history
 setopt no_flow_control
 
 source .zsh.d/aliases.zsh
+source .zsh.d/zinit.zsh
 
 set bell-style none
 
