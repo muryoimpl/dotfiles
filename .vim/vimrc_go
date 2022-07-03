@@ -1,3 +1,6 @@
+" go のみ tabstop=8 とする(GitHub上の見た目とおなじにする)
+autocmd Filetype go setlocal tabstop=8 noexpandtab shiftwidth=8
+
 " vim-goimports
 let g:goimports = 1
 let g:goimports_simplify = 1
