@@ -9,7 +9,7 @@ export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
 export YABAI_CERT=yabai-cert
 
-source .zsh.d/utils.zsh
+source $HOME/.zsh.d/utils.zsh
 
 if is_macos; then
   export TERMINAL=kitty
@@ -69,8 +69,8 @@ setopt share_history
 ## C-sでのヒストリ検索が潰されてしまうため、出力停止・開始用にC-s/C-qを使わない。
 setopt no_flow_control
 
-source .zsh.d/aliases.zsh
-source .zsh.d/zinit.zsh
+source $HOME/.zsh.d/aliases.zsh
+source $HOME/.zsh.d/zinit.zsh
 
 set bell-style none
 
