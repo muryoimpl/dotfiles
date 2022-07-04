@@ -1,3 +1,5 @@
+SUTRA_DIR=$HOME/local/MEGAsync/sutras-copying
+
 ### alias
 alias rm="rm -i"
 alias cp="cp -i"
@@ -26,6 +28,7 @@ alias gbc='git checkout $(git branch | peco)'
 alias dc='docker-compose'
 alias gsw='git switch $(git branch | peco)'
 alias less='less -R'
+alias sutra='cd $(find $SUTRA_DIR -type d -depth 1 | peco)'
 
 
 if is_macos; then
