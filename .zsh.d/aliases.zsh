@@ -1,4 +1,5 @@
-SUTRA_DIR=$HOME/local/MEGAsync/sutras-copying
+### var
+SUTRA_DIR=$HOME/local/MEGAsync/sutras-copying/
 
 ### alias
 alias rm="rm -i"
@@ -28,8 +29,7 @@ alias gbc='git checkout $(git branch | peco)'
 alias dc='docker-compose'
 alias gsw='git switch $(git branch | peco)'
 alias less='less -R'
-alias sutra='cd $(find $SUTRA_DIR -type d -depth 1 | peco)'
-
+alias sutra='cd $(find $SUTRA_DIR -mindepth 1 -maxdepth 1 -type d | peco)'
 
 if is_macos; then
   alias abrew='arch -arm64 brew'
@@ -45,6 +45,7 @@ if is_macos; then
   export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
   export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
   export RUBY_CONFIGURE_OPTS="--disable-shared --with-openssl-dir=$(brew --prefix openssl@1.1) --with-readline-dir=$(brew --prefix readline)"
+
 elif is_linux; then
   alias fclist='fc-list : family style'
   alias la='exa -alhF'
