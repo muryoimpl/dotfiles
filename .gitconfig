@@ -33,3 +33,5 @@
 #  log  = diff-highlight | lv
 #  show = diff-highlight | lv
 #  diff = diff-highlight | lv
+[branch]
+	sort = -committerdate
