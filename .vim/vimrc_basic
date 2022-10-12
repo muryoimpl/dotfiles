@@ -40,6 +40,7 @@ if OSTYPE == "Darwin\n"
   set clipboard=unnamed
 else
   set clipboard^=unnamedplus
+  " set clipboard+=unnamedplus
 end
 set clipboard+=autoselect
 "set clipboard+=unnamedplus
