@@ -6,7 +6,7 @@
   signingkey = F7FA1D4BD2AFF4D6
 [core]
   pager = less
-  editor = vim
+  editor = nvim
   precomposeunicode = true
   quotepath = false
 [pull]
@@ -35,3 +35,9 @@
 #  diff = diff-highlight | lv
 [branch]
 	sort = -committerdate
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
