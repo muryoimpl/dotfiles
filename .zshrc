@@ -1,33 +1,4 @@
-### Added by the Heroku Toolbelt
-export PAGER='less'
-# export PAGER="nvim -c 'set ft=man' -"
-export EDITOR='vim'
-export LANG='ja_JP.UTF-8'
-export HISTFILE=$HOME/.zsh_history
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export PATH=$GOBIN:$PATH
-export YABAI_CERT=yabai-cert
-
 source $HOME/.zsh.d/utils.zsh
-
-if is_macos; then
-  export TERMINAL=kitty
-
-  echo 'Darwin'
-  export PATH=/opt/homebrew/bin:$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
-elif is_linux; then
-  export TERMINAL=alacritty
-
-  echo 'Linux'
-  export PATH=$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
-fi
-
-eval "$(rbenv init -)"
-eval "$(nodenv init -)"
-eval "$(direnv hook zsh)"
-
-eval "$(starship init zsh)"
 
 ## zsh load
 if is_macos; then
@@ -71,6 +42,35 @@ setopt no_flow_control
 
 source $HOME/.zsh.d/aliases.zsh
 source $HOME/.zsh.d/zinit.zsh
+
+export PAGER='less'
+export EDITOR='nvim'
+export LANG='ja_JP.UTF-8'
+export HISTFILE=$HOME/.zsh_history
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$GOBIN:$PATH
+export YABAI_CERT=yabai-cert
+export OPENAI_API_KEY=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
+
+
+if is_macos; then
+  export TERMINAL=kitty
+
+  echo 'Darwin'
+  export PATH=/opt/homebrew/bin:$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+elif is_linux; then
+  export TERMINAL=alacritty
+
+  echo 'Linux'
+  export PATH=$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+fi
+
+eval "$(rbenv init -)"
+eval "$(nodenv init -)"
+eval "$(direnv hook zsh)"
+
+eval "$(starship init zsh)"
 
 set bell-style none
 
