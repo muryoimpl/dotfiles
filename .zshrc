@@ -51,7 +51,6 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$GOBIN:$PATH
 export YABAI_CERT=yabai-cert
-export OPENAI_API_KEY=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
 
 
 if is_macos; then
