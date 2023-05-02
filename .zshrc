@@ -2,7 +2,7 @@ source $HOME/.zsh.d/utils.zsh
 
 ## zsh load
 if is_macos; then
-  source /opt/homebrew/share/zsh/site-functions
+  source /opt/homebrew/share/zsh/site-functions/
 elif is_linux; then
   source /usr/share/zsh/site-functions
 fi
@@ -40,9 +40,6 @@ setopt share_history
 ## C-sでのヒストリ検索が潰されてしまうため、出力停止・開始用にC-s/C-qを使わない。
 setopt no_flow_control
 
-source $HOME/.zsh.d/aliases.zsh
-source $HOME/.zsh.d/zinit.zsh
-
 export PAGER='less'
 export EDITOR='nvim'
 export LANG='ja_JP.UTF-8'
@@ -70,6 +67,9 @@ eval "$(nodenv init -)"
 eval "$(direnv hook zsh)"
 
 eval "$(starship init zsh)"
+
+source $HOME/.zsh.d/aliases.zsh
+source $HOME/.zsh.d/zinit.zsh
 
 set bell-style none
 
