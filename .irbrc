@@ -1,7 +1,6 @@
 require 'irb'
 require 'irb/completion'
 require 'rubygems'
-require 'pp'
 
 def rails_env
   return nil unless defined?(Rails)
@@ -38,3 +37,5 @@ IRB.conf[:PROMPT][:MY] = {
   RETURN: ":  %s\n",
 }
 IRB.conf[:PROMPT_MODE] = :MY
+
+IRB.conf[:USE_AUTOCOMPLETE] = false
