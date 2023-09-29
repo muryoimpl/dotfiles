@@ -50,9 +50,13 @@ if is_macos; then
 
 elif is_linux; then
   alias fclist='fc-list : family style'
-  alias la='exa -alhF'
+  alias la='eza -alhF'
   alias fd='fd --hidden --ignore-case'
   alias rg='rg --hidden --no-ignore'
   alias cdmega='cd ~/local/MEGASync'
+  alias zoom='QT_QPA_PLATFORM=xcb zoom'
+  export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
+
+  alias pc='podman-compose'
 fi
 
