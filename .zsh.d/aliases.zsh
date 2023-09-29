@@ -31,6 +31,7 @@ alias gsw='git switch $(git branch | peco)'
 alias less='less -R'
 alias sutra='cd $(find $SUTRA_DIR -mindepth 1 -maxdepth 1 -type d | peco)'
 alias sshl='ssh $(grep -w Host ~/.ssh/config | awk "{print $2}" | peco)'
+alias nvimdiff='nvim -d'
 
 if is_macos; then
   alias abrew='arch -arm64 brew'
