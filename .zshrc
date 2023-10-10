@@ -74,3 +74,5 @@ source $HOME/.zsh.d/zinit.zsh
 set bell-style none
 
 neofetch
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
