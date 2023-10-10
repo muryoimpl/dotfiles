@@ -40,14 +40,17 @@ if is_macos; then
   alias fclist='fc-list : family style'
   alias la='exa -alhF'
 
-  export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+  # export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+  export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
   export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
   export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
   export PATH="/Applications/MEGAcmd.app/Contents/MacOS:$PATH"
+  export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+  export PATH="/opt/homebrew/opt/bison/bin:$PATH"
 
-  export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
-  export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
-  export RUBY_CONFIGURE_OPTS="--disable-shared --with-openssl-dir=$(brew --prefix openssl@1.1) --with-readline-dir=$(brew --prefix readline)"
+  export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+  export RUBY_CONFIGURE_OPTS="--disable-shared --enable-yjit --disable-install-doc --disable-install-rdoc --with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --with-readline-dir=$(brew --prefix readline)"
 
   export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
   export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
