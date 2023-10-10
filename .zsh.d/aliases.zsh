@@ -43,10 +43,15 @@ if is_macos; then
   export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
   export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
   export PATH="/opt/homebrew/opt/imagemagick@6/bin:$PATH"
+  export PATH="/Applications/MEGAcmd.app/Contents/MacOS:$PATH"
 
   export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
   export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
   export RUBY_CONFIGURE_OPTS="--disable-shared --with-openssl-dir=$(brew --prefix openssl@1.1) --with-readline-dir=$(brew --prefix readline)"
+
+  export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
 
 elif is_linux; then
   alias fclist='fc-list : family style'
