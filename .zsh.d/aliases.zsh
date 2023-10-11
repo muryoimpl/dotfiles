@@ -47,14 +47,12 @@ if is_macos; then
   export PATH="/Applications/MEGAcmd.app/Contents/MacOS:$PATH"
   export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
   export PATH="/opt/homebrew/opt/bison/bin:$PATH"
-
-  export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
-  export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
-  export RUBY_CONFIGURE_OPTS="--disable-shared --enable-yjit --disable-install-doc --disable-install-rdoc --with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --with-readline-dir=$(brew --prefix readline)"
-
   export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
-  export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
-  export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
+  export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+
+  export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib -L/opt/homebrew/opt/curl/lib -L/opt/homebrew/opt/postgresql@16/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include -I/opt/homebrew/opt/postgresql@16/include -I/opt/homebrew/opt/curl/include"
+  export RUBY_CONFIGURE_OPTS="--disable-shared --enable-yjit --disable-install-doc --disable-install-rdoc --with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --with-readline-dir=$(brew --prefix readline)"
 
 elif is_linux; then
   alias fclist='fc-list : family style'
