@@ -33,5 +33,6 @@ EOS
 EOS
     fi
 
+    cd $basedir
     nvim $basedir/$year/$today.md
 esac
