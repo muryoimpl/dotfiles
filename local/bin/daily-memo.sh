@@ -3,7 +3,8 @@
 today=$(date "+%Y%m%d")
 year=$(date "+%Y")
 month=$(date "+%m")
-basedir=~/MEGAsync/memo
+basedir=~/local/MEGAsync/memo
+filename=$2
 
 mkdir -p $basedir/$year
 
@@ -15,7 +16,8 @@ case $1 in
 EOS
      fi
 
-     nvim $basedir/$year/$year.md
+    cd $basedir
+    nvim $year/$year.md
     ;;
   -m)
     if [[ ! -e $basedir/$year/$year$month.md ]]; then
@@ -24,8 +26,21 @@ EOS
 EOS
     fi
 
-    nvim $basedir/$year/$year$month.md
+    cd $basedir
+    nvim $year/$year$month.md
     ;;
+
+  -n)
+    if [[ ! -e $basedir/$year/$filename.md ]]; then
+      cat - << EOS > "$basedir/$year/$filename.md"
+# $filename
+EOS
+    fi
+
+    cd $basedir
+    nvim $filename.md
+    ;;
+
   *)
     if [[ ! -e $basedir/$year/$today.md ]]; then
       cat - << EOS > "$basedir/$year/$today.md"
@@ -34,5 +49,5 @@ EOS
     fi
 
     cd $basedir
-    nvim $basedir/$year/$today.md
+    nvim $year/$today.md
 esac
