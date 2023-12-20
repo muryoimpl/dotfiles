@@ -1,9 +1,13 @@
-OS_NAME="$(uname)"
+OS_NAME="$(uname -r)"
 
 function is_linux() {
-  [[ $OS_NAME == 'Linux' ]]
+  [[ $OS_NAME =~ 'Linux' ]]
 }
 
 function is_macos() {
-  [[ $OS_NAME == 'Darwin' ]]
+  [[ $OS_NAME =~ 'Darwin' ]]
+}
+
+function is_win() {
+  [[ $OS_NAME =~ 'WSL2' ]]
 }

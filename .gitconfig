@@ -5,7 +5,7 @@
   email = muryoimpl@gmail.com
   signingkey = F7FA1D4BD2AFF4D6
 [core]
-  pager = less
+  pager = "LESSCHARSET=utf-8 less"
   editor = nvim
   precomposeunicode = true
   quotepath = false

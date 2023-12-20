@@ -64,5 +64,13 @@ elif is_linux; then
   export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
 
   alias pc='podman-compose'
+elif is_win; then
+  alias ssh='ssh.exe'
+  alias ssh-add='ssh-add.exe'
+
+  alias fclist='fc-list : family style'
+  alias la='eza -alhF'
+  alias fd='fd --hidden --ignore-case'
+  alias rg='rg --hidden --no-ignore'
 fi
 
