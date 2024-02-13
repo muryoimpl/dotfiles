@@ -18,8 +18,9 @@ EOS
      fi
 
     cd $basedir
-    nvim $year/$year.md
+    $EDITOR $year/$year.md
     ;;
+# ----------------------
   -m)
     if [[ ! -e $basedir/$year/$year$month.md ]]; then
       cat - << EOS > "$basedir/$year/$year$month.md"
@@ -28,9 +29,10 @@ EOS
     fi
 
     cd $basedir
-    nvim $year/$year$month.md
+    $EDITOR $year/$year$month.md
     ;;
 
+# ----------------------
   -n)
     if [[ ! -e $basedir/$year/$filename.md ]]; then
       cat - << EOS > "$basedir/$year/$filename.md"
@@ -39,8 +41,17 @@ EOS
     fi
 
     cd $basedir
-    nvim $filename.md
+    $EDITOR $filename.md
     ;;
+
+# ----------------------
+
+  -d)
+    cd $basedir
+    $EDITOR .
+    ;;
+
+# ----------------------
 
   *)
     if [[ ! -e $basedir/$year/$today.md ]]; then
@@ -93,5 +104,5 @@ EOS
     fi
 
     cd $basedir
-    nvim $year/$today.md
+    $EDITOR $year/$today.md
 esac
