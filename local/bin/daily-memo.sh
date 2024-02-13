@@ -1,6 +1,7 @@
 #!/bin/bash
 
 today=$(date "+%Y%m%d")
+tomorrow=$(date '+%Y%m%d' --date 'tomorrow')
 year=$(date "+%Y")
 month=$(date "+%m")
 basedir=~/local/MEGAsync/memo
@@ -45,6 +46,49 @@ EOS
     if [[ ! -e $basedir/$year/$today.md ]]; then
       cat - << EOS > "$basedir/$year/$today.md"
 # $today
+
+
+
+## 報告
+
+\`\`\`
+$(date '+%Y-%m-%d')
+# スプリントゴールを達成するために
+## 困っていることや不安に感じていること
+
+## 今日行なったこと
+
+
+## 次稼動日に行なうこと
+
+
+# ひとこと
+
+\`\`\`
+EOS
+    fi
+    if [[ ! -e $basedir/$year/$tomorrow.md ]]; then
+      cat - << EOS > "$basedir/$year/$tomorrow.md"
+# $tomorrow
+
+
+
+## 報告
+
+\`\`\`
+$(date '+%Y-%m-%d' --date 'tomorrow')
+# スプリントゴールを達成するために
+## 困っていることや不安に感じていること
+
+## 今日行なったこと
+
+
+## 次稼動日に行なうこと
+
+
+# ひとこと
+
+\`\`\`
 EOS
     fi
 
