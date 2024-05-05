@@ -1,4 +1,4 @@
-OS_NAME="$(uname -r)"
+OS_NAME="$(uname -r -o)"
 
 function is_linux() {
   [[ $OS_NAME =~ 'Linux' ]]
