@@ -32,6 +32,7 @@ alias less='less -R'
 alias sutra='cd $(find $SUTRA_DIR -mindepth 1 -maxdepth 1 -type d | peco)'
 alias sshl='ssh $(grep -w Host ~/.ssh/config | awk "{print $2}" | peco)'
 alias nvimdiff='nvim -d'
+alias agl='ag -l'
 
 if is_macos; then
   alias abrew='arch -arm64 brew'
@@ -54,6 +55,7 @@ if is_macos; then
   export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include -I/opt/homebrew/opt/postgresql@16/include -I/opt/homebrew/opt/curl/include"
   export RUBY_CONFIGURE_OPTS="--disable-shared --enable-yjit --disable-install-doc --disable-install-rdoc --with-libyaml-dir=$(brew --prefix libyaml) --with-openssl-dir=$(brew --prefix openssl@3) --with-readline-dir=$(brew --prefix readline)"
 
+  alias zellij='zellij options --copy-command pbcopy'
 elif is_linux; then
   alias fclist='fc-list : family style'
   alias la='eza -alhF'
@@ -64,6 +66,7 @@ elif is_linux; then
   export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
 
   alias pc='podman-compose'
+  alias zellij='zellij options --copy-command wl-copy'
 elif is_win; then
   alias ssh='ssh.exe'
   alias ssh-add='ssh-add.exe'
@@ -72,5 +75,6 @@ elif is_win; then
   alias la='eza -alhF'
   alias fd='fd --hidden --ignore-case'
   alias rg='rg --hidden --no-ignore'
+  alias zellij='zellij options --copy-command xclip -selection clipboard'
 fi
 
