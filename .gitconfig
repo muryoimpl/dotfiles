@@ -41,3 +41,8 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+[credential]
+        helper = !'/usr/local/bin/devpod' agent git-credentials --port 12049
+[safe]
+	directory = /rvi
+	directory = /buoys
