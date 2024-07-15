@@ -60,7 +60,7 @@ if is_macos; then
   export TERMINAL=kitty
 
   echo 'Darwin'
-  export PATH=/opt/homebrew/bin:$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+  export PATH=/opt/homebrew/opt/bin:$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 elif is_linux; then
   export TERMINAL=alacritty
 
