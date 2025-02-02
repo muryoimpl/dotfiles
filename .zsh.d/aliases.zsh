@@ -33,13 +33,13 @@ alias sutra='cd $(find $SUTRA_DIR -mindepth 1 -maxdepth 1 -type d | peco)'
 alias sshl='ssh $(grep -w Host ~/.ssh/config | awk "{print $2}" | peco)'
 alias nvimdiff='nvim -d'
 alias agl='ag -l'
+alias la='eza -lbhgUma'
 
 if is_macos; then
   alias abrew='arch -arm64 brew'
   alias xbrew='arch -x86_64 brew'
   alias fos='foreman start'
   alias fclist='fc-list : family style'
-  alias la='exa -alhF'
 
   # export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
   export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
@@ -58,7 +58,6 @@ if is_macos; then
   alias zellij='zellij options --copy-command pbcopy'
 elif is_linux; then
   alias fclist='fc-list : family style'
-  alias la='eza -alhF'
   alias fd='fd --hidden --ignore-case'
   alias rg='rg --hidden --no-ignore'
   alias cdmega='cd ~/local/MEGASync'
@@ -72,9 +71,7 @@ elif is_win; then
   alias ssh-add='ssh-add.exe'
 
   alias fclist='fc-list : family style'
-  alias la='eza -alhF'
   alias fd='fd --hidden --ignore-case'
   alias rg='rg --hidden --no-ignore'
   alias zellij='zellij options --copy-command xclip -selection clipboard'
 fi
-
