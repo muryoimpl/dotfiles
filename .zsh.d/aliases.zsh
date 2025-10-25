@@ -35,6 +35,7 @@ alias nvimdiff='nvim -d'
 alias agl='ag -l'
 alias la='eza -lbhgUma'
 alias spf='spf -c ~/.config/superfile/config.toml'
+alias presenterm='presenterm --config-file ~/.config/presenterm/config.yaml'
 
 if is_macos; then
   alias abrew='arch -arm64 brew'
