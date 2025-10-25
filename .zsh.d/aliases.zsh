@@ -21,7 +21,7 @@ alias bundle='nocorrect bundle'
 alias ghql='cd $(ghq list -p | peco)'
 alias gb='git branch'
 alias gsed='sed'
-alias syua='paru --skipreview -Syu'
+alias syua='yay -Syuu && yay -Syua --debug'
 alias history-all='history -E 1'
 alias hist='$(history -n 1 | peco)'
 alias peco='TERM=xterm peco'
@@ -34,6 +34,7 @@ alias sshl='ssh $(grep -w Host ~/.ssh/config | awk "{print $2}" | peco)'
 alias nvimdiff='nvim -d'
 alias agl='ag -l'
 alias la='eza -lbhgUma'
+alias spf='spf -c ~/.config/superfile/config.toml'
 
 if is_macos; then
   alias abrew='arch -arm64 brew'
@@ -75,3 +76,12 @@ elif is_win; then
   alias rg='rg --hidden --no-ignore'
   alias zellij='zellij options --copy-command xclip -selection clipboard'
 fi
+
+# yazi shortcut function
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
