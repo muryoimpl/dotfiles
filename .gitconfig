@@ -46,3 +46,4 @@
 [safe]
 	directory = /rvi
 	directory = /buoys
+	directory = /workspaces/kzlt-ruby
