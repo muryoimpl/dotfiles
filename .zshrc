@@ -100,3 +100,12 @@ fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+if [ "$TMUX" = "" ]; then
+    tmux attach;
+
+    # detachしてない場合
+    if [ $? ]; then
+        tmux;
+    fi
+fi
