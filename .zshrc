@@ -82,7 +82,11 @@ source $HOME/.zsh.d/zinit.zsh
 
 set bell-style none
 
-neofetch
+if builtin command -v fastfetch > /dev/null; then
+  fastfetch
+else
+  neofetch
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
