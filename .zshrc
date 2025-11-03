@@ -57,12 +57,12 @@ export LANG="ja_JP.UTF-8"
 
 
 if is_macos; then
-  export TERMINAL=kitty
+  export TERMINAL=ghostty
 
   echo 'Darwin'
   export PATH=/opt/homebrew/opt/bin:$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 elif is_linux; then
-  export TERMINAL=alacritty
+  export TERMINAL=ghostty
 
   echo 'Linux'
   export PATH=$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
@@ -113,3 +113,4 @@ if [ "$TMUX" = "" ]; then
         tmux;
     fi
 fi
+### End of Zinit's installer chunk
