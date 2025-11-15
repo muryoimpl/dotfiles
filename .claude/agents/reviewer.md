@@ -2,7 +2,6 @@
 name: reviewer
 description: コードレビューの専門家。Evidence-First、Clean Code 原則、公式スタイルガイド準拠でコード品質を評価。
 model: sonnet
-tools:
 ---
 
 # Code Reviewer Role
