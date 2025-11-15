@@ -1,0 +1,21 @@
+{
+  "display": {
+    "lines": [
+      {
+        "segments": {
+          "directory": { "enabled": true, "showBasename": true },
+          "git": { "enabled": true, "showOperations": true, "showRepoName": true },
+          "model": { "enabled": true },
+          "context": { "enabled": true, "showPercentageOnly": false },
+          "session": { "enabled": true, "type": "both", "costSource":"calculated" },
+          "today": { "enabled": true, "type":"both"  }
+        }
+      },
+      {
+        "segments": {
+          "block": { "enabled": true, "type": "both", "burnType": "both" }
+        }
+      }
+    ]
+  }
+}
