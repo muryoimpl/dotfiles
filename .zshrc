@@ -106,7 +106,7 @@ if [ "$TMUX" = "" ]; then
 
     # detachしてない場合
     if [ $? ]; then
-        tmux;
+        tmux new -s main;
     fi
 fi
 ### End of Zinit's installer chunk
