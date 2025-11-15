@@ -55,20 +55,16 @@ export PATH=$GOBIN:$PATH
 export YABAI_CERT=yabai-cert
 export LANG="ja_JP.UTF-8"
 
+export PATH=$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+export TERMINAL=ghostty
 
 if is_macos; then
-  export TERMINAL=ghostty
-
   echo 'Darwin'
-  export PATH=/opt/homebrew/opt/bin:$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+  export PATH=/opt/homebrew/opt/bin:$PATH
 elif is_linux; then
-  export TERMINAL=ghostty
-
   echo 'Linux'
-  export PATH=$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 elif is_win; then
   echo 'WSL'
-  export PATH=$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
 fi
 
 eval "$(rbenv init - zsh)"
