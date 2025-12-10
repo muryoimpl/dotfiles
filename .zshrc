@@ -1,11 +1,28 @@
-source $HOME/.zsh.d/utils.zsh
+OS_NAME="$(uname -r -o)"
+DIST_NAME="$(cat /etc/issue)"
+
+function is_linux() {
+  [[ $OS_NAME =~ 'Linux' ]]
+}
+
+function is_macos() {
+  [[ $OS_NAME =~ 'Darwin' ]]
+}
+
+function is_win() {
+  [[ $OS_NAME =~ 'WSL2' ]]
+}
+
+function is_debian() {
+  [[ $DIST_NAME =~ 'Debian' ]]
+}
 
 ## zsh load
 if is_macos; then
   source /opt/homebrew/share/zsh/site-functions/
-elif is_linux; then
-  source /usr/share/zsh/site-functions
 elif is_win; then
+  source /usr/share/zsh/site-functions
+elif is_linux; then
   source /usr/share/zsh/site-functions
 fi
 
@@ -15,10 +32,10 @@ stty stop undef
 if is_macos; then
   zstyle ':completion:*:*:git:*' script /opt/homebrew/share/zsh/site-functions/git-completion.bash
   zstyle ':completion:*:*:tig:*' script /opt/homebrew/share/zsh/site-functions/tig-completion.bash
-elif is_linux; then
+elif is_win; then
   zstyle ':completion:*:*:git:*' script ~/local/lib/completion/git-completion.bash
   zstyle ':completion:*:*:tig:*' script /usr/share/bash-completion/completions/tig
-elif is_win; then
+elif is_linux; then
   zstyle ':completion:*:*:git:*' script ~/local/lib/completion/git-completion.bash
   zstyle ':completion:*:*:tig:*' script /usr/share/bash-completion/completions/tig
 fi
@@ -61,10 +78,18 @@ export TERMINAL=ghostty
 if is_macos; then
   echo 'Darwin'
   export PATH=/opt/homebrew/opt/bin:$PATH
-elif is_linux; then
-  echo 'Linux'
 elif is_win; then
   echo 'WSL'
+
+  if is_debian; then
+    echo 'Debian'
+    export RBENV_ROOT=$HOME/.rbenv
+  else
+    echo 'Arch'
+    export RBENV_ROOT=$HOME/local/.rbenv
+  fi
+elif is_linux; then
+  echo 'Linux'
 fi
 
 eval "$(rbenv init - zsh)"
@@ -73,8 +98,8 @@ eval "$(direnv hook zsh)"
 
 eval "$(starship init zsh)"
 
-source $HOME/.zsh.d/aliases.zsh
-source $HOME/.zsh.d/zinit.zsh
+[ -f ~/.zsh.d/aliases.zsh ] &&  source $HOME/.zsh.d/aliases.zsh
+[ -f ~/.zsh.d/zinit.zsh ] &&  source $HOME/.zsh.d/zinit.zsh
 
 set bell-style none
 
@@ -86,6 +111,7 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+if [ -f ~/.zsh.d/zinit.zsh ]; then
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
@@ -93,6 +119,7 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
+fi
 
 ### End of Zinit's installer chunk
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
@@ -101,12 +128,20 @@ autoload -Uz compinit
 compinit
 # End of Docker CLI completions
 
-if [ "$TMUX" = "" ]; then
-    tmux attach;
+if [[ -x "$(tmux -V)" ]]; then
+  if [ "$TMUX" = "" ]; then
+      tmux attach;
 
-    # detachしてない場合
-    if [ $? ]; then
-        tmux new -s main;
-    fi
+      # detachしてない場合
+      if [ $? ]; then
+          tmux new -s main;
+      fi
+  fi
 fi
 ### End of Zinit's installer chunk
+### End of Zinit's installer chunk
+
+if [[ -x "$(volta -v)" ]]; then
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+fi

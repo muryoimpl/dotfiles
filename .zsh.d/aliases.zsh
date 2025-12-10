@@ -64,18 +64,22 @@ elif is_linux; then
   alias rg='rg --hidden --no-ignore'
   alias cdmega='cd ~/local/MEGASync'
   alias zoom='QT_QPA_PLATFORM=xcb zoom'
-  export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
+  # export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
 
   alias pc='podman-compose'
   alias zellij='zellij options --copy-command wl-copy'
+  alias locals3='aws --endpoint-url=http://localhost:9090 --profile s3mock s3'
 elif is_win; then
   alias ssh='ssh.exe'
   alias ssh-add='ssh-add.exe'
+  alias ssh-addl='ssh-add.exe -l'
+  alias op='op.exe'
 
   alias fclist='fc-list : family style'
   alias fd='fd --hidden --ignore-case'
   alias rg='rg --hidden --no-ignore'
   alias zellij='zellij options --copy-command xclip -selection clipboard'
+  alias locals3='aws --endpoint-url=http://localhost:9090 --profile s3mock s3'
 fi
 
 # yazi shortcut function
