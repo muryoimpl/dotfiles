@@ -21,7 +21,9 @@
       "TodoRead(:*)",
       "TodoWrite(**)",
       "WebFetch(domain:*)",
-      "Write(**)"
+      "Write(**)",
+      "Bash(docker-compose:*)",
+      "Bash(bundle exec:*)"
     ],
     "deny": [
       "Bash(\\|\\s*(zsh|sh|bash))",
