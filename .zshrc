@@ -92,11 +92,22 @@ elif is_linux; then
   echo 'Linux'
 fi
 
-eval "$(rbenv init - zsh)"
-eval "$(nodenv init -)"
-eval "$(direnv hook zsh)"
 
-eval "$(starship init zsh)"
+if builtin command -v rbenv > /dev/null; then
+  eval "$(rbenv init - zsh)"
+fi
+
+if builtin command -v nodenv > /dev/null; then
+  eval "$(nodenv init -)"
+fi
+
+if builtin command -v direnv > /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
+
+if builtin command -v starship > /dev/null; then
+  eval "$(starship init zsh)"
+fi
 
 [ -f ~/.zsh.d/aliases.zsh ] &&  source $HOME/.zsh.d/aliases.zsh
 [ -f ~/.zsh.d/zinit.zsh ] &&  source $HOME/.zsh.d/zinit.zsh
@@ -128,7 +139,7 @@ autoload -Uz compinit
 compinit
 # End of Docker CLI completions
 
-if [[ -x "$(tmux -V)" ]]; then
+if builtin command -v tmux >/dev/null 2>&1; then
   if [ "$TMUX" = "" ]; then
       tmux attach;
 
@@ -141,7 +152,7 @@ fi
 ### End of Zinit's installer chunk
 ### End of Zinit's installer chunk
 
-if [[ -x "$(volta -v)" ]]; then
+if builtin command -v volta >/dev/null 2>&1; then
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 fi
