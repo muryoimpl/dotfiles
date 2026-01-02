@@ -90,6 +90,18 @@
     "Notification": [
     ],
     "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "mpg123 ~/.claude/success.mp3"
+          },
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff"
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
