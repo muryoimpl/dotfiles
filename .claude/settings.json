@@ -18,7 +18,8 @@
       "WebFetch(domain:*)",
       "Write(**)",
       "Bash(docker-compose:*)",
-      "Bash(bundle exec:*)"
+      "Bash(bundle exec:*)",
+      "Bash(cat:*)"
     ],
     "deny": [
       "Bash(> /dev/sda*)",
