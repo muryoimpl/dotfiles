@@ -1,24 +1,19 @@
 {
   "cleanupPeriodDays": 30,
-  "includeCoAuthoredBy": false,
   "env": {
     "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
     "BASH_DEFAULT_TIMEOUT_MS": "600000",
     "BASH_MAX_TIMEOUT_MS": "600000",
-    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": true,
+    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "true",
     "SHELL": "/bin/zsh"
   },
+  "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
       "Edit(**)",
       "Glob(**)",
-      "GlobTool(**)",
       "Grep(**)",
-      "GrepTool(**)",
-      "LS(**)",
-      "MultiEdit(**)",
       "Read(**)",
-      "TodoRead(:*)",
       "TodoWrite(**)",
       "WebFetch(domain:*)",
       "Write(**)",
@@ -26,8 +21,6 @@
       "Bash(bundle exec:*)"
     ],
     "deny": [
-      "Bash(\\|\\s*(zsh|sh|bash))",
-      "Bash(:\\(\\)\\{.*:\\|:&\\s*\\};:)",
       "Bash(> /dev/sda*)",
       "Bash(apt-get install:*)",
       "Bash(brew install:*)",
@@ -83,12 +76,9 @@
     ]
   },
   "hooks": {
-    "PreToolUse": [
-    ],
-    "PostToolUse": [
-    ],
-    "Notification": [
-    ],
+    "PreToolUse": [],
+    "PostToolUse": [],
+    "Notification": [],
     "Stop": [
       {
         "hooks": [
