@@ -98,5 +98,8 @@
     "type": "command",
     "command": "npx -y @owloops/claude-powerline@latest --style=powerline --theme=dark",
     "padding": 0
+  },
+  "enabledPlugins": {
+    "example-skills@anthropic-agent-skills": true
   }
 }
