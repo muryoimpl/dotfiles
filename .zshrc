@@ -73,6 +73,7 @@ export YABAI_CERT=yabai-cert
 export LANG="ja_JP.UTF-8"
 
 export PATH=$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 export TERMINAL=ghostty
 
 if is_macos; then
