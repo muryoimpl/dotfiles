@@ -4,7 +4,7 @@ today=$(date "+%Y%m%d")
 tomorrow=$(date '+%Y%m%d' --date 'tomorrow')
 year=$(date "+%Y")
 month=$(date "+%m")
-basedir=~/local/MEGAsync/memo
+basedir=~/local/memo
 filename=$2
 
 mkdir -p $basedir/$year
