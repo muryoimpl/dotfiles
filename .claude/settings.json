@@ -84,7 +84,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo \"[$(date)] $USER: $(jq -r '[.tool_input.command, .tool_input.description // \"No description\"] | join(\" - \")')\" >> ~/.claude/command_history.log"
+            "command": "echo \"[$(date '+%F %T %Z')] $USER: $(jq -r '[.tool_input.command, .tool_input.description // \"No description\"] | join(\" - \")')\" >> ~/.claude/command_history.log"
           }
         ]
       }
