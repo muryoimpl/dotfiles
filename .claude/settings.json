@@ -78,7 +78,17 @@
   },
   "hooks": {
     "PreToolUse": [],
-    "PostToolUse": [],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"[$(date)] $USER: $(jq -r '[.tool_input.command, .tool_input.description // \"No description\"] | join(\" - \")')\" >> ~/.claude/command_history.log"
+          }
+        ]
+      }
+    ],
     "Notification": [],
     "Stop": [
       {
