@@ -38,6 +38,7 @@ alias spf='spf -c ~/.config/superfile/config.toml'
 alias presenterm='presenterm --config-file ~/.config/presenterm/config.yaml'
 alias sfzf='fzf -e '
 alias fzfp='fzf --preview "bat --color=always {} 2>/dev/null"'
+alias devc='devcontainer'
 
 if is_macos; then
   alias abrew='arch -arm64 brew'
