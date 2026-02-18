@@ -93,3 +93,15 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+_cdwt() {
+  local dir
+  dir=$(
+    git-wt |
+      fzf --header-lines=1 |
+      awk '{if ($1 == "*") print $2; else print $1}'
+  ) || return
+
+  [[ -n "$dir" ]] && cd -- "$dir"
+}
+alias cdwt='_cdwt'
