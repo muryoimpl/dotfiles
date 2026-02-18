@@ -110,6 +110,12 @@ if builtin command -v starship > /dev/null; then
   eval "$(starship init zsh)"
 fi
 
+if git wt --version >/dev/null 2>&1; then
+  eval "$(git wt --init zsh)"
+else
+  echo "git wt is not installed. Please install git wt for enhanced git status in the prompt."
+fi
+
 [ -f ~/.zsh.d/aliases.zsh ] &&  source $HOME/.zsh.d/aliases.zsh
 [ -f ~/.zsh.d/zinit.zsh ] &&  source $HOME/.zsh.d/zinit.zsh
 
