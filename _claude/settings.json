@@ -111,6 +111,9 @@
     "padding": 0
   },
   "enabledPlugins": {
-    "example-skills@anthropic-agent-skills": true
+    "example-skills@anthropic-agent-skills": true,
+    "cc-marketplace@cc-marketplace": true,
+    "playwright@claude-plugins-official": true,
+    "slack@claude-plugins-official": true
   }
 }
