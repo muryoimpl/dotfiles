@@ -20,7 +20,10 @@
       "Write(**)",
       "Bash(docker-compose:*)",
       "Bash(bundle exec:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "mcp__pencil"
     ],
     "deny": [
       "Bash(> /dev/sda*)",
