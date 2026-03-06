@@ -23,6 +23,11 @@
       "Bash(cat:*)",
       "Bash(ls:*)",
       "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(devcontainer:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr list:*)",
       "mcp__pencil"
     ],
     "deny": [
@@ -100,6 +105,10 @@
           {
             "type": "command",
             "command": "~/.claude/scripts/notify-stop.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/rename-plans.sh"
           }
         ]
       }
