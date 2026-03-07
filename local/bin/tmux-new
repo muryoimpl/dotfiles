@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -eu
+
+name="${1:?usage: tmuxs <session-name>}"
+
+if tmux has-session -t "$name" 2>/dev/null; then
+  if [ -n "${TMUX:-}" ]; then
+    tmux switch-client -t "$name"
+  else
+    tmux attach-session -t "$name"
+  fi
+else
+  tmux new-session -d -s "$name"
+  echo "Created tmux session: $name"
+fi
