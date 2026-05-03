@@ -1,25 +1,104 @@
 {
   "display": {
+    "style": "powerline",
+    "charset": "unicode",
+    "colorCompatibility": "auto",
+    "autoWrap": true,
+    "padding": 1,
     "lines": [
       {
         "segments": {
-          "directory": { "enabled": true, "showBasename": true },
-          "git": { "enabled": true, "showOperations": true, "showRepoName": true },
-          "model": { "enabled": true },
-          "context": { "enabled": true, "showPercentageOnly": false }
+          "directory": {
+            "enabled": true,
+            "style": "basename",
+            "showIcon": true
+          },
+          "git": {
+            "enabled": true,
+            "showSha": false,
+            "showWorkingTree": true,
+            "showOperation": false,
+            "showTag": false,
+            "showTimeSinceCommit": false,
+            "showStashCount": false,
+            "showUpstream": false,
+            "showRepoName": false,
+            "showAheadBehind": true,
+            "showIcon": true
+          },
+          "model": {
+            "enabled": true,
+            "showIcon": true
+          },
+          "thinking": {
+            "enabled": true,
+            "showEnabled": true,
+            "showEffort": true,
+            "showIcon": true
+          },
+          "version": {
+            "enabled": true,
+            "showIcon": true
+          }
         }
       },
       {
         "segments": {
-          "session": { "enabled": true, "type": "both", "costSource":"calculated" },
-          "today": { "enabled": true, "type":"both"  }
+          "context": {
+            "enabled": true,
+            "showPercentageOnly": false,
+            "displayStyle": "text",
+            "autocompactBuffer": 33000,
+            "percentageMode": "remaining"
+          },
+          "session": {
+            "enabled": true,
+            "type": "both",
+            "costSource": "calculated"
+          },
+          "today": {
+            "enabled": true,
+            "type": "both"
+          },
+          "weekly": {
+            "enabled": true,
+            "displayStyle": "text"
+          }
         }
       },
       {
         "segments": {
-          "block": { "enabled": true, "type": "both", "burnType": "both" }
+          "sessionId": {
+            "enabled": true,
+            "showIdLabel": true,
+            "showIcon": true
+          },
+          "agent": {
+            "enabled": true,
+            "showLabel": true,
+            "showIcon": true
+          }
         }
       }
-    ]
+    ],
+    "showIcons": true
+  },
+  "budget": {
+    "session": {
+      "warningThreshold": 80
+    },
+    "today": {
+      "warningThreshold": 80,
+      "amount": 50
+    },
+    "block": {
+      "warningThreshold": 80,
+      "amount": 15
+    }
+  },
+  "modelContextLimits": {
+    "default": 200000,
+    "sonnet": 200000,
+    "opus": 200000
   }
 }
