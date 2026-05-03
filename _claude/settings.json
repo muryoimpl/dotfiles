@@ -28,6 +28,8 @@
       "Bash(gh pr view:*)",
       "Bash(gh pr diff:*)",
       "Bash(gh pr list:*)",
+      "Bash(grep:*)",
+      "Bash(git worktree:*)",
       "mcp__pencil"
     ],
     "deny": [
