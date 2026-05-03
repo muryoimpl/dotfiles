@@ -137,5 +137,8 @@
     "cc-marketplace@cc-marketplace": true,
     "playwright@claude-plugins-official": true,
     "slack@claude-plugins-official": true
-  }
+  },
+  "editorMode": "vim",
+  "skipAutoPermissionPrompt": true,
+  "effortLevel": "xhigh"
 }
