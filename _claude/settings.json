@@ -30,6 +30,7 @@
       "Bash(gh pr list:*)",
       "Bash(grep:*)",
       "Bash(git worktree:*)",
+      "Bash(ls:*)",
       "mcp__pencil"
     ],
     "deny": [
