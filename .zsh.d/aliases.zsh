@@ -106,3 +106,15 @@ _cdwt() {
   [[ -n "$dir" ]] && cd -- "$dir"
 }
 alias cdwt='_cdwt'
+
+_gwt() {
+  local dir
+  dir=$(
+    git worktree list |
+      peco |
+      awk '{print $1}'
+  ) || return
+
+  [[ -n "$dir" ]] && cd -- "$dir"
+}
+alias gwt='_gwt'
