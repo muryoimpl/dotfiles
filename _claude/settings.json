@@ -31,6 +31,8 @@
       "Bash(grep:*)",
       "Bash(git worktree:*)",
       "Bash(ls:*)",
+      "Bash(git worktree remove:*)",
+      "Bash(docker compose run --rm:*)",
       "mcp__pencil"
     ],
     "deny": [
@@ -88,6 +90,7 @@
       "Bash(yay:*)"
     ]
   },
+  "model": "opus[1m]",
   "hooks": {
     "PreToolUse": [],
     "PostToolUse": [
