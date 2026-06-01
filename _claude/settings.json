@@ -33,6 +33,12 @@
       "Bash(ls:*)",
       "Bash(git worktree remove:*)",
       "Bash(docker compose run --rm:*)",
+      "Bash(cd:*)",
+      "Bash(wc:*)",
+      "Bash(echo:*)",
+      "Bash(git log:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
       "mcp__pencil"
     ],
     "deny": [
@@ -140,9 +146,10 @@
     "example-skills@anthropic-agent-skills": true,
     "cc-marketplace@cc-marketplace": true,
     "playwright@claude-plugins-official": true,
-    "slack@claude-plugins-official": true
+    "slack@claude-plugins-official": true,
+    "ruby-lsp@claude-plugins-official": true
   },
+  "effortLevel": "xhigh",
   "editorMode": "vim",
-  "skipAutoPermissionPrompt": true,
-  "effortLevel": "xhigh"
+  "skipAutoPermissionPrompt": true
 }
