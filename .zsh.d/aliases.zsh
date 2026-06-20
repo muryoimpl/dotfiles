@@ -118,3 +118,22 @@ _gwt() {
   [[ -n "$dir" ]] && cd -- "$dir"
 }
 alias gwt='_gwt'
+
+# ~/.claude/prompt_history.jsonl からプロンプト概要とセッション ID を peco で選び、
+# 選択した session_id を標準出力する。例) claude --resume $(csid)
+_csid() {
+  local hist="$HOME/.claude/prompt_history.jsonl"
+  [[ -f "$hist" ]] || { print -u2 "no history: $hist"; return 1; }
+
+  local sid
+  sid=$(
+    tac -- "$hist" |
+      jq -r '[.timestamp, (.prompt | gsub("\\s+"; " ") | .[0:80]), .session_id] | @tsv' |
+      awk -F'\t' '!seen[$3]++' |
+      peco |
+      awk -F'\t' '{print $NF}'
+  ) || return
+
+  [[ -n "$sid" ]] && print -- "$sid"
+}
+alias csid='_csid'
