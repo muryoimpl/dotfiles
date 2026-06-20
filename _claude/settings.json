@@ -102,6 +102,16 @@
   },
   "model": "opus[1m]",
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/record-prompt.sh"
+          }
+        ]
+      }
+    ],
     "PreToolUse": [],
     "PostToolUse": [
       {
