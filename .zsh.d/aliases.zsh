@@ -128,10 +128,10 @@ _csid() {
   local sid
   sid=$(
     tac -- "$hist" |
-      jq -r '[.timestamp, (.prompt | gsub("\\s+"; " ") | .[0:80]), .session_id] | @tsv' |
-      awk -F'\t' '!seen[$3]++' |
+      jq -r '[.timestamp, .session_id, (.prompt | gsub("\\s+"; " ") | .[0:80])] | @tsv' |
+      awk -F'\t' '!seen[$2]++' |
       peco |
-      awk -F'\t' '{print $NF}'
+      awk -F'\t' '{print $2}'
   ) || return
 
   [[ -n "$sid" ]] && print -- "$sid"
