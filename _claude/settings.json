@@ -103,7 +103,8 @@
       "Bash(rm -rf ~/*)",
       "Bash(sudo:*)",
       "Bash(yay:*)"
-    ]
+    ],
+    "defaultMode": "plan"
   },
   "model": "claude-opus-4-7",
   "hooks": {
