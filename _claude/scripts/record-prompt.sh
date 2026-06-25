@@ -12,9 +12,17 @@ input=$(cat)
 ts=$(date '+%F %T %Z')
 
 # 構造化ログ (JSONL): あとから jq で検索・再開できるように全項目を保持
+# cwd_tail は cwd の basename。csid 等で「どこで実行したか」を一目で見るための表示用フィールド
 jq -c \
   --arg ts "$ts" \
-  '{timestamp: $ts, session_id: .session_id, cwd: .cwd, transcript_path: .transcript_path, prompt: .prompt}' \
+  '{
+     timestamp: $ts,
+     session_id: .session_id,
+     cwd: .cwd,
+     cwd_tail: ((.cwd // "") | split("/") | map(select(length > 0)) | last // ""),
+     transcript_path: .transcript_path,
+     prompt: .prompt
+   }' \
   <<<"$input" >>"$JSONL"
 
 exit 0

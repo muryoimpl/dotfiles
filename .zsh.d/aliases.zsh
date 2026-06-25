@@ -121,18 +121,45 @@ alias gwt='_gwt'
 
 # ~/.claude/prompt_history.jsonl からプロンプト概要とセッション ID を peco で選び、
 # 選択した session_id を標準出力する。例) claude --resume $(csid)
+# デフォルトは現在のカレントディレクトリ ($PWD) で実行したエントリのみに絞り込む。
+# 全件から選びたいときは `-a` / `--all` を渡す。
 _csid() {
   local hist="$HOME/.claude/prompt_history.jsonl"
   [[ -f "$hist" ]] || { print -u2 "no history: $hist"; return 1; }
 
-  local sid
-  sid=$(
+  local all=0
+  case "${1:-}" in
+    -a|--all) all=1 ;;
+    '') ;;
+    *) print -u2 "usage: csid [-a|--all]"; return 1 ;;
+  esac
+
+  local rows
+  rows=$(
     tac -- "$hist" |
-      jq -r '[.timestamp, .session_id, (.prompt | gsub("\\s+"; " ") | .[0:80])] | @tsv' |
-      awk -F'\t' '!seen[$2]++' |
-      peco |
-      awk -F'\t' '{print $2}'
+      jq -r --arg pwd "$PWD" --argjson all "$all" '
+        select($all == 1 or .cwd == $pwd) |
+        [
+          .timestamp,
+          .session_id,
+          (.cwd_tail // ((.cwd // "") | split("/") | map(select(length > 0)) | last) // "-"),
+          (.prompt | gsub("\\s+"; " ") | .[0:80])
+        ] | @tsv
+      ' |
+      awk -F'\t' '!seen[$2]++'
   ) || return
+
+  if [[ -z "$rows" ]]; then
+    if (( all )); then
+      print -u2 "no entry in $hist"
+    else
+      print -u2 "no entry for $PWD (use 'csid -a' for all)"
+    fi
+    return 1
+  fi
+
+  local sid
+  sid=$(print -r -- "$rows" | peco | awk -F'\t' '{print $2}') || return
 
   [[ -n "$sid" ]] && print -- "$sid"
 }
