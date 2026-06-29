@@ -40,6 +40,7 @@ alias sfzf='fzf -e '
 alias fzfp='fzf --preview "bat --color=always {} 2>/dev/null"'
 alias devc='devcontainer'
 alias tmux-switch='tmux list-sessions | peco | cut -d: -f1 | xargs tmux switch-client -t'
+alias gwl='git worktree list'
 
 if is_macos; then
   alias abrew='arch -arm64 brew'
