@@ -157,7 +157,7 @@ if builtin command -v tmux >/dev/null 2>&1; then
   fi
 fi
 
-# tmux window 名を <dir>@<branch> に
+# tmux window 名を <dir>:<branch> に
 _tmux_set_window_name() {
   [[ -z "$TMUX" ]] && return
   local branch
@@ -165,7 +165,7 @@ _tmux_set_window_name() {
     || branch=$(git rev-parse --short HEAD 2>/dev/null)
   if [[ -n "$branch" ]]; then
     tmux set-window-option -q automatic-rename off
-    tmux rename-window "${PWD:t}@${branch}"
+    tmux rename-window "${PWD:t}:${branch}"
   else
     tmux set-window-option -q automatic-rename on
   fi
