@@ -156,25 +156,6 @@ if builtin command -v tmux >/dev/null 2>&1; then
       fi
   fi
 fi
-
-# tmux window 名を <dir>:<branch> に
-_tmux_set_window_name() {
-  [[ -z "$TMUX" ]] && return
-  local branch
-  branch=$(git symbolic-ref --short HEAD 2>/dev/null) \
-    || branch=$(git rev-parse --short HEAD 2>/dev/null)
-  if [[ -n "$branch" ]]; then
-    tmux set-window-option -q automatic-rename off
-    tmux rename-window "${PWD:t}:${branch}"
-  else
-    tmux set-window-option -q automatic-rename on
-  fi
-}
-
-if [[ -n "$TMUX" ]]; then
-  autoload -Uz add-zsh-hook
-  add-zsh-hook precmd _tmux_set_window_name
-fi
 ### End of Zinit's installer chunk
 ### End of Zinit's installer chunk
 
