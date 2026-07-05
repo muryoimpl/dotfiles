@@ -106,7 +106,6 @@
     ],
     "defaultMode": "plan"
   },
-  "model": "claude-opus-4-7",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -130,6 +129,10 @@
           {
             "type": "command",
             "command": "~/.claude/scripts/track-worktree.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/on-worktree-add.sh"
           }
         ]
       }
