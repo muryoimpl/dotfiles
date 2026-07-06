@@ -40,6 +40,7 @@
       "Bash(git worktree:*)",
       "Bash(git checkout:*)",
       "Bash(git restore:*)",
+      "Bash(git reset --soft:*)",
       "Bash(ls:*)",
       "Bash(git worktree remove:*)",
       "Bash(git worktree:*)",
