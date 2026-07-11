@@ -17,15 +17,6 @@ function is_debian() {
   [[ $DIST_NAME =~ 'Debian' ]]
 }
 
-## zsh load
-if is_macos; then
-  source /opt/homebrew/share/zsh/site-functions/
-elif is_win; then
-  source /usr/share/zsh/site-functions
-elif is_linux; then
-  source /usr/share/zsh/site-functions
-fi
-
 bindkey -v
 stty stop undef
 
@@ -41,7 +32,8 @@ elif is_linux; then
 fi
 
 fpath=(~/local/lib/completion $fpath)
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+# compinit の呼び出しは全 fpath 追加後（末尾の Docker 補完セクション）で 1 回だけ実行する
 
 ### pure zsh config
 ### メモリ上のヒストリ数。
@@ -68,31 +60,22 @@ export LANG='ja_JP.UTF-8'
 export HISTFILE=$HOME/.zsh_history
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-export PATH=$GOBIN:$PATH
 export YABAI_CERT=yabai-cert
-export LANG="ja_JP.UTF-8"
 
-export PATH=$HOME/.nodenv/bin:$HOME/.rbenv/bin:$HOME/local/bin:/usr/local/share/aclocal:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH
+# .zshenv で登録済みの項目を除いた PATH（rbenv/nodenv 本体の発見に必要な bin を含む）
+export PATH=$HOME/.nodenv/bin:$HOME/.rbenv/bin:/usr/local/share/aclocal:/usr/sbin:/sbin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export TERMINAL=ghostty
 
 if is_macos; then
-  echo 'Darwin'
   export PATH=/opt/homebrew/opt/bin:$PATH
 elif is_win; then
-  echo 'WSL'
-
   if is_debian; then
-    echo 'Debian'
     export RBENV_ROOT=$HOME/.rbenv
   else
-    echo 'Arch'
     export RBENV_ROOT=$HOME/local/.rbenv
   fi
-elif is_linux; then
-  echo 'Linux'
 fi
-
 
 if builtin command -v rbenv > /dev/null; then
   eval "$(rbenv init - zsh)"
@@ -119,7 +102,7 @@ fi
 [ -f ~/.zsh.d/aliases.zsh ] &&  source $HOME/.zsh.d/aliases.zsh
 [ -f ~/.zsh.d/zinit.zsh ] &&  source $HOME/.zsh.d/zinit.zsh
 
-set bell-style none
+unsetopt beep
 
 if builtin command -v fastfetch > /dev/null; then
   fastfetch
@@ -129,22 +112,9 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-if [ -f ~/.zsh.d/zinit.zsh ]; then
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
-fi
-
-### End of Zinit's installer chunk
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+# Docker Desktop の CLI 補完（全 fpath 追加後に compinit を 1 回だけ実行）
 fpath=($HOME/.docker/completions $fpath)
-autoload -Uz compinit
 compinit
-# End of Docker CLI completions
 
 if builtin command -v tmux >/dev/null 2>&1; then
   if [ "$TMUX" = "" ]; then
@@ -156,8 +126,6 @@ if builtin command -v tmux >/dev/null 2>&1; then
       fi
   fi
 fi
-### End of Zinit's installer chunk
-### End of Zinit's installer chunk
 
 if builtin command -v volta >/dev/null 2>&1; then
 export VOLTA_HOME="$HOME/.volta"
