@@ -108,15 +108,36 @@ _cdwt() {
 }
 alias cdwt='_cdwt'
 
+# git worktree を peco で選んで cd する。
+# peco は表示列の限定ができないため、一覧にはフルパスを載せず
+# 行頭のインデックス番号経由で paths 配列からフルパスを引く。
 _gwt() {
-  local dir
-  dir=$(
-    git worktree list |
-      peco |
-      awk '{print $1}'
-  ) || return
+  local -a paths rows
+  local line p sha br
 
-  [[ -n "$dir" ]] && cd -- "$dir"
+  while IFS= read -r line; do
+    case "$line" in
+      'worktree '*) p="${line#worktree }"; sha=''; br='' ;;
+      'HEAD '*)     sha="${line#HEAD }" ;;
+      'branch '*)   br="${${line#branch }#refs/heads/}" ;;
+      'detached')   br="${sha[1,7]}" ;;
+      'bare')       br='(bare)' ;;
+      '')  # レコード終端
+        [[ -n "$p" ]] || continue
+        paths+=("$p")
+        rows+=("${#paths}"$'\t'"${p:h:t}/${p:t}"$'\t'"$br")
+        p=''
+        ;;
+    esac
+  done < <(git worktree list --porcelain) || return
+
+  (( ${#paths} )) || return
+
+  local idx
+  # peco は複数選択できるが cd 先は 1 つなので先頭行だけ採用する
+  idx=$(print -rl -- "${rows[@]}" | column -t -s $'\t' | peco | awk '{print $1; exit}') || return
+
+  [[ -n "$idx" ]] && cd -- "${paths[$idx]}"
 }
 alias gwt='_gwt'
 
