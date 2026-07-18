@@ -52,6 +52,7 @@
       "Bash(npx:*)",
       "Bash(tail:*)",
       "Bash(wc:*)",
+      "Bash(which:*)",
       "mcp__pencil"
     ],
     "deny": [
