@@ -27,11 +27,11 @@ elif is_win; then
   zstyle ':completion:*:*:git:*' script ~/local/lib/completion/git-completion.bash
   zstyle ':completion:*:*:tig:*' script /usr/share/bash-completion/completions/tig
 elif is_linux; then
-  zstyle ':completion:*:*:git:*' script ~/local/lib/completion/git-completion.bash
+  zstyle ':completion:*:*:git:*' script /usr/share/git/completion/git-completion.bash
   zstyle ':completion:*:*:tig:*' script /usr/share/bash-completion/completions/tig
 fi
 
-fpath=(~/local/lib/completion $fpath)
+[[ -d ~/local/lib/completion ]] && fpath=(~/local/lib/completion $fpath)
 autoload -Uz compinit
 # compinit の呼び出しは全 fpath 追加後（末尾の Docker 補完セクション）で 1 回だけ実行する
 
