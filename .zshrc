@@ -116,18 +116,14 @@ fi
 fpath=($HOME/.docker/completions $fpath)
 compinit
 
-if builtin command -v tmux >/dev/null 2>&1; then
-  if [ "$TMUX" = "" ]; then
-      tmux attach;
-
-      # detachしてない場合
-      if [ $? ]; then
-          tmux new -s main;
-      fi
-  fi
-fi
-
 if builtin command -v volta >/dev/null 2>&1; then
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+fi
+
+# tmux 自動 attach の herdr 版。
+# herdr --session は「あれば attach、なければ起動」を兼ねるため、
+# tmux 版のような attach 失敗 → new の分岐は不要。
+if [[ -o interactive ]] && [[ -z "$HERDR_ENV" ]] && [[ -z "$TMUX" ]]; then
+  builtin command -v herdr >/dev/null 2>&1 && herdr --session main
 fi
