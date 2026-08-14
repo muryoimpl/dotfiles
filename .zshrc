@@ -101,6 +101,8 @@ fi
 
 [ -f ~/.zsh.d/aliases.zsh ] &&  source $HOME/.zsh.d/aliases.zsh
 [ -f ~/.zsh.d/zinit.zsh ] &&  source $HOME/.zsh.d/zinit.zsh
+# tmux の automatic-rename 相当を herdr の tab/pane ラベルで再現する
+[ -f ~/.zsh.d/herdr-title.zsh ] &&  source $HOME/.zsh.d/herdr-title.zsh
 
 unsetopt beep
 
