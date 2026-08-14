@@ -35,10 +35,6 @@
             "showEnabled": true,
             "showEffort": true,
             "showIcon": true
-          },
-          "version": {
-            "enabled": true,
-            "showIcon": true
           }
         }
       },
@@ -78,8 +74,9 @@
             "showLabel": true,
             "showIcon": true
           },
-          "tmux": {
-            "enabled": true
+          "version": {
+            "enabled": true,
+            "showIcon": true
           }
         }
       }
