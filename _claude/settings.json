@@ -118,7 +118,6 @@
         ]
       }
     ],
-    "PreToolUse": [],
     "PostToolUse": [
       {
         "matcher": "Bash",
@@ -139,28 +138,25 @@
       }
     ],
     "Notification": [],
-    "PermissionRequest": [
-      {
-        "matcher": ".*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/scripts/notify-permission.sh",
-            "async": true
-          }
-        ]
-      }
-    ],
+    "PermissionRequest": [],
     "Stop": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/scripts/notify-stop.sh"
-          },
+            "command": "~/.claude/scripts/rename-plans.sh"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/scripts/rename-plans.sh"
+            "command": "bash '/home/muryoimpl/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
           }
         ]
       }
