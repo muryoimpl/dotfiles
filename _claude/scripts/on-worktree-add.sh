@@ -30,11 +30,36 @@ if [ -f "$PROMPT_LOG" ]; then
     "$PROMPT_LOG" 2>/dev/null | tail -n 1)
 fi
 
-NAME=$(~/.claude/scripts/claude-in-new-window.sh "$WT_PATH" "$TASK" 2>/dev/null) || exit 0
+# herdr / tmux のどちらで動いているかで委譲先を切り替える。
+# どちらでもなければ何もしない (元の pane で作業を続ける)。
+SENT=1
+if [ "${HERDR_ENV:-}" = "1" ]; then
+  NAME=$(~/.claude/scripts/claude-in-herdr.sh "$WT_PATH" "$TASK" 2>/dev/null)
+  RC=$?
+  # exit 3 = agent は起動したが承認待ちのため task 未送信
+  case "$RC" in
+    0) ;;
+    3) SENT=0 ;;
+    *) exit 0 ;;
+  esac
+  [ -n "$NAME" ] || exit 0
+  PLACE="herdr workspace (agent \"$NAME\")"
+elif [ -n "${TMUX:-}" ]; then
+  NAME=$(~/.claude/scripts/claude-in-new-window.sh "$WT_PATH" "$TASK" 2>/dev/null) || exit 0
+  PLACE="tmux window \"$NAME\""
+else
+  exit 0
+fi
+
+if [ "$SENT" = "1" ]; then
+  DELIVERY="直前のユーザープロンプトを送信済みです。"
+else
+  DELIVERY="ただし承認ダイアログ待ちのため、プロンプトはまだ送信していません。ユーザーに承認を促してください。"
+fi
 
 cat <<EOF
-[hook: on-worktree-add] worktree "$WT_PATH" 向けの作業は tmux window "$NAME" の別 claude セッションに委譲しました。
-直前のユーザープロンプトを新 window に送信済みです。
+[hook: on-worktree-add] worktree "$WT_PATH" 向けの作業は $PLACE の別 claude セッションに委譲しました。
+$DELIVERY
 このセッションでは以降 worktree 内の追加作業を行わず、その旨を 1〜2 行でユーザーに報告して turn を終了してください。
 EOF
 exit 0
