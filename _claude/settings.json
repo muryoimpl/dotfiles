@@ -12,12 +12,10 @@
   "permissions": {
     "allow": [
       "Edit(**)",
-      "Glob(**)",
       "Grep(**)",
       "Read(**)",
       "TodoWrite(**)",
       "WebFetch(domain:*)",
-      "Write(**)",
       "Bash(awk:*)",
       "Bash(bin/kamal:*)",
       "Bash(bin/rails:*)",
