@@ -25,16 +25,6 @@
             "showRepoName": false,
             "showAheadBehind": true,
             "showIcon": true
-          },
-          "model": {
-            "enabled": true,
-            "showIcon": true
-          },
-          "thinking": {
-            "enabled": true,
-            "showEnabled": true,
-            "showEffort": true,
-            "showIcon": true
           }
         }
       },
@@ -76,6 +66,16 @@
           },
           "version": {
             "enabled": true,
+            "showIcon": true
+          },
+          "model": {
+            "enabled": true,
+            "showIcon": true
+          },
+          "thinking": {
+            "enabled": true,
+            "showEnabled": true,
+            "showEffort": true,
             "showIcon": true
           }
         }
