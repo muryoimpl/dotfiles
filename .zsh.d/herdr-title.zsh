@@ -4,8 +4,17 @@
 # cwd も実行中プロセス名も OSC タイトルも参照しない (src/workspace.rs tab_display_name)。
 # タブバーの行構成を変える config キーも存在しないため、外側から herdr CLI を叩いて補う。
 #
-#   precmd  -> "<repo>"          (プロンプトに戻ったとき)
-#   preexec -> "<repo>:<cmd>"    (コマンド実行中)
+#   preexec -> "<cmd>"    (コマンドを実行したとき)
+#
+# ディレクトリ名は付けない。workspace をディレクトリ単位で分ける運用にしたことで
+# workspace 側に出るようになり、タブ名に入れると重複表示になるため。
+#
+# precmd では rename しない。プロンプトに戻ったときのラベルからディレクトリ名を
+# 外すと空になるが、herdr tab rename に --clear がなく (herdr pane rename にはある)、
+# 空文字を送っても custom_name が Some("") になってタブ名が空白になるだけで
+# 位置番号には戻せない (src/app/api/tabs.rs handle_tab_rename)。そのため
+# プロンプトに戻ったあとも直前のコマンド名が残る。一度もコマンドを打っていない
+# タブは herdr 既定の位置番号のまま。
 #
 # タブ名は focus 中の pane にのみ追従する。claude を走らせている pane の隣で
 # ls を打っただけでタブ名が奪われるのを防ぐため。
@@ -21,7 +30,6 @@ typeset -g _herdr_title_loaded=1
 : ${HERDR_TITLE_TAB_FOLLOWS_FOCUS:=1}
 : ${HERDR_TITLE_MAX_WIDTH:=24}
 
-typeset -g _herdr_title_repo=''
 typeset -g _herdr_title_last_tab=''
 typeset -g _herdr_title_last_pane=''
 
@@ -38,40 +46,6 @@ _herdr_title_truncate() {
     s=${s[1,-2]}
   done
   REPLY="${s}…"
-}
-
-# cwd から repo 部分を求めて _herdr_title_repo に格納する。
-# git を毎プロンプト叩かないよう chpwd と読み込み時にだけ呼ぶ。
-#
-# repo 名は toplevel ではなく --git-common-dir から求める。herdr の worktree は
-# <worktrees>/<repo>/<branch-slug> に作られる (herdr src/worktree.rs:155) ため、
-# toplevel の basename ではブランチスラグになってしまうため。
-# linked worktree のときだけ "<repo>@<branch>" にする。
-_herdr_title_compute_repo() {
-  local -a out
-  local top cdir branch root
-  out=("${(@f)$(builtin command git rev-parse --path-format=absolute \
-    --show-toplevel --git-common-dir --abbrev-ref HEAD 2>/dev/null)}")
-
-  if (( $#out >= 3 )) && [[ -n $out[1] && -n $out[2] ]]; then
-    top=$out[1]
-    cdir=$out[2]
-    branch=$out[3]
-    if [[ ${cdir:t} == .git ]]; then
-      root=${cdir:h}
-    else
-      root=${cdir%.git}
-    fi
-    if [[ $top != $root && -n $branch && $branch != HEAD ]]; then
-      _herdr_title_repo="${root:t}@${branch}"
-    else
-      _herdr_title_repo="${root:t}"
-    fi
-  elif [[ $PWD == $HOME ]]; then
-    _herdr_title_repo='~'
-  else
-    _herdr_title_repo="${${PWD:t}:-/}"
-  fi
 }
 
 # コマンド行から表示するコマンド名を求めて REPLY に返す
@@ -146,17 +120,10 @@ _herdr_title_apply() {
   return 0
 }
 
-_herdr_title_chpwd()  { _herdr_title_compute_repo }
-_herdr_title_precmd() { _herdr_title_apply "$_herdr_title_repo" }
-
 _herdr_title_preexec() {
   local REPLY
   _herdr_title_cmd_name "${3:-$1}" || return 0
-  _herdr_title_apply "${_herdr_title_repo}:${REPLY}"
+  _herdr_title_apply "$REPLY"
 }
 
-add-zsh-hook chpwd   _herdr_title_chpwd
-add-zsh-hook precmd  _herdr_title_precmd
 add-zsh-hook preexec _herdr_title_preexec
-
-_herdr_title_compute_repo
