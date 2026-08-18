@@ -180,9 +180,53 @@ _csid() {
     return 1
   fi
 
-  local sid
-  sid=$(print -r -- "$rows" | peco | awk -F'\t' '{print $2}') || return
+  # session_id は peco の一覧では邪魔なので表示せず、内部の配列で行と対応づける
+  # ディレクトリ名は $PWD で絞っているときは自明なので --all のときだけ表示する
+  local -a sids disp
+  local ts sid tail prompt
+  while IFS=$'\t' read -r ts sid tail prompt; do
+    sids+=("$sid")
+    if (( all )); then
+      disp+=("$ts"$'\t'"$tail"$'\t'"$prompt")
+    else
+      disp+=("$ts"$'\t'"$prompt")
+    fi
+  done <<< "$rows"
 
-  [[ -n "$sid" ]] && print -- "$sid"
+  local -a shown
+  shown=("${(@f)$(print -rl -- "${disp[@]}" | column -t -s $'\t')}")
+
+  local sel
+  # peco は複数選択できるが session_id は 1 つなので先頭行だけ採用する
+  sel=$(print -rl -- "${shown[@]}" | peco | head -n 1) || return
+  [[ -n "$sel" ]] || return
+
+  local idx=${shown[(ie)$sel]}
+  if (( idx > ${#shown} )); then
+    print -u2 "failed to resolve session_id"
+    return 1
+  fi
+
+  print -- "${sids[$idx]}"
 }
 alias csid='_csid'
+
+# csid で選んだ session_id で claude --resume を実行する。
+# 先頭の `-a` / `--all` は csid にそのまま渡し、残りの引数は claude に渡す。
+# 例) cresume            現在のディレクトリの履歴から選んで resume
+#     cresume -a         全履歴から選んで resume
+#     cresume -- --model opus  claude に追加の引数を渡す
+_cresume() {
+  local -a csid_args
+  case "${1:-}" in
+    -a|--all) csid_args=("$1"); shift ;;
+  esac
+  [[ "${1:-}" == '--' ]] && shift
+
+  local sid
+  sid=$(_csid "${csid_args[@]}") || return
+  [[ -n "$sid" ]] || return
+
+  claude --resume "$sid" "$@"
+}
+alias cresume='_cresume'
