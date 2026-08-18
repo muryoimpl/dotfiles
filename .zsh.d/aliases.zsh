@@ -145,6 +145,9 @@ alias gwt='_gwt'
 # 選択した session_id を標準出力する。例) claude --resume $(csid)
 # デフォルトは現在のカレントディレクトリ ($PWD) で実行したエントリのみに絞り込む。
 # 全件から選びたいときは `-a` / `--all` を渡す。
+# transcript (~/.claude/projects/**.jsonl) は cleanupPeriodDays (既定 30 日) の
+# sweep で消えるが prompt_history.jsonl は残るため、resume できない session が
+# 履歴に溜まり続ける。実ファイルの有無を見て、そうした session は候補から除く。
 _csid() {
   local hist="$HOME/.claude/prompt_history.jsonl"
   [[ -f "$hist" ]] || { print -u2 "no history: $hist"; return 1; }
@@ -165,6 +168,7 @@ _csid() {
           .timestamp,
           .session_id,
           (.cwd_tail // ((.cwd // "") | split("/") | map(select(length > 0)) | last) // "-"),
+          (.transcript_path // ""),
           (.prompt | gsub("\\s+"; " ") | .[0:80])
         ] | @tsv
       ' |
@@ -183,8 +187,15 @@ _csid() {
   # session_id は peco の一覧では邪魔なので表示せず、内部の配列で行と対応づける
   # ディレクトリ名は $PWD で絞っているときは自明なので --all のときだけ表示する
   local -a sids disp
-  local ts sid tail prompt
-  while IFS=$'\t' read -r ts sid tail prompt; do
+  local ts sid tail tpath prompt
+  integer expired=0
+  # prompt は read の最後の受け皿になるので transcript_path はその手前で受ける
+  while IFS=$'\t' read -r ts sid tail tpath prompt; do
+    # transcript が消えた session は --resume できないので候補から外す
+    if [[ ! -f "$tpath" ]]; then
+      (( expired += 1 ))
+      continue
+    fi
     sids+=("$sid")
     if (( all )); then
       disp+=("$ts"$'\t'"$tail"$'\t'"$prompt")
@@ -192,6 +203,11 @@ _csid() {
       disp+=("$ts"$'\t'"$prompt")
     fi
   done <<< "$rows"
+
+  if (( ${#sids} == 0 )); then
+    print -u2 "no resumable session (${expired} transcript(s) already swept)"
+    return 1
+  fi
 
   local -a shown
   shown=("${(@f)$(print -rl -- "${disp[@]}" | column -t -s $'\t')}")
