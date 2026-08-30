@@ -145,6 +145,10 @@ alias gwt='_gwt'
 # 選択した session_id を標準出力する。例) claude --resume $(csid)
 # デフォルトは現在のカレントディレクトリ ($PWD) で実行したエントリのみに絞り込む。
 # 全件から選びたいときは `-a` / `--all` を渡す。
+# 1 session につき最新プロンプトを親行、最初のプロンプトを `└` でぶら下げた 2 行を出す。
+# 最新プロンプトは `y` / `commit して` のように無内容になりがちで作業内容が判別できない
+# ため、主題を含む最初のプロンプトでも peco で検索できるようにしている。
+# どちらの行を選んでも同じ session_id を返す。
 # transcript (~/.claude/projects/**.jsonl) は cleanupPeriodDays (既定 30 日) の
 # sweep で消えるが prompt_history.jsonl は残るため、resume できない session が
 # 履歴に溜まり続ける。実ファイルの有無を見て、そうした session は候補から除く。
@@ -159,6 +163,8 @@ _csid() {
     *) print -u2 "usage: csid [-a|--all]"; return 1 ;;
   esac
 
+  # tac で新しい順に流し込むので、session ごとに awk が最初に見た行が最新プロンプト、
+  # 最後に見た行が最初のプロンプトになる。session の並びは最新プロンプト順を保つ。
   local rows
   rows=$(
     tac -- "$hist" |
@@ -172,7 +178,19 @@ _csid() {
           (.prompt | gsub("\\s+"; " ") | .[0:80])
         ] | @tsv
       ' |
-      awk -F'\t' '!seen[$2]++'
+      awk -F'\t' '
+        # 先頭に種別を付ける: L=最新 (親行), F=最初 (ぶら下げ行)
+        !($2 in newest) { order[++n] = $2; newest[$2] = $0 }
+        { oldest[$2] = $0 }
+        END {
+          for (i = 1; i <= n; i++) {
+            s = order[i]
+            print "L" FS newest[s]
+            # プロンプトが 1 件だけの session は同じ行が 2 度出るので親行だけにする
+            if (oldest[s] != newest[s]) print "F" FS oldest[s]
+          }
+        }
+      '
   ) || return
 
   if [[ -z "$rows" ]]; then
@@ -187,20 +205,29 @@ _csid() {
   # session_id は peco の一覧では邪魔なので表示せず、内部の配列で行と対応づける
   # ディレクトリ名は $PWD で絞っているときは自明なので --all のときだけ表示する
   local -a sids disp
-  local ts sid tail tpath prompt
+  local kind ts sid tail tpath prompt mark col2
   integer expired=0
   # prompt は read の最後の受け皿になるので transcript_path はその手前で受ける
-  while IFS=$'\t' read -r ts sid tail tpath prompt; do
+  while IFS=$'\t' read -r kind ts sid tail tpath prompt; do
     # transcript が消えた session は --resume できないので候補から外す
     if [[ ! -f "$tpath" ]]; then
-      (( expired += 1 ))
+      # transcript_path は session 内で一意なので親行とぶら下げ行は必ず一緒に落ちる。
+      # 二重に数えないよう親行だけカウントする
+      [[ "$kind" == L ]] && (( expired += 1 ))
       continue
     fi
     sids+=("$sid")
+    mark=""
+    col2="$tail"
+    if [[ "$kind" == F ]]; then
+      mark="  └ "
+      # ぶら下げ行の cwd_tail は親行と必ず同じなので出さない
+      col2=""
+    fi
     if (( all )); then
-      disp+=("$ts"$'\t'"$tail"$'\t'"$prompt")
+      disp+=("${mark}${ts}"$'\t'"$col2"$'\t'"$prompt")
     else
-      disp+=("$ts"$'\t'"$prompt")
+      disp+=("${mark}${ts}"$'\t'"$prompt")
     fi
   done <<< "$rows"
 
