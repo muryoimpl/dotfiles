@@ -30,6 +30,10 @@
       },
       {
         "segments": {
+          "block": {
+            "enabled": true,
+            "displayStyle": "text"
+          },
           "context": {
             "enabled": true,
             "showPercentageOnly": false,
