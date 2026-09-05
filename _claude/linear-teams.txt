@@ -1,0 +1,20 @@
+# Linear のチームキー allowlist
+#
+# ここに書いたキーだけを issue ID (例 ABC-123) として認識する。
+# herdr のタブラベル / sidebar に「いまどのタスクをやっているか」を出すために
+# ~/.claude/scripts/lib/extract_issue.py が読む。
+#
+# 書式: 1 行 1 キー。# 以降はコメント、空行は無視、大文字小文字は問わない。
+#
+# 優先順:
+#   1. 環境変数 LINEAR_TEAM_KEYS=ABC,XYZ  (指定時はこれだけを使う。一時上書き用)
+#   2. このファイル と <repo>/.claude/linear-teams.txt の和集合
+#   3. どちらも空なら DENY セットによるヒューリスティック (UTF-8 等を弾くだけ)
+#
+# 確認: python3 ~/.claude/scripts/lib/extract_issue.py --print-teams
+#
+# ↓ 使っているチームキーをここに書く (行頭の # を外して書き換える)
+# ABC
+# XYZ
+LEA
+MMT

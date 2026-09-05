@@ -1,2 +1,3 @@
 /local/memo/*
 .claude/
+__pycache__/

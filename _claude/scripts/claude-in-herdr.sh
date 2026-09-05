@@ -21,8 +21,15 @@ command -v jq >/dev/null || { echo "jq が見つかりません" >&2; exit 1; }
 DIR=$(cd "$DIR" && pwd)
 LABEL=$(basename "$DIR")
 
+# worktree のブランチ名に Linear の issue ID があれば workspace label に前置する。
+# sidebar の spaces パネルで「どの workspace がどのタスクか」を一目で分けるため。
+# 検出できないときは従来どおり basename だけ。
+ISSUE=$(git -C "$DIR" symbolic-ref --short HEAD 2>/dev/null \
+        | python3 "$(dirname "$0")/lib/extract_issue.py" --ignore-case --cwd "$DIR" 2>/dev/null)
+[ -n "$ISSUE" ] && LABEL="$ISSUE $LABEL"
+
 # agent 名は [a-z][a-z0-9_-]{0,31} に一致し、live agent 間で一意である必要がある。
-BASE=$(printf '%s' "$LABEL" | tr 'A-Z' 'a-z' | tr -c 'a-z0-9_-' '-' | cut -c1-30)
+BASE=$(basename "$DIR" | tr 'A-Z' 'a-z' | tr -c 'a-z0-9_-' '-' | cut -c1-30)
 case "$BASE" in
   [a-z]*) ;;
   *) BASE="a$BASE" ;;

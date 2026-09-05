@@ -117,6 +117,11 @@
             "type": "command",
             "command": "~/.claude/scripts/herdr-prompt-token.sh",
             "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/herdr-task.sh label",
+            "timeout": 5
           }
         ]
       }
@@ -148,6 +153,11 @@
           {
             "type": "command",
             "command": "~/.claude/scripts/rename-plans.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/herdr-task.sh done",
+            "timeout": 5
           }
         ]
       }
