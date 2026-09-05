@@ -93,6 +93,20 @@ _herdr_title_pane_focused() {
   [[ $out == *'"focused":true'* ]]
 }
 
+# タブに紐付いた Linear のタスク (issue ID) を読む。
+# ~/.claude/scripts/herdr-task.sh がタブ単位のファイルに書いている。
+# pane metadata の token ではなくファイルから読むのは、token を --agent claude 付きで
+# 報告しており claude 終了時に herdr 側で破棄されるため。claude を終了したあとに
+# コマンドを打ってもタブ名から issue ID が消えないようにする。
+_herdr_title_task() {
+  local f=${HERDR_TASK_STATE_DIR:-$HOME/.claude/state}/tab-${HERDR_TAB_ID//:/_}.txt
+  [[ -r $f ]] || return 1
+  local line
+  read -r line < $f || return 1
+  [[ -n $line ]] || return 1
+  REPLY=$line
+}
+
 _herdr_title_apply() {
   local label=$1
   [[ -n $label ]] || return 0
@@ -102,8 +116,18 @@ _herdr_title_apply() {
   label=$REPLY
   [[ -n $label ]] || return 0
 
+  # タブ名にはタスク (Linear issue ID) を前置する。同じ workspace に claude のタブを
+  # 複数開くと、タブ名がどれも実行中コマンド名 ("claude") になって区別できなくなるため。
+  # 詰めるときは末尾から削るので、溢れても先頭の issue ID は残る。
+  local tab_label=$label task=
+  if _herdr_title_task; then
+    task=$REPLY
+    _herdr_title_truncate "$task · $label" $HERDR_TITLE_MAX_WIDTH
+    tab_label=$REPLY
+  fi
+
   # 定常状態では herdr を一度も呼ばない
-  [[ $label == $_herdr_title_last_pane && $label == $_herdr_title_last_tab ]] && return 0
+  [[ $label == $_herdr_title_last_pane && $tab_label == $_herdr_title_last_tab ]] && return 0
 
   if [[ $label != $_herdr_title_last_pane ]]; then
     if builtin command herdr pane rename "$HERDR_PANE_ID" "$label" >/dev/null 2>&1; then
@@ -111,9 +135,9 @@ _herdr_title_apply() {
     fi
   fi
 
-  if [[ $label != $_herdr_title_last_tab ]] && _herdr_title_pane_focused; then
-    if builtin command herdr tab rename "$HERDR_TAB_ID" "$label" >/dev/null 2>&1; then
-      _herdr_title_last_tab=$label
+  if [[ $tab_label != $_herdr_title_last_tab ]] && _herdr_title_pane_focused; then
+    if builtin command herdr tab rename "$HERDR_TAB_ID" "$tab_label" >/dev/null 2>&1; then
+      _herdr_title_last_tab=$tab_label
     fi
   fi
 
