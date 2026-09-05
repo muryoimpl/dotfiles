@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 for f in ~/.claude/plans/*.md ./plans/*.md; do
   [ -f "$f" ] || continue
