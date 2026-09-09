@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+set -eu
+
+PROFILE_REF="op://Personal/herdr-machine-for-work/hostname"
+
+usage() {
+  echo "usage: herdr-work-machine [enable|disable]   (no arg: toggle)" >&2
+}
+
+# 現在の状態と逆のサブコマンド名を返す
+toggled_action() {
+  local enabled
+  enabled=$(herdr machine list --json | jq -r --arg id "$PROFILE_ID" '.[] | select(.id == $id) | .enabled')
+
+  case "$enabled" in
+    true) echo disable ;;
+    false) echo enable ;;
+    *)
+      echo "machine が見つかりません: $PROFILE_REF" >&2
+      return 1
+      ;;
+  esac
+}
+
+action="${1:-}"
+
+# op read は 1Password のロック解除を伴うので、引数の検証を先に済ませる
+case "$action" in
+  "" | enable | disable) ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac
+
+command -v op >/dev/null || { echo "op が見つかりません" >&2; exit 1; }
+PROFILE_ID=$(op read "$PROFILE_REF")
+[ -n "$PROFILE_ID" ] || { echo "profile_id が空です: $PROFILE_REF" >&2; exit 1; }
+
+if [ -z "$action" ]; then
+  command -v jq >/dev/null || { echo "jq が見つかりません" >&2; exit 1; }
+  action=$(toggled_action)
+fi
+
+herdr machine "$action" "$PROFILE_ID"
