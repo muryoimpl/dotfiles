@@ -65,6 +65,7 @@ export YABAI_CERT=yabai-cert
 # .zshenv で登録済みの項目を除いた PATH（rbenv/nodenv 本体の発見に必要な bin を含む）
 export PATH=$HOME/.nodenv/bin:$HOME/.rbenv/bin:/usr/local/share/aclocal:/usr/sbin:/sbin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/local/bin:$PATH
 export TERMINAL=ghostty
 
 if is_macos; then
