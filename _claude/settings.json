@@ -142,6 +142,11 @@
           },
           {
             "type": "command",
+            "command": "~/.claude/scripts/track-workdir.sh",
+            "timeout": 5
+          },
+          {
+            "type": "command",
             "command": "~/.claude/scripts/on-worktree-add.sh"
           }
         ]
