@@ -46,6 +46,23 @@
 - **データベース**：スキーマ変更、マイグレーション
 - **本番環境**：デプロイ設定、環境変数変更
 
+## 長時間処理と停止からの復帰
+
+Claude Code の timeout（Bash 5 分 / MCP tool 5 分 / subagent stall 5 分）に合わせて動くこと。
+
+### 停止を起こさない tool の使い方
+
+- 2 分以上かかる見込みのコマンド（テストスイート、build、install、migration）は `run_in_background: true` で実行し、完了通知を待つ間は他の作業を進める
+- ネットワークや外部プロセスを待つコマンドには必ず `timeout` を明示する
+- 標準入力待ちで止まりうるコマンドは非対話にする（`</dev/null`、`-y`、`CI=1`、`GIT_TERMINAL_PROMPT=0` など）
+- `sleep` によるポーリングはしない
+
+### timeout / stall から復帰したとき
+
+- Bash timeout、MCP tool timeout、subagent の stall 報告を受け取ったら、同じ呼び出しをそのまま再実行しない
+- 何が止まったかを 1 行で報告し、代替手段（background 実行、短い timeout、対象の分割、別 tool）で作業を続行する
+- 2 回続けて同じ箇所で止まった場合のみ、ユーザーに状況を報告して判断を仰ぐ
+
 ## 実行フロー
 
 ```text
