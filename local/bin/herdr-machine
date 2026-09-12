@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+set -eu
+
+usage() {
+  echo "usage: herdr-machine [<label> [enable|disable]]   (no arg: pick with fzf, no action: toggle)" >&2
+}
+
+query="${1:-}"
+action="${2:-}"
+
+case "$action" in
+  "" | enable | disable) ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac
+
+for cmd in herdr jq; do
+  command -v "$cmd" >/dev/null || { echo "$cmd が見つかりません" >&2; exit 1; }
+done
+
+machines=$(herdr machine list --json)
+
+# fzf を ESC で抜けると exit 130 になり、set -e によってそのまま script も終わる
+if [ -z "$query" ]; then
+  command -v fzf >/dev/null || { echo "fzf が見つかりません" >&2; exit 1; }
+  query=$(
+    jq -r '.[] | [.label, (if .enabled then "enabled" else "disabled" end), .target] | @tsv' <<<"$machines" \
+      | column -t -s $'\t' \
+      | fzf --header 'toggle する machine を選択' --accept-nth 1
+  )
+fi
+
+matched=$(jq -c --arg q "$query" '
+  [.[] | select(.label == $q)] as $exact
+  | if ($exact | length) > 0 then $exact else [.[] | select(.label | startswith($q))] end
+' <<<"$machines")
+
+case "$(jq 'length' <<<"$matched")" in
+  0)
+    echo "machine が見つかりません: $query" >&2
+    exit 1
+    ;;
+  1) ;;
+  *)
+    echo "曖昧です: $query" >&2
+    jq -r '.[].label' <<<"$matched" | sed 's/^/  /' >&2
+    exit 1
+    ;;
+esac
+
+label=$(jq -r '.[0].label' <<<"$matched")
+id=$(jq -r '.[0].id' <<<"$matched")
+before=$(jq -r 'if .[0].enabled then "enabled" else "disabled" end' <<<"$matched")
+
+if [ -z "$action" ]; then
+  case "$before" in
+    enabled) action=disable ;;
+    *) action=enable ;;
+  esac
+fi
+
+herdr machine "$action" "$id"
+echo "$label: $before → ${action}d"
