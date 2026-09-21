@@ -35,6 +35,11 @@ Claude Code の timeout（Bash / MCP tool / subagent stall いずれも 5 分）
 - ネットワークや外部プロセスを待つコマンドには `timeout` を明示し、標準入力待ちで止まりうるコマンドは非対話にする（`</dev/null`、`-y`、`CI=1`、`GIT_TERMINAL_PROMPT=0` など）
 - timeout や subagent の stall 報告を受けたら、同じ呼び出しをそのまま再実行しない。何が止まったかを 1 行で報告し、代替手段（background 実行、短い timeout、対象の分割、別 tool）で続行する。2 回続けて同じ箇所で止まったときだけユーザーに判断を仰ぐ
 
+## 学びの記録（LEARNING.md）
+
+- プロジェクトルートの LEARNING.md は SessionStart hook が自動で読み込む。項目はプロジェクト固有の前提として従い、現状と矛盾する項目は報告する
+- セッション終了時に SessionEnd hook が `/learn` を自動実行して学びを保存する。手動で残すときは `/learn`、週次レビューは `/learn-review`
+
 ## 作業完了の報告
 
 すべてのタスクが完了し、エラーも未完了の TODO も残作業もない場合だけ、一語一句違えずに次を報告する（herdr がこの文字列で完了を検出する）：

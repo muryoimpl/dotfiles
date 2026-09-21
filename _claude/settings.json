@@ -52,7 +52,8 @@
       "Bash(tail:*)",
       "Bash(wc:*)",
       "Bash(which:*)",
-      "mcp__pencil"
+      "mcp__pencil",
+      "Bash(~/.claude/scripts/learning.sh:*)"
     ],
     "deny": [
       "Bash(> /dev/sda*)",
@@ -176,6 +177,26 @@
           {
             "type": "command",
             "command": "bash '/home/muryoimpl/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/learning.sh load",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/learning.sh extract",
             "timeout": 10
           }
         ]
