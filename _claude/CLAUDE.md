@@ -35,6 +35,14 @@ Claude Code の timeout（Bash / MCP tool / subagent stall いずれも 5 分）
 - ネットワークや外部プロセスを待つコマンドには `timeout` を明示し、標準入力待ちで止まりうるコマンドは非対話にする（`</dev/null`、`-y`、`CI=1`、`GIT_TERMINAL_PROMPT=0` など）
 - timeout や subagent の stall 報告を受けたら、同じ呼び出しをそのまま再実行しない。何が止まったかを 1 行で報告し、代替手段（background 実行、短い timeout、対象の分割、別 tool）で続行する。2 回続けて同じ箇所で止まったときだけユーザーに判断を仰ぐ
 
+## Bash tool の実行環境
+
+- root 権限が要る操作、不可逆な削除、settings.json の deny に入ったコマンドは Bash tool から実行しない。permission や auto mode classifier に拒否され、heredoc や compound command に混ぜても通らないため
+- 実行が必要なら Write tool でスクリプトを用意してユーザーに別ターミナルで実行してもらい、設定値の読み取りは設定ファイルを直接 Read する
+- 上書きを伴う `mv` / `cp` は `command mv -f` や `cat src > dst` を使う。対話 alias で確認待ちになり止まるため
+- 出力をパースするコマンドには `LANG=C LC_ALL=C` を付ける。日本語ロケールではフィールド名が翻訳されるため
+- `grep` は ugrep なので、可変長の複雑なパターンは避けて単純なパターンにする
+
 ## 学びの記録（LEARNING.md）
 
 - プロジェクトルートの LEARNING.md は SessionStart hook が自動で読み込む。項目はプロジェクト固有の前提として従い、現状と矛盾する項目は報告する
