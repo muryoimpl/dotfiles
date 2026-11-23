@@ -14,6 +14,8 @@
   "permissions": {
     "allow": [
       "Edit(**)",
+      "Edit(~/.claude/state/briefs/**)",
+      "Read(~/.claude/state/briefs/**)",
       "Grep(**)",
       "Read(**)",
       "TodoWrite(**)",

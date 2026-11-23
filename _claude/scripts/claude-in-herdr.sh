@@ -29,7 +29,7 @@ ISSUE=$(git -C "$DIR" symbolic-ref --short HEAD 2>/dev/null \
 [ -n "$ISSUE" ] && LABEL="$ISSUE $LABEL"
 
 # agent 名は [a-z][a-z0-9_-]{0,31} に一致し、live agent 間で一意である必要がある。
-BASE=$(basename "$DIR" | tr 'A-Z' 'a-z' | tr -c 'a-z0-9_-' '-' | cut -c1-30)
+BASE=$(basename "$DIR" | tr -d '\n' | tr 'A-Z' 'a-z' | tr -c 'a-z0-9_-' '-' | cut -c1-30)
 case "$BASE" in
   [a-z]*) ;;
   *) BASE="a$BASE" ;;
@@ -60,6 +60,14 @@ while :; do
         exit 1
       fi
       sleep 0.5
+      ;;
+    *agent_not_ready*)
+      # 未訪問ディレクトリの trust ダイアログで起動中に blocked になると、
+      # agent start 自体がこのエラーで返る。agent は登録済みで生きている。
+      echo "$NAME"
+      echo "agent \"$NAME\" は起動中に承認ダイアログで止まったため task を送信していません。" \
+           "承認ダイアログに応答してから herdr agent prompt $NAME '<task>' を実行してください。" >&2
+      exit 3
       ;;
     *)
       echo "$err" >&2
